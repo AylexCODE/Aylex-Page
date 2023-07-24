@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <link rel="stylesheet" href="styles.css">
+        <title>Alex Portfolio Website</title>
+    </head>
+    <body>
+        <header>
+            <span>
+                <img src="/images/logo.png" class="logo" alt="logo" />
+                <p>Lex</p>
+            </span>
+            <nav>
+                <ul>
+                    <li><a href="#home" onclick="toggleNav()">Home</a></li>
+                    <li><a href="#aboutMe" onclick="toggleNav()">About Me</a></li>
+                    <li><a href="#projects" onclick="toggleNav()">Projects</a></li>
+                    <li><a href="#contact" onclick="toggleNav()">Contact</a></li>
+                </ul>
+            </nav>
+            <button onclick="toggleNav()" class="showNavBtn"><i class="fa-solid fa-bars"></i></button>
+        </header>
+        <span class="navBlur"></span>
+        <span class="cancelNav" onclick="toggleNav()"></span>
+        <main>
+            <section id="home">
+                <article>
+                    <p><strong>Hi, I'm Lex</strong></p>
+                    <p>A student from Bohol Island State University studying Bachelor of Science and Information Technology. </p>
+                    <a href="#projects" class="myProjectsBtn">My Projects</a>
+                </article>
+                <img src="/images/profile.webp" class="profile" alt="profile"/>
+            </section>
+            <section id="aboutMe">
+                ABOUT ME
+                <!-- These days my time is spent researching, designing, prototyping, and coding -->
+                <!-- I was born and raised in Southern California where 1 grew up in a Lakers town and always had good music playing around the house. These threads of family, basketball, and music have defined my life path and experiences. I am entering my final year at the University of Pennsylvania where I am studying Finance and Management at the Wharton School of Business. Additionally, I am a team captain on Penn's Women's Basketball Team. -->
+            </section>
+            <section id="projects">
+                PROJECTS
+            </section>
+            <section id="contact">
+                CONTACT
+            </section>
+        </main>
+        <footer>
+            <strong>@ 2025 Lex, All Rights Reserved.</strong>
+        </footer>
+        <script type="text/javascript" src="scripts.js"></script>
+    </body>
+</html>
