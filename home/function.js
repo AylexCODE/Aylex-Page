@@ -1,6 +1,5 @@
 //Light and Dark Mode Toggle
 var toggle = document.querySelector(".navText");
-
 var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 if (storedTheme)
     document.documentElement.setAttribute('data-theme', storedTheme)
@@ -80,3 +79,94 @@ const mContactsBG = document.querySelector(".mContactsBG");
         mContactsDropdown.classList.toggle("open");
         mContactsBG.classList.toggle("active");
     }
+    
+//Full Date Counter
+const date = new Date(); 
+let day = date.getDate();
+let month = date.getMonth();
+let year = date.getFullYear();
+    
+    switch (month) {
+        case 0:
+            month = "January";
+            break;
+        case 1:
+            month = "February";
+            break;
+        case 2:
+            month = "March";
+            break;
+        case 3:
+            month = "April";
+            break;
+        case 4:
+            month = "May";
+            break;
+        case 5:
+            month = "June";
+            break;
+        case 6:
+            month = "July";
+            break;
+        case 7:
+            month = "August";
+            break;
+        case 8:
+            month = "September";
+            break;
+        case 9:
+            month = "October";
+            break;
+        case 10:
+            month = "November";
+            break;
+        case 11:
+            month = "December";
+            break;
+    }
+    
+document.getElementById("currentDate").innerHTML = month + " " + day + ", " + year ;
+
+//Typing Animation //About me Section
+const typedTextSpan = document.querySelector(".decent");
+const cursorSpan = document.querySelector(".cursor");
+const textArray = ["HTML.", "CSS.", "JavaScript."];
+const typingDelay = 200;
+const erasingDelay = 100;
+const newTextDelay = 2000;
+let textArrayIndex = 0;
+let charIndex = 0;
+ 
+    function type() {
+        if (charIndex < textArray[textArrayIndex].length) {
+        if(!cursorSpan.classList.contains("isTyping")) cursorSpan.classList.add("typing");
+        typedTextSpan.textContent += textArray[textArrayIndex].charAt(charIndex);
+        charIndex++;
+        setTimeout(type, typingDelay);
+    } 
+    else {
+        cursorSpan.classList.remove("isTyping");
+        setTimeout(erase, newTextDelay);
+    }
+}
+ 
+    function erase() {
+        if (charIndex > 0) {
+        if(!cursorSpan.classList.contains("isTyping")) cursorSpan.classList.add("typing");
+        typedTextSpan.textContent = textArray[textArrayIndex].substring(0, charIndex-1);
+        charIndex--;
+        setTimeout(erase, erasingDelay);
+    } 
+    else {
+        cursorSpan.classList.remove("isTyping");
+        textArrayIndex++;
+        if(textArrayIndex>=textArray.length) textArrayIndex=0;
+        setTimeout(type, typingDelay + 1100);
+    }
+}
+ 
+document.addEventListener("DOMContentLoaded", function() {
+  if(textArray.length) setTimeout(type, newTextDelay + 250);
+});
+
+homeType();

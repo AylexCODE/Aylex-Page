@@ -11,9 +11,10 @@
     --bg-color: #fefffe;
     --bg-color-odd: #e5fcf5;
     --text-color: #000;
+    --Aylex-text-color: #00757aff;
     --navBg-color: rgba(0, 0, 0, 0.1);
     --shadow-color: rgba(0, 0, 0, 0.1);
-    --dropShadowNav-color: #000;
+    --dropShadowNav-color: transparent;
     --brightness: brightness(6);
     --dropShadowText-color: #fff;
     --navWeight: bold;
@@ -25,11 +26,12 @@
 
 html[data-theme='light'] {
     --bg-color: #fefffe;
-    --bg-color-odd: #f7f9f9;
+    --bg-color-odd: #f9f9f9;
     --text-color: #000;
+    --Aylex-text-color: #00757aff;  /* #007a59ff */
     --navBg-color: rgba(0, 0, 0, 0.01);
     --shadow-color: rgba(0, 0, 0, 0.1);
-    --dropShadowNav-color: #000;
+    --dropShadowNav-color: transparent;
     --brightness: brightness(7);
     --dropShadowText-color: #fff;
     --navWeight: bold;
@@ -43,6 +45,7 @@ html[data-theme='dark'] {
     --bg-color: #162238;
     --bg-color-odd: #192841;
     --text-color: #fff;
+    --Aylex-text-color: #abe9cd;
     --navBg-color: rgba(255, 255, 255, 0.1);
     --shadow-color: rgba(255, 255, 255, 0.2);
     --dropShadowNav-color: #fff;
@@ -400,6 +403,12 @@ li {
     border-radius: 50% 20% / 10% 40%;
 }
 
+.picture-box i {
+    position: absolute;
+    font-size: 20px;
+    color: var(--text-color);
+}
+
 .AylexPhoto {
     height: 150px;
     width: 150px;
@@ -407,6 +416,10 @@ li {
     background-size: contain;
     border: 1px solid var(--bg-color);
     border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
 }
 
 .homeText {
@@ -418,10 +431,14 @@ li {
     padding: 10px;
 }
 
+.homeText h2{
+    color: var(--Aylex-text-color);
+}
+
 .homeText p {
-     text-align: center;
-     font-size: 13px;
-     padding-block: 1.5rem;
+    text-align: center;
+    font-size: 13px;
+    padding-block: 1.5rem;
 }
 
 .homeText a {
@@ -443,19 +460,127 @@ li {
 }
 
 #aboutMe {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
     width: 100%;
     background-color: var(--bg-color-odd);
-    height: 100vh;
 }
 
-#projects {
+#skills {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     background-color: var(--bg-color);
     height: 100vh;
 }
 
-#contacts {
+#projects {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     width: 100%;
     background-color: var(--bg-color-odd);
     height: 100vh;
+}
+
+#contacts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    background-color: var(--bg-color);
+    height: 100vh;
+}
+
+.aboutMe-box {
+    position: relative;
+    bottom: 35px;
+    width: 80%;
+    height: 75vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.aboutMe-text h2 {
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--text-color);
+    padding: 0.5rem;
+}
+
+.aboutMe-text p {
+    font-size: 12px;
+    color: var(--text-color);
+    text-align: justify;
+    padding-bottom: 1rem;
+}
+
+.aboutMe-text {
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--text-color);
+}
+
+.cursor {
+    display: inline-block;
+    background-color: var(--text-color);
+    margin-left: 0.1rem;
+    width: 2px;
+    height: 9px;
+    animation: blink 1s infinite;
+}
+
+.cursor.isTyping {
+    animation: none;
+}
+
+@keyframes blink {
+    0%  { background-color: var(--text-color); }
+    49% { background-color: var(--text-color); }
+    50% { background-color: transparent; }
+    100% { background-color: transparent; }
+}
+
+.aboutMe-box a {
+    top: 4rem;
+    position: relative;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    padding: 5px;
+    background-image: var(--AylexBG);
+}
+
+.aboutMe-box a:hover{
+   background-image: var(--Aylex-text-color);
+}
+
+.aboutMe-box .picture-box {
+    position: relative;
+    top: 2.5rem;
+    width: 225px;
+    visibility: hidden;
+}
+
+.picture-box i {
+    position: absolute;
+    font-size: 20px;
+    color: var(--text-color);
+    visibility: visible;
+}
+
+.aboutMe-box .AylexPhoto {
+    height: 200px;
+    width: 200px;
+    background-image: url("./img/AylexIMG.jpg");
+    background-size: contain;
+    border: 1px solid var(--bg-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1;
+    visibility: visible;
 }
