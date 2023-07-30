@@ -43,8 +43,8 @@
                     <div class="mContacts-Dropdown">
                         <div class="mGradient">
                             <ul>
-                                <li><a href="#" target="_blank"><i class="fa-brands fa-google" id="google"></i></a></li>
-                                <li><a href="#" target="_blank"><i class="fa-brands fa-discord" id="discord"></i></a></li>
+                                <li><div class="google-username"><i class="fa-brands fa-google" id="google"></i></div></li>
+                                <li><div class="discord-username"><i class="fa-brands fa-discord" id="discord"></i></div></li>
                                 <li><a href="https://twitter.com/_AlexanderMC_?t=H_wdeLhOTH23lzbUEJrkaw&s=09" target="_blank"><i class="fa-brands fa-twitter" id="twitter"></i></a></li>
                                 <li><a href="https://github.com/AylexCODE" target="_blank"><i class="fa-brands fa-github" id="github"></i></a></li>
                             </ul>
@@ -66,8 +66,19 @@
                             <h3>Hey there!</h3>
                             <h2>I am Aylex</h2>
                             <h3>Student</h3>
+                            <div class="AQuotes">
                             <p>There are limits to what a solo player can do.</p>
-                            <a href="#projects">VIEW PROJECTS</a>
+                            <p>Press my name on the nav bar to toggle between light and dark mode.</p>
+                            <p>The way I care for people makes me wish I had somebody like me in my life.</p>
+                            <p>People get tired of me and leave, not knowing I was already tired but I stayed.</p>
+                            <p>I don't care if you are good or bad, if you respect me I'll respect you</p>
+                            <p>Scared of my anger. That's why I laught a lot and stay humble as possible.</p>
+                            <p>The reason why I keep my feelings to my self, is because I can't explain them.</p>
+                            <p>I'm here if you need moron support.<br>It's like moral support but I'am an idiot.</p>
+                            <p>I'm not stupid.<br>I'm just too lazy to show how smart I am.</p>
+                            <p>People treat me like god, they only come to me when they need something.</p>
+                            </div>
+                            <a href="#projects">VIEW PROJECTS</a>  
                         </div>
                     </div>
                 </div>
@@ -77,7 +88,7 @@
                     <div class="aboutMe-box">
                         <div class="aboutMe-text">
                             <h2>About Me</h2>
-                            <p> Hello World! I'm Aylex, and soon I will be a college student. I started coding in the year 2017 but had to stop due to limitations in accessing resources. However, I resumed coding in the year 2022, and up until now (<span id="currentDate"></span>), I can say I'm decent at <span class="decent"></span><span class="cursor"></span></p>
+                            <p> Hello World! I'm Aylex, and soon I will be a college student. I started coding in the year 2017 but had to stop due to limitations in accessing resources. However, I resumed coding in the year 2022, and up until now (<span id="currentDate"></span>), I can say I'm decent but never better at <span class="decent"></span><span class="cursor"></span></p>
                             <p>I'm excited to make the leap and continue refining my skills in the world of programming.</span>
                         </div>
                         <div class="picture-box">
@@ -92,21 +103,98 @@
             <section>
                 <div id="skills">
                     <div class="skills-box">
-                      
+                        <h2>My skills</h2>
+                        <div class="skills-list">
+                            <div class="whatIKnow">
+                                <h4>Intermediate</h4>
+                                <p>HTML & CSS</p>
+                                <p>JavaScript</p>                          
+                            </div>
+                            <div class="IKnowABit">
+                                <h4>Currently Studying</h4>
+                                <p>Java</p>
+                            </div>
+                        </div>
+                        <div class="skills-boxAAlign">
+                            <a href="#projects">See Projects</a>
+                        </div>
                     </div>
                 </div>
             </section>
              <section>
                 <div id="projects">
-                    
+                    <div class="project-box">
+                        <h2>Projects</h2>
+                        <div class="project-carousel">
+                            <div class="project-width">
+                                <div class="project1">
+                                     <div class="project1-content">
+                                          <div class="project-preload">
+                                          <i class="fa-image fa-regular"></i>
+                                          </div>
+                                          <h3>Programming Lab</h3>
+                                          <p>An informative website that linked a lot of useful tools together in one place to make your life easier.</p>
+                                          <h4>Includes:</h4>
+                                          <div class="project1-logo"><i class="fa-solid fa-robot"></i> <i class="fa-solid fa-play"></i> <i class="fa-solid fa-wrench"></i>
+                                          </div>
+                                          <div class="project-aCenter"><a href="./home/progamming_lab/home" target="_blank">Website underdevelopment <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                          </div>
+                                     </div>
+                                </div>
+                                <div class="project2">
+                                    <div class="project2-content">
+                                        <div class="project-preload">
+                                        <i class="fa-image fa-regular"></i>
+                                        </div>
+                                        <div class="project-aCenter"><a href="#" target="_blank">Visit Site <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
             <section>
                 <div id="contacts">
-                    
+                    <h2>Contact Me</h2>
+                    <div class="contact-box">
+                        <form action="" class="" id="contact">
+                            <div class="contactHolder">
+                                <input name="user_name" type="text" required placeholder="Name" class="username">
+                                <input name="user_email" type="email" required placeholder="Gmail" class="gmail">
+                            </div>
+                            <div class="messageHolder">
+                                <textarea name="user_project" required placeholder="Your Message" class="feedback-text"></textarea>
+                                <p id="message"> </p>
+                            </div>
+                            <button type="submit" class="submitBtn">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </section>
+            <section>
+                <div class="socials">
+                    <div class="socials-box">
+                        <h4>SOCIALS</h4>
+                        <div class="socials-logo">
+                            <a href="https://www.facebook.com/AlexanderIngayJala?mibextid=ZbWKwL" target="_blank"><i class="fa-brands fa-facebook-f" id="facebook-s"></i></a>
+                            <a href="https://twitter.com/_AlexanderMC_?t=H_wdeLhOTH23lzbUEJrkaw&s=09" target="_blank"><i class="fa-brands fa-twitter" id="twitter-s"></i></a>
+                            <div class="google-username"><i class="fa-brands fa-google" id="google-s"></i></div>
+                            <div class="discord-username"><i class="fa-brands fa-discord" id="discord-s"></i></div>
+                            <a href="https://github.com/AylexCODE" target="_blank"><i class="fa-brands fa-github" id="github-s"></i></a>
+                        </div>
+                        <p>© 2023 Aylex. All Rights Reserved</p>
+                    </div>
+                </div>
+            </section>
+            <a href="#home"><div class="scroll-up"><i class="fa-solid fa-caret-up"></i>
+            </div></a>
         </div>
     </body>
     <script src="./function.js"></script>
+    <script src="./cFunction.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </html>

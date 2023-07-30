@@ -22,6 +22,12 @@
     --socialsHoverBorder-color: #fff;
     --socialHoverBG: #fff;
     --AylexBG: linear-gradient(315deg, #abe9cd 0%, #3eadcf 74%);
+    --textIn-image-color: #fefffe;
+    --imageButton-Gradient: linear-gradient(135.8deg, rgb(26, 26, 29) 27.1%, rgb(111, 34, 50) 77.5%);
+    --submitBtn-color: linear-gradient(315deg, #4969ff 0%, #099999 74%);
+    --submitFormBg-color: #131e3150;
+    --socialsBG-color: #061228;
+    --socials-color: #0088ff;
 }
 
 html[data-theme='light'] {
@@ -38,7 +44,13 @@ html[data-theme='light'] {
     --socialsHover-color: #fff;
     --socialsHoverBorder-color: #fff;
     --socialsHoverBG-color: #000;
-    --AylexBG: linear-gradient(315deg, #abe9cd 0%, #3eadcf 74%)
+    --AylexBG: linear-gradient(315deg, #abe9cd 0%, #3eadcf 74%);
+    --textIn-image-color: #fefffe;
+    --imageButton-Gradient: linear-gradient(135.8deg, rgb(26, 26, 29) 27.1%, rgb(111, 34, 50) 77.5%);
+    --submitBtn-color: linear-gradient(315deg, #4969ff 0%, #099999 74%);
+    --submitFormBg-color: #131e3150;
+    --socialsBG-color: #061228;
+    --socials-color: #0077ff;
 }
 
 html[data-theme='dark'] {
@@ -56,6 +68,11 @@ html[data-theme='dark'] {
     --socialsHoverBorder-color: #00ff88;
     --socialsHoverBG-color: #000;
     --AylexBG: linear-gradient(315deg, #4b6cb7 0%, #182848 74%);
+    --textIn-image-color: #fefffe;
+    --imageButton-Gradient: linear-gradient(109.6deg, rgb(20, 30, 48) 11.2%, rgb(36, 59, 85) 91.1%);
+    --submitBtn-color: linear-gradient(315deg, #4b6cb7 0%, #00757aff 74%);
+    --submitFormBg-color: #ffffff10;
+    --socials-color: #00ff88;
 }
     
 html{
@@ -109,7 +126,7 @@ li {
 }
 
 .smooth-scroll section {
-    scroll-snap-align: start;
+    scroll-snap-align: end;
 }
 
 .navbarM {
@@ -384,7 +401,7 @@ li {
 
 .home-box {
     position: relative;
-    bottom: 25px;
+    bottom: 3%;
     width: 80%;
     height: 75vh;
     display: flex;
@@ -474,7 +491,7 @@ li {
     align-items: center;
     width: 100%;
     background-color: var(--bg-color);
-    height: 100vh;
+    height: 30vh;
 }
 
 #projects {
@@ -488,6 +505,7 @@ li {
 
 #contacts {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     width: 100%;
@@ -497,7 +515,7 @@ li {
 
 .aboutMe-box {
     position: relative;
-    bottom: 35px;
+    bottom: 5%;
     width: 80%;
     height: 75vh;
     display: flex;
@@ -555,6 +573,8 @@ li {
 
 .aboutMe-box a:hover{
    background-image: var(--Aylex-text-color);
+   font-size: 17px;
+   transition: none;
 }
 
 .aboutMe-box .picture-box {
@@ -583,4 +603,406 @@ li {
     align-items: center;
     z-index: 1;
     visibility: visible;
+}
+
+.skills-box {
+    width: 80%;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.skills-box h2 {
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--text-color);
+    padding-bottom: 0.7rem;
+}
+
+.skills-list {
+    color: var(--text-color);
+    font-size: 13px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.whatIKnow, .IKnowABit {
+    text-align: center;
+}
+
+.whatIKnow h4, .IKnowABit h4 {
+    border-bottom: 1px solid var(--text-color);
+}
+
+.skills-boxAAlign {
+    width: 100%;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.skills-box a {
+    position: relative;
+    top: 10px;
+    padding: 5px;
+    border: 1px solid var(--text-color);
+    text-transform: uppercase;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.skills-box a:hover {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border: 1px solid var(--text-color);
+    font-size: 17px;
+    transition: none;
+}
+
+.project-box {
+    position: relative;
+    bottom: 2%;
+    width: 90%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.project-box h2 {
+    text-align: center;
+    text-transform: uppercase;
+    color: var(--text-color);
+    padding-bottom: 0.7rem;
+}
+
+.project-carousel {
+    width: 100%;
+    height: 92%;
+    overflow-x: scroll;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+}
+
+.project-width {
+    width: 200%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.project1, .project2 {
+    scroll-snap-align: start;
+}
+
+.project1 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+    
+}
+
+.project1-content {
+    width: 95%;
+    height: 99%;
+    border-radius: 10px;
+    background-image: url("./img/programming-lab.jpg");
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: blur(5px);
+    border: 1px solid var(--text-color);
+}
+
+.project1-content h3, .project1-content p, .project1-content h4{
+    color: var(--textIn-image-color);
+    opacity: 0.8;
+    padding-inline: 15px;
+}
+
+.project1-content h3 {
+    padding: 15px;
+    text-align: center;
+}
+
+.project1-content p {
+    font-size: 12px;
+    text-align: center;
+}
+
+.project1-content h4 {
+    padding-top: 5vh;
+}
+ 
+.project-aCenter {
+    width: 100%;
+    height: 30vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.project-aCenter a {
+    color: var(--textIn-image-color);
+    opacity: 0.8;
+    padding-inline: 15px;
+    border: 1px solid var(--textIn-image-color);
+    background-image: var(--imageButton-Gradient);
+    border-radius: 10px;
+    text-transform: uppercase;
+}
+
+.project-aCenter a:hover {
+    background-image: var(--text-color);
+    font-size: 17px;
+    transition: none;
+}
+
+.project1-logo {
+    padding-inline: 10px;
+}
+
+.project1-logo i{
+    position: relative;
+    bottom: 3px;
+    font-size: 13px;
+    padding: 6px;
+    color: var(--textIn-image-color);
+    opacity: 0.8;
+}
+
+.project-preload i {
+    position: absolute;
+    color: var(--textIn-image-color);
+    z-index: -5;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.project2 {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    border-radius: 10px;
+}
+
+.project2-content {
+    width: 95%;
+    height: 99%;
+    border-radius: 10px;
+    border: 1px solid var(--text-color);
+}
+
+.contact-box {
+    position: relative;
+    bottom: 2%;
+    width: 80%;
+    height: 70vh;
+}
+
+#contact {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#contacts h2 {
+    position: relative;
+    bottom: 4%;
+    color: var(--text-color);
+}
+
+.contactHolder, .messageHolder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 1vh;
+}
+
+.contact-box .username, .gmail, .feedback-text {
+    width: 95%;
+    background-color: var(--submitFormBg-color);
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+    outline: none;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.messageHolder {
+    position: relative;
+    top: 1vh;
+}
+
+.feedback-text {
+    height: 40vh;
+    font-weight: 300;
+}
+
+.messageHolder p {
+    position: relative;
+    bottom: 1.2vh;
+    height: 3vh;
+    font-size: 13px;
+    min-height: 16px;
+}
+
+.submitBtn {
+    position: relative;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    width:140px;
+    border-radius: 10px;
+    color: var(--textIn-image-color);
+    border: 1px solid var(--text-color);
+    background-image: var(--submitBtn-color);
+    padding-block: 2vh;
+}
+
+.socials {
+    width: 100%;
+    height: 10vh;
+    background-color: var(--socialsBG-color);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 60px;
+}
+
+.socials h4 {
+    color: var(--socials-color);
+}
+
+.socials-box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.socials-logo {
+    display: flex;
+    flex-direction: row;
+    gap: 3vw;
+}
+
+#google-s, #discord-s, #twitter-s, #github-s, #facebook-s {
+    color: var(--socials-color);
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    border: 1px solid var(--socials-color);
+    width: 10vw;
+    height: 20px; 
+}
+
+#google-s:hover, #discord-s:hover, #twitter-s:hover, #github-s:hover, #facebook-s:hover {
+    color: var(--textIn-image-color);
+    filter: drop-shadow(0px 0px 5px rgb(146, 255, 255));
+    background-color: var(--socialsHoverBG-color);
+    border-color: var(--textIn-image-color);
+}
+
+.socials-box p {
+    padding-top: 1vh;
+    color: var(--socials-color);
+    font-size: 8px;
+}
+
+.scroll-up {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--bg-color);
+    position: absolute;
+    bottom: 5vh;
+    right: 5vw;
+    background-color: var(--text-color);
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+}
+
+.scroll-up i.active {
+  display: none;
+}
+
+.AQuotes {
+    overflow: hidden;
+    width: 100%;
+    height: 88px;
+}
+
+.AQuotes p {
+    animation: switchQuotes 100s cubic-bezier(0.175, 0.885, 0.32, 1.275) infinite;
+}
+
+@keyframes switchQuotes {
+    1% {
+        transform: translateY(0%);
+    }
+    10% {
+        transform: translateY(0%);
+    }
+    11% {
+        transform: translateY(-100%);
+    }
+    20% {
+        transform: translateY(-100%);
+    }
+    21% {
+        transform: translateY(-200%);
+    }
+    30% {
+        transform: translateY(-200%);
+    }
+    31% {
+        transform: translateY(-300%);
+    }
+    40% {
+        transform: translateY(-300%);
+    }
+    41% {
+        transform: translateY(-400%);
+    }
+    50% {
+        transform: translateY(-400%);
+    }
+    51% {
+        transform: translateY(-500%);
+    }
+    60% {
+        transform: translateY(-500%);
+    }
+    61% {
+        transform: translateY(-600%);
+    }
+    70% {
+        transform: translateY(-600%);
+    }
+    71% {
+        transform: translateY(-700%);
+    }
+    80% {
+        transform: translateY(-700%);
+    }
+    81% {
+        transform: translateY(-800%);
+    }
+    90% {
+        transform: translateY(-800%);
+    }
+    91% {
+        transform: translateY(-900%);
+    }
+    100% {
+        transform: translateY(-900%);
+    }
 }
