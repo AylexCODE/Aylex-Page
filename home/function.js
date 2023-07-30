@@ -1,4 +1,3 @@
-//Light and Dark Mode Toggle
 var toggle = document.querySelector(".navText");
 var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 if (storedTheme)
@@ -17,7 +16,6 @@ toggle.onclick = function() {
     localStorage.setItem('theme', targetTheme);
 }
 
-//Dropdown Selection
 const mDropdownMenu = document.querySelector(".selectionBtn");
 const mSelection = document.querySelector(".dropdown-selection");
 const mActiveDetector = document.querySelector(".activeDetector");
@@ -65,7 +63,6 @@ const mContactsOpacity = document.querySelector(".mContactsAlign");
          : "fa-solid fa-bars"
     }
 
-//Contacts Dropdown
 const mContacts = document.querySelector(".mContacts");
 const mContactsDropdown = document.querySelector(".mContacts-Dropdown");
 const mContactsBG = document.querySelector(".mContactsBG");
@@ -80,7 +77,6 @@ const mContactsBG = document.querySelector(".mContactsBG");
         mContactsBG.classList.toggle("active");
     }
     
-//Full Date Counter
 const date = new Date(); 
 let day = date.getDate();
 let month = date.getMonth();
@@ -127,10 +123,9 @@ let year = date.getFullYear();
     
 document.getElementById("currentDate").innerHTML = month + " " + day + ", " + year ;
 
-//Typing Animation //About me Section
 const typedTextSpan = document.querySelector(".decent");
 const cursorSpan = document.querySelector(".cursor");
-const textArray = ["HTML.", "CSS.", "JavaScript."];
+const textArray = ["HTML.", "CSS.", "JS."];
 const typingDelay = 200;
 const erasingDelay = 100;
 const newTextDelay = 2000;
