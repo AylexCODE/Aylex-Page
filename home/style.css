@@ -8,8 +8,8 @@
 }
 
 :root {
-    --bg-color: #fefffe;
-    --bg-color-odd: #e5fcf5;
+    --bg-color-odd: #fefffe;
+    --bg-color: #e5fcf5;
     --text-color: #000;
     --Aylex-text-color: #00757aff;
     --navBg-color: rgba(0, 0, 0, 0.1);
@@ -31,8 +31,8 @@
 }
 
 html[data-theme='light'] {
-    --bg-color: #fefffe;
-    --bg-color-odd: #f9f9f9;
+    --bg-color-odd: #fefffe;
+    --bg-color: #f8f8f3;
     --text-color: #000;
     --Aylex-text-color: #00757aff;  /* #007a59ff */
     --navBg-color: rgba(0, 0, 0, 0.01);
@@ -54,8 +54,8 @@ html[data-theme='light'] {
 }
 
 html[data-theme='dark'] {
-    --bg-color: #162238;
-    --bg-color-odd: #192841;
+    --bg-color-odd: #162238;
+    --bg-color: #192841;
     --text-color: #fff;
     --Aylex-text-color: #abe9cd;
     --navBg-color: rgba(255, 255, 255, 0.1);
@@ -332,6 +332,10 @@ li {
     gap: 0.5rem;
 }
 
+.navForPC {
+    display: none;
+}
+
 #google, #discord, #twitter, #github {
     color: var(--text-color);
     position: relative;
@@ -603,6 +607,10 @@ li {
     align-items: center;
     z-index: 1;
     visibility: visible;
+}
+
+.gridLinks {
+    display: none;
 }
 
 .skills-box {
@@ -906,6 +914,10 @@ li {
     gap: 3vw;
 }
 
+.skillsLogo {
+    display: none;
+}
+
 #google-s, #discord-s, #twitter-s, #github-s, #facebook-s {
     color: var(--socials-color);
     display: flex;
@@ -936,15 +948,16 @@ li {
     color: var(--bg-color);
     position: absolute;
     bottom: 5vh;
-    right: 5vw;
+    right: -5vw;
     background-color: var(--text-color);
     border-radius: 50%;
     width: 20px;
     height: 20px;
 }
 
-.scroll-up i.active {
-  display: none;
+.scroll-up.scrollable {
+    position: absolute;
+    right: 5vw;
 }
 
 .AQuotes {
@@ -1078,6 +1091,7 @@ li {
     padding: 8px;
     display: flex;
     flex-direction: row;
+    justify-content: center;
     width: 90vw;
 }
 
@@ -1087,12 +1101,12 @@ li {
     align-items: center;
     text-align: left;
     justify-content: center;
-    width: 50%;
+    width: 100%;
     font-size: 9px;
 }
 
 .reportIssue {
-    width: 50%;
+    width: 100%;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -1158,6 +1172,260 @@ li {
 /* Add grid lines for projects
         grid-template-rows: 45% 45%;
     */
+    }
+
+    nav {
+        height: 35px;
+    }
+
+    .navAlignForPC {
+        display: flex;
+        justify-content: space-around;
+        height: 35px;
+        backdrop-filter: blur(5px);
+    }
+
+    .navText {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 35px;
+        right: unset;
+        top: unset;
+        width: fit-content;
+    }
+
+    .navText:hover {
+        color: var(--socials-color);
+    }
+
+    .navbarM {
+        display: block;
+        width: fit-content;
+        backdrop-filter: none;
+    }
+
+    .selectionBtn {
+        display: none;
+    }
+
+    .dropdown-selection {
+        display: block;
+        overflow: visible;
+        color: var(---text-color);
+        width: unset;
+
+    }
+
+    .dropdown-selection ul {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        width: fit-content;
+        height: 35px;
+        background-color: transparent;
+        gap: 20px;
+    }
+
+    .dropdown-selection a:hover {
+        color: var(--socials-color);
+        transition: 0.5s;
+    }
+
+    .navForPC {
+        display: block;
+    }
+
+    .mContactsAlign {
+        display: none;
+    }
+
+    .gradientLine-navbarM {
+        display: none;
+    }
+
+    .mContacts {
+        display: none;
+    }
+
+    .home-box {
+        display: grid;
+        grid-auto-flow: column;
+        position: relative;
+        top: 10px;
+    }
+
+    .picture-box {
+        order: 2;
+        height: 300px;
+        width: 250px;
+    }
+    
+    .home-box .picture-box {
+        padding-inline: 5vw;
+        position: relative;
+        right: 20px
+    }
+
+    .homeText {
+        padding-inline: 4vw;
+        position: relative;
+        right: 50px;
+    }
+    
+    .home-box .picture-box .AylexPhoto{
+        height: 225px;
+        width: 225px;
+    }
+
+    .homeText h2, .homeText h3, .homeText p {
+        width: 100%;
+        text-align: left;
+    }
+
+    .homeText a {
+        position: relative;
+        right: 26%;
+    }
+
+    .aboutMe-box {
+        position: relative;
+        top: 0px;
+        display: grid;
+        grid-template-columns: 50% 50%;
+        width: 68vw;
+    }
+
+    .aboutMe-box .aboutMe-text {
+        order: 1;
+        display: flex;
+        flex-direction: column;
+        align-self: center;
+        justify-content: center;
+        text-align: left;
+    }
+
+    .aboutMe-text p {
+        text-align: left;
+        padding-block: 5px;
+    }
+
+    .aboutMe-text h2 {
+        text-align: left;
+        padding: unset;
+    }
+
+    #AylexPhoto-about {
+        height: 300px;
+        width: 300px;
+        position: absolute;
+        bottom: -7.5%;
+        left: 15%;
+    }
+    
+    .outGridContact {
+        display: none;
+    }
+
+    .gridLinks {
+        position: relative;
+        bottom: 10vh;
+        display: block;
+        width: 300px;
+    }
+
+    .gridLinks a:hover {
+        color: var(--bg-color);
+        background-color: var(--text-color);
+        border: 1px solid var(--socials-color);
+    }
+
+    .gridLinks a:nth-child(2) {
+        background-image: none;
+    }
+
+    .skills-box {
+        display: grid;
+        grid-auto-flow: column;
+        grid-template-rows: 2;
+        height: 75%;
+    }
+
+    .skills-boxAAlign {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 75%;
+    }
+
+    .mySkillsAlign {
+        color: var(--text-color);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .skills-list h4 {
+        border-bottom: none;
+    }
+
+    .alignHtext {
+        position: relative;
+        transform: translateX(-50%);
+        left: 50%;
+        border-bottom: 1px solid var(--text-color);
+        width: 75%;
+    }
+    
+    .skillsLogo {
+        display: block;
+    }
+
+    .skillsLogo i {
+        font-size: 25px;
+        padding-inline: 0.5vh;
+    }
+
+    .skillsLogo i:hover:nth-child(1) {
+        color: crimson;
+    }
+
+    .skillsLogo i:hover:nth-child(2) {
+        color: mediumblue;
+    }
+
+    .skillsLogo i:hover:nth-child(3) {
+        color: gold;
+    }
+
+    .skillsLogo i:hover:nth-child(4) {
+        color: firebrick;
+    }
+
+    .skills-box a {
+        width: 50%;
+    }
+
+    .skills-box h2 {
+        width: 100%;
+    }
+
+    .whatIKnow {
+        border-right: 1px solid var(--text-color);
+        border-left: 1px solid var(--text-color);
+        width: 100%;
+    }
+
+    .alignPtext {
+        padding-top: 1.5vh;
+    }
+
+    .IKnowABit {
+        border-right: 1px solid var(--text-color);
+        border-left: 1px solid var(--text-color);
+        width: 98%;
     }
 
     .project1-content h3, .project1-content p, .project1-content h4{
@@ -1287,5 +1555,25 @@ li {
     .project1-content.hover {
         position: relative;
         left: 0px;
+    }
+
+    .leaveMessage {
+        width: 96%;
+    }
+
+    #google-s, #discord-s, #twitter-s, #github-s, #facebook-s {
+        border: none;
+        width: 5vw;
+    }
+
+    #google-s:hover, #discord-s:hover, #twitter-s:hover, #github-s:hover, #facebook-s:hover {
+        border: none;
+        width: 5vw;
+        background-color: transparent;
+        transition: 0.25s;
+    }
+
+    .socials-logo {
+        gap: 0vw;
     }
 }

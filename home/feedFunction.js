@@ -16,12 +16,12 @@ const project1Detect = document.querySelector(".project1");
 
     function hoverProject1() {
         project1.classList.add("hover");
-        project1Detect.classList.add("hover")
+        project1Detect.classList.add("hover");
     }
 
     function hoverProject01() {
         project1.classList.remove("hover");
-        project1Detect.classList.remove("hover")
+        project1Detect.classList.remove("hover");
     }
 
 project1Detect.addEventListener("mouseover", hoverProject1);

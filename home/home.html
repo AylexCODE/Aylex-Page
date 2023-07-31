@@ -14,6 +14,7 @@
     <body>
         <div class="smooth-scroll">
             <nav>
+                <div class="navAlignForPC">
                 <div class="navbarM">
                     <div class="navText">
                         <p>Aylex</p>
@@ -32,7 +33,9 @@
                         <li><a href="#home">Home</a></li>
                         <li><a href="#aboutMe">About</a></li>
                         <li><a href="#projects">Projects</a></li>
+                        <li><a href="#socialS" class="navForPC">Socials</a></li>
                     </ul>
+                </div>
                 </div>
                 <div class="mContacts">
                     <div class="mContactsAlign">
@@ -90,29 +93,41 @@
                             <h2>About Me</h2>
                             <p> Hello World! I'm Aylex, and soon I will be a college student. I started coding in the year 2017 but had to stop due to limitations in accessing resources. However, I resumed coding in the year 2022, and up until now (<span id="currentDate"></span>), I can say I'm decent but never better at <span class="decent"></span><span class="cursor"></span></p>
                             <p>I'm excited to make the leap and continue refining my skills in the world of programming.</span>
+                            <div class="gridLinks">
+                                <a href="#contacts" draggable="false">Contact Me</a>
+                                <a href="#projects" draggable="false" class="gridProject">See Projects</a>
+                            </div>
                         </div>
                         <div class="picture-box">
                             <i class="fa-image fa-regular"></i>
-                            <div class="AylexPhoto">
+                            <div class="AylexPhoto" id="AylexPhoto-about">
                             </div>
                         </div>
-                        <a href="#contacts" draggable="false">Contact Me</a>
+                        <a href="#contacts" draggable="false" class="outGridContact">Contact Me</a>
                     </div>
                 </div>
             </section>
             <section>
                 <div id="skills">
                     <div class="skills-box">
-                        <h2>My skills</h2>
+                        <div class="mySkillsAlign">
+                            <h2>My skills</h2>
+                            <div class="skillsLogo">
+                                <i class="fa-brands fa-html5"></i>
+                                <i class="fa-brands fa-css3-alt"></i>
+                                <i class="fa-brands fa-js"></i>
+                                <i class="fa-brands fa-java"></i>
+                            </div>
+                        </div>
                         <div class="skills-list">
                             <div class="whatIKnow">
-                                <h4>Intermediate</h4>
-                                <p>HTML & CSS</p>
-                                <p>JavaScript</p>                          
+                                <div class="alignHtext"><h4>Intermediate</h4></div>
+                                <div class="alignPtext"><p>HTML & CSS</p>
+                                <p>JavaScript</p></div>                      
                             </div>
                             <div class="IKnowABit">
-                                <h4>Currently Studying</h4>
-                                <p>Java</p>
+                                <div class="alignHtext"><h4>Currently Studying</h4></div>
+                                <div class="alignPtext"><p>Java</p></div>
                             </div>
                         </div>
                         <div class="skills-boxAAlign">
@@ -136,13 +151,13 @@
                                         <h4>Includes:</h4>
                                         <div class="project1-logo"><i class="fa-solid fa-robot"></i> <i class="fa-solid fa-play"></i> <i class="fa-solid fa-wrench"></i>
                                         </div>
-                                        <div class="project-aCenter"><a href="./home/progamming_lab/home" target="_blank" draggable="false">Website underdevelopment <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                        <div class="project-aCenter"><a href="./home/progamming_lab/home" target="_blank" draggable="false">Website underdevelopment&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="project2">
                                     <div class="project2-content">
-                                        <div class="project-aCenter"><a href="#" target="_blank">Thinking <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                        <div class="project-aCenter"><a href="#" target="_blank" draggable="false">Thinking <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                                         </div>
                                     </div>
                                 </div>
@@ -172,7 +187,7 @@
                 </div>
             </section>
             <section>
-                <div class="socials">
+                <div class="socials" id="socialS">
                     <div class="socials-box">
                         <h4>SOCIALS</h4>
                         <div class="socials-logo">
@@ -209,6 +224,7 @@
     </body>
     <script src="./function.js"></script>
     <script src="./cFunction.js"></script>
+    <script src="./sFunction.js"></script>
     <script src="./feedFunction.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </html>
