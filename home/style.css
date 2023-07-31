@@ -698,28 +698,32 @@ li {
 }
 
 .project1 {
-    width: 100%;
-    height: 100%;
+    width: 95%;
+    height: 99%;
     display: flex;
     justify-content: center;
     border-radius: 10px;
-    
+    align-items: center;
+    background-image: url("./img/Programming-lab.jpg");
+    overflow: hidden;
+    border: 1px solid var(--text-color);
+    background-size: cover;
+    background-position: center;
 }
 
 .project1-content {
-    width: 95%;
-    height: 99%;
+    width: 100%;
+    height: 100%;
     border-radius: 10px;
-    background-image: url("./img/programming-lab.jpg");
-    background-position: center;
-    background-size: cover;
-    background-blend-mode: blur(5px);
-    border: 1px solid var(--text-color);
+    backdrop-filter: blur(5px);
+}
+
+.progamminglabThumbnail {
+    display: none;
 }
 
 .project1-content h3, .project1-content p, .project1-content h4{
     color: var(--textIn-image-color);
-    opacity: 0.8;
     padding-inline: 15px;
 }
 
@@ -735,6 +739,8 @@ li {
 
 .project1-content h4 {
     padding-top: 5vh;
+    position: relative;
+    left: 1vw;
 }
  
 .project-aCenter {
@@ -757,8 +763,12 @@ li {
 
 .project-aCenter a:hover {
     background-image: var(--text-color);
-    font-size: 17px;
+    font-size: 11px;
     transition: none;
+}
+
+.project-aCenter a:active {
+    transform: translateY(2px);
 }
 
 .project1-logo {
@@ -772,15 +782,13 @@ li {
     padding: 6px;
     color: var(--textIn-image-color);
     opacity: 0.8;
+    left: 1vw;
 }
 
-.project-preload i {
-    position: absolute;
-    color: var(--textIn-image-color);
-    z-index: -5;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+.project1-logo i:hover {
+    color: var(--socials-color);
+    transform: rotate(20deg);
+    transition: 0.2s linear;
 }
 
 .project2 {
@@ -789,6 +797,7 @@ li {
     display: flex;
     justify-content: center;
     border-radius: 10px;
+    opacity: 0.5;
 }
 
 .project2-content {
@@ -813,7 +822,7 @@ li {
 
 #contacts h2 {
     position: relative;
-    bottom: 4%;
+    bottom: 4vh;
     color: var(--text-color);
 }
 
@@ -863,6 +872,10 @@ li {
     border: 1px solid var(--text-color);
     background-image: var(--submitBtn-color);
     padding-block: 2vh;
+}
+
+.submitBtn:active {
+    top: 2px;
 }
 
 .socials {
@@ -1004,5 +1017,275 @@ li {
     }
     100% {
         transform: translateY(-900%);
+    }
+}
+
+.toggle-tip {
+    position: fixed;
+    bottom: -100px;
+    color: var(--socials-color);
+    text-align: center;
+    font-size: 13px;
+    z-index: 50;
+    width: 90vw;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: toggleDarkLightTip 15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation-delay: 30s;
+}
+
+.toggle-tip p {
+    padding: 5px;
+    background-color: var(--text-color);
+    border: 1px solid var(--socials-color);
+    border-radius: 10px;
+}
+
+@keyframes toggleDarkLightTip {
+    0% {
+        bottom: -100px;
+    }
+    15% {
+        bottom: 20px;
+    }
+    75% {
+        bottom: 20px;
+    }
+    100% {
+        bottom: -50px;
+    }
+}
+
+.recommendDialogue {
+    position: fixed;
+    bottom: -100px;
+    color: var(--bg-color);
+    background-color: var(--text-color);
+    border-radius: 10px;
+    border: 1px solid var(--socials-color);
+    text-align: center;
+    font-size: 13px;
+    z-index: 50;
+    min-width: 90vw;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dialogueBox {
+    padding: 8px;
+    display: flex;
+    flex-direction: row;
+    width: 90vw;
+}
+
+.leaveMessage {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    justify-content: center;
+    width: 50%;
+    font-size: 9px;
+}
+
+.reportIssue {
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    text-align: left;
+    font-size: 8px;
+    border-left: 1px solid var(--bg-color);
+}
+
+.leaveMessage i {
+    font-size: 20px;
+    padding-right: 8px;
+}
+
+.reportIssue i {
+    font-size: 20px;
+    padding-right: 8px;
+}
+
+.recommendDialogue.feedback {
+    animation: feedBack-up 15s ease-out;
+}
+
+@keyframes feedBack-up {
+    0% {
+        bottom: -100px;
+    }
+    15% {
+        bottom: 20px;
+    }
+    75% {
+        bottom: 20px;
+    }
+    100% {
+        bottom: -100px;
+    }
+
+    
+}
+
+/* for Tablets (Portrait/Landscape */
+@media only screen and (min-width: 768px) {
+    .recommendDialogue {
+        min-width: unset;
+    }
+
+    .toggle-tip {
+        width: unset;
+    }
+}
+
+/* for PC */
+@media only screen and (min-width: 992px) {
+    .project-width {
+        position: relative;
+        width: 100%;
+        column-gap: 3vh;
+        row-gap: 3vh;
+        display: grid;
+        align-items: center;
+        justify-content: center;
+        grid-template-columns: 25% 25%;
+/* Add grid lines for projects
+        grid-template-rows: 45% 45%;
+    */
+    }
+
+    .project1-content h3, .project1-content p, .project1-content h4{
+        color: var(--textIn-image-color);
+        padding-inline: 1vh;
+    }
+    
+    .project1-content h3 {
+        font-size: 14px;
+        padding: 1vh;
+        text-align: center;
+    }
+    
+    .project1-content p {
+        font-size: 10px;
+        text-align: center;
+    }
+    
+    .project1-content h4 {
+        padding-top: 1vh;
+        position: relative;
+        left: 3vw;
+        font-size: 12px;
+    }    
+
+    .project-aCenter a {
+        position: relative;
+        padding-inline: 1vh;
+        width: 90%;
+        font-size: 11px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-block: 1vh;
+        position: relative;
+        top: 18vh;
+    }
+
+    .project-aCenter {
+        position: relative;
+        height: 70%;
+        min-height: 90%;
+        bottom: 30vh;
+        display: flex;
+    }
+
+    .project-box {
+        top: 2vh;
+    }
+
+    .contact-box {
+        background-color: var(--submitFormBg-color);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 60vw;
+        border-radius: 10px;
+        min-height: 300px;
+    }
+
+    .contactHolder, .messageHolder {
+        width: 60vw;
+    }
+
+    .aboutMe-box a:hover{
+        background-image: var(--Aylex-text-color);
+        font-size: 16px;
+        transition: none;
+     }
+
+    .aboutMe-box a:active{
+        transform: translateY(2px);
+     }
+
+    .skills-box a:hover {
+        font-size: 16px;
+    }
+
+    .skills-box a:active {
+        transform: translateY(2px);
+    }
+
+    #contacts h2 {
+        top: 1vh;
+    }
+
+    .contact-box {
+        top: 2vh;
+    }
+
+    .leaveMessage {
+        font-size: 12px;
+    }
+
+    .reportIssue {
+        font-size: 12px;
+    }
+    
+    .toggle-tip {
+        width: unset;
+    }
+
+    .dialogueBox {
+        width: 37vw;
+    }
+
+    .leaveMessage {
+        padding-left: 8px;
+    }
+
+    .progamminglabThumbnail {
+        display: block;
+        position: absolute;
+        left: 25%;
+        transform: translate(50%);
+        color: var(--textIn-image-color);
+        font-size: 13px;
+        text-align: center;
+    }
+
+    .project1-content {
+        position: relative;
+        left: 300px;
+        transition: 0.5s ease-out;
+    }
+
+    .project1-content.hover {
+        position: relative;
+        left: 0px;
     }
 }

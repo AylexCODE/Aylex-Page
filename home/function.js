@@ -1,11 +1,12 @@
+//Dark and light mode toggle
 var toggle = document.querySelector(".navText");
 var storedTheme = localStorage.getItem('theme') || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
 if (storedTheme)
     document.documentElement.setAttribute('data-theme', storedTheme)
 
-toggle.onclick = function() {
-    var currentTheme = document.documentElement.getAttribute("data-theme");
-    var targetTheme = "light";
+    toggle.onclick = function() {
+        var currentTheme = document.documentElement.getAttribute("data-theme");
+        var targetTheme = "light";
 
 
     if (currentTheme === "light") {
@@ -16,6 +17,7 @@ toggle.onclick = function() {
     localStorage.setItem('theme', targetTheme);
 }
 
+//Drop down menu for mobile
 const mDropdownMenu = document.querySelector(".selectionBtn");
 const mSelection = document.querySelector(".dropdown-selection");
 const mActiveDetector = document.querySelector(".activeDetector");
@@ -63,6 +65,7 @@ const mContactsOpacity = document.querySelector(".mContactsAlign");
          : "fa-solid fa-bars"
     }
 
+//Drop drop for contacts mobile
 const mContacts = document.querySelector(".mContacts");
 const mContactsDropdown = document.querySelector(".mContacts-Dropdown");
 const mContactsBG = document.querySelector(".mContactsBG");
@@ -77,6 +80,7 @@ const mContactsBG = document.querySelector(".mContactsBG");
         mContactsBG.classList.toggle("active");
     }
     
+//Full year date counter
 const date = new Date(); 
 let day = date.getDate();
 let month = date.getMonth();
@@ -123,6 +127,7 @@ let year = date.getFullYear();
     
 document.getElementById("currentDate").innerHTML = month + " " + day + ", " + year ;
 
+//Typing animation //home
 const typedTextSpan = document.querySelector(".decent");
 const cursorSpan = document.querySelector(".cursor");
 const textArray = ["HTML.", "CSS.", "JS."];
@@ -161,7 +166,14 @@ let charIndex = 0;
 }
  
 document.addEventListener("DOMContentLoaded", function() {
-  if(textArray.length) setTimeout(type, newTextDelay + 250);
+    if(textArray.length) setTimeout(type, newTextDelay + 250);
 });
 
 homeType();
+
+const usernameHsss = document.querySelector(".discord-usernamesss a");
+const usernameGsss = document.querySelector(".google-usernamesss a");
+
+    usernameHsss.onclick = function() {
+        usernameHsss.classList.add("active");
+    }
