@@ -118,17 +118,17 @@ li {
 }
 
 .smooth-scroll {
-    overflow-y: scroll;
+/*    overflow-y: scroll; */
     overflow-x: hidden;
     height: 100vh;
-    scroll-snap-type: y mandatory; 
+ /*   scroll-snap-type: y mandatory; */
     scroll-behavior: smooth;
 }
-
+/*
 .smooth-scroll section {
     scroll-snap-align: end;
 }
-
+*/
 .whiteSpace {
     width: 100%;
     height: 1px;
@@ -1287,6 +1287,19 @@ li {
         grid-template-rows: 45% 45%;
     */
     }
+
+    .smooth-scroll {
+    overflow-y: scroll;
+    overflow-x: hidden;
+    height: 100vh;
+    scroll-snap-type: y mandatory;
+    scroll-behavior: smooth;
+    }
+
+    .smooth-scroll section {
+        scroll-snap-align: end;
+    }
+
 
     nav {
         height: 35px;
