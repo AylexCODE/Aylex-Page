@@ -57,8 +57,8 @@
                 <div class="mContactsBG">
                 </div>
             </nav>
-            <section>
-                <div id="home">
+            <section class=>
+                <div id="home" class="animate scrollUpBtnDisabled">
                     <div class="home-box">
                         <div class="picture-box">
                             <i class="fa-image fa-regular"></i>
@@ -86,8 +86,9 @@
                     </div>
                 </div>
             </section>
+            <div class="whiteSpace"></div>
             <section>
-                <div id="aboutMe">
+                <div id="aboutMe" class="animate">
                     <div class="aboutMe-box">
                         <div class="aboutMe-text">
                             <h2>About Me</h2>
@@ -107,8 +108,9 @@
                     </div>
                 </div>
             </section>
+            <div class="whiteSpace"></div>
             <section>
-                <div id="skills">
+                <div id="skills"  class="animate">
                     <div class="skills-box">
                         <div class="mySkillsAlign">
                             <h2>My skills</h2>
@@ -136,8 +138,9 @@
                     </div>
                 </div>
             </section>
-             <section>
-                <div id="projects">
+            <div class="whiteSpace"></div>
+            <section>
+                <div id="projects" class="animate">
                     <div class="project-box">
                         <h2>Projects</h2>
                         <div class="project-carousel">
@@ -166,9 +169,10 @@
                     </div>
                 </div>
             </section>
+            <div class="whiteSpace"></div>
             <section>
-                <div id="contacts">
-                    <h2>Contact Me</h2>
+                <div id="contacts"  class="animate dialogueShow">
+                    <h2 class="contactH2">Contact Me</h2>
                     <div class="contact-box">
                         <form action="" class="" id="contact">
                             <div class="contactHolder">
@@ -186,10 +190,11 @@
                     </div>
                 </div>
             </section>
+            <div class="whiteSpace"><h6 class="discord-showUsername">Discord username: aylexx</h6></div>
             <section>
                 <div class="socials" id="socialS">
                     <div class="socials-box">
-                        <h4>SOCIALS</h4>
+                        <h4>Aylex Page</h4>   
                         <div class="socials-logo">
                             <a href="https://www.facebook.com/AlexanderIngayJala?mibextid=ZbWKwL" target="_blank" draggable="false"><i class="fa-brands fa-facebook-f" id="facebook-s"></i></a>
                             <a href="https://twitter.com/_AlexanderMC_?t=H_wdeLhOTH23lzbUEJrkaw&s=09" target="_blank" draggable="false"><i class="fa-brands fa-twitter" id="twitter-s"></i></a>
@@ -206,8 +211,7 @@
             <div class="toggle-tip">
                 <p>Press my name on the nav bar to toggle between light and dark mode.</p>
             </div>
-            <button onclick="autoFocusFeed()">
-            <div class="recommendDialogue">
+            <button onclick="autoFocusFeed()" class="recommendDialogue">
                 <div class="dialogueBox">
                     <div class="leaveMessage">
                         <i class="fa-solid fa-comment"></i>
@@ -218,13 +222,15 @@
                         <p><strong>Report an issue</strong><br>Something is not working?<br>Let me know!</p>
                     </div>
                 </div>
-            </div>
             </button>
         </div>
     </body>
     <script src="./function.js"></script>
-    <script src="./cFunction.js"></script>
-    <script src="./sFunction.js"></script>
-    <script src="./feedFunction.js"></script>
+    <script src="./additional_features/cFunction.js"></script>
+<!--<script src="./additional_features/sFunction.js"></script>-->
+    <script src="./additional_features/sFunction-v2.js"></script>
+<!--<script src="./additional_features/feedFunction.js"></script>-->
+    <script src="./additional_features/feedFunction-v2.js"></script>
+    <script src="./additional_features/scrollFunction.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </html>

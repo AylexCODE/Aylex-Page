@@ -4,7 +4,7 @@
     padding: 0;
     font-family:'Poppins', 'Roboto', sans-serif;
     user-select: none;
-    transition: 1s ease-out;
+    transition: 1s;
 }
 
 :root {
@@ -82,7 +82,6 @@ html{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    scroll-behavior: smooth;
     font-size: 16px;
 }
 
@@ -94,7 +93,7 @@ nav {
     position: fixed;
     z-index: 10;
     box-shadow: 0 0 10px var(--shadow-color);
-    animation: slideIn .5s ease-in-out;
+    animation: slideIn 1s ease-in-out;
     transition: none;
 }
 
@@ -120,13 +119,20 @@ li {
 
 .smooth-scroll {
     overflow-y: scroll;
+    overflow-x: hidden;
     height: 100vh;
-    scroll-snap-type: y mandatory;
+    scroll-snap-type: y mandatory; 
     scroll-behavior: smooth;
 }
 
 .smooth-scroll section {
     scroll-snap-align: end;
+}
+
+.whiteSpace {
+    width: 100%;
+    height: 1px;
+    background-color: var(--bg-color);
 }
 
 .navbarM {
@@ -399,8 +405,9 @@ li {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100vh;
+    height: 100.1vh;
     background-color: var(--bg-color);
+    overflow: hidden;
 }
 
 .home-box {
@@ -484,8 +491,9 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    height: 100.1vh;
     width: 100%;
+    overflow: hidden;
     background-color: var(--bg-color-odd);
 }
 
@@ -494,6 +502,7 @@ li {
     justify-content: center;
     align-items: center;
     width: 100%;
+    overflow: hidden;
     background-color: var(--bg-color);
     height: 30vh;
 }
@@ -502,9 +511,10 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
     width: 100%;
     background-color: var(--bg-color-odd);
-    height: 100vh;
+    height: 100.1vh;
 }
 
 #contacts {
@@ -514,7 +524,7 @@ li {
     justify-content: center;
     width: 100%;
     background-color: var(--bg-color);
-    height: 100vh;
+    height: 100.1vh;
 }
 
 .aboutMe-box {
@@ -706,13 +716,13 @@ li {
 }
 
 .project1 {
-    width: 95%;
+    width: 90%;
     height: 99%;
     display: flex;
     justify-content: center;
     border-radius: 10px;
     align-items: center;
-    background-image: url("./img/Programming-lab.jpg");
+    background-image: url("./img/Programming-lab_blur.jpg");
     overflow: hidden;
     border: 1px solid var(--text-color);
     background-size: cover;
@@ -722,8 +732,8 @@ li {
 .project1-content {
     width: 100%;
     height: 100%;
+    position: relative;
     border-radius: 10px;
-    backdrop-filter: blur(5px);
 }
 
 .progamminglabThumbnail {
@@ -800,7 +810,7 @@ li {
 }
 
 .project2 {
-    width: 100%;
+    width: 90%;
     height: 100%;
     display: flex;
     justify-content: center;
@@ -923,16 +933,15 @@ li {
     display: flex;
     justify-content: center;
     align-items: center; 
-    border: 1px solid var(--socials-color);
     width: 10vw;
     height: 20px; 
+    background-color: transparent;
+    border: none;
 }
 
 #google-s:hover, #discord-s:hover, #twitter-s:hover, #github-s:hover, #facebook-s:hover {
     color: var(--textIn-image-color);
     filter: drop-shadow(0px 0px 5px rgb(146, 255, 255));
-    background-color: var(--socialsHoverBG-color);
-    border-color: var(--textIn-image-color);
 }
 
 .socials-box p {
@@ -946,17 +955,18 @@ li {
     align-items: center;
     justify-content: center;
     color: var(--bg-color);
-    position: absolute;
+    position: fixed;
     bottom: 5vh;
-    right: -5vw;
+    right: -8vw;
     background-color: var(--text-color);
     border-radius: 50%;
     width: 20px;
     height: 20px;
+    border: none;
 }
 
 .scroll-up.scrollable {
-    position: absolute;
+    position: fixed;
     right: 5vw;
 }
 
@@ -1033,6 +1043,66 @@ li {
     }
 }
 
+.animate .picture-box, .animate .mySkillsAlign, .animate .contactH2 {
+    opacity: 0;
+    filter: blur(2px);
+    transition: 1s;
+}
+
+.animated .picture-box, .animated .mySkillsAlign, .animated .contactH2 {
+    opacity: 1;
+    filter: blur(0px);
+    animation: animateFromTop 1s ease;
+}
+
+@keyframes animateFromTop {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+.animate .homeText, .animate .outGridContact, .animate .skills-list, .animate .skills-boxAAlign {
+    opacity: 0;
+    transition: 1s;
+}
+
+.animated .homeText, .animated .outGridContact, .animated .skills-list, .animated .skills-boxAAlign {
+    opacity: 1;
+    animation: animateFromBottom 1s ease;
+}
+
+@keyframes animateFromBottom {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(0%);
+    }
+}
+
+.animate .aboutMe-text, .animate #AylexPhoto-about, .animate .project-box {
+    opacity: 0;
+    transition: 1s;
+}
+
+.animated .aboutMe-text, .animated #AylexPhoto-about, .animated .project-box {
+    opacity: 1;
+    animation: animateFromRight 1s ease;
+}
+
+@keyframes animateFromRight {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+    
+}
+
 .toggle-tip {
     position: fixed;
     bottom: -100px;
@@ -1052,6 +1122,51 @@ li {
     background-color: var(--text-color);
     border: 1px solid var(--socials-color);
     border-radius: 10px;
+}
+
+.autoFocusBtn {
+    display: none;
+}
+
+.discord-showUsername {
+    color: var(--textIn-image-color);
+    position: relative;
+    background-color: var(--socialsBG-color);
+    width: 100%;
+    padding-block: 3px;
+    text-align: center;
+    text-decoration: underline;
+    bottom: 6px;
+    left: 100%;
+}
+
+.discord-showUsername.active {
+    animation: showDiscordAnim 10s ease;
+}
+
+@keyframes showDiscordAnim {
+   0% {
+       transform: translateX(0%);
+   }
+   10% {
+       transform: translateX(-100%);
+   }
+   75% {
+       transform: translateX(-100%);
+   }
+   100% {
+       transform: translateX(0%);
+   }
+}
+
+.google-usernamesss {
+    background-color: transparent;
+    border: none;
+}
+
+.discord-usernamesss {
+    background-color: transparent;
+    border: none;
 }
 
 @keyframes toggleDarkLightTip {
@@ -1128,6 +1243,7 @@ li {
 
 .recommendDialogue.feedback {
     animation: feedBack-up 15s ease-out;
+    animation-delay: 5s;
 }
 
 @keyframes feedBack-up {
@@ -1143,8 +1259,6 @@ li {
     100% {
         bottom: -100px;
     }
-
-    
 }
 
 /* for Tablets (Portrait/Landscape */
@@ -1253,7 +1367,8 @@ li {
         display: grid;
         grid-auto-flow: column;
         position: relative;
-        top: 10px;
+        top: 20px;
+        gap: 10px;
     }
 
     .picture-box {
@@ -1320,7 +1435,7 @@ li {
         height: 300px;
         width: 300px;
         position: absolute;
-        bottom: -7.5%;
+        bottom: 7%;
         left: 15%;
     }
     
@@ -1431,6 +1546,14 @@ li {
     .project1-content h3, .project1-content p, .project1-content h4{
         color: var(--textIn-image-color);
         padding-inline: 1vh;
+    }
+    
+    .project1 {
+      background-image: none;
+    }
+    
+    .project1 {
+      background-image: url("./img/Programming-lab.jpg");
     }
     
     .project1-content h3 {
@@ -1550,11 +1673,76 @@ li {
         position: relative;
         left: 300px;
         transition: 0.5s ease-out;
+        backdrop-filter: blur(5px);
     }
 
     .project1-content.hover {
         position: relative;
         left: 0px;
+    }
+
+    .animate .skills-boxAAlign, .animate .picture-box {
+        opacity: 0;
+        filter: blur(5px);
+        transition: 1s;
+    }
+    
+    .animated .skills-boxAAlign, .animated .picture-box {
+        opacity: 1;
+        filter: blur(0px);
+        animation: pcAnimateFromRight 1s ease;
+    }
+
+    @keyframes pcAnimateFromRight {
+        0% {
+            transform: translateX(100%);
+        }
+        100% {
+            transform: translateX(0%);
+        }
+    }
+
+    .animate .mySkillsAlign, .animate .homeText {
+        opacity: 0;
+        filter: blur(5px);
+        transition: 1s;
+    }
+    
+    .animated .mySkillsAlign, .animated .homeText {
+        opacity: 1;
+        filter: blur(0px);
+        animation: pcAnimateFromTop;
+    }
+
+    @keyframes pcAnimateFromTop {
+        0% {
+            transform: translateX(-100%);
+        }
+        100% {
+            transform: translateX(0%);
+        }
+        
+    }
+
+    .animate .aboutMe-text {
+        opacity: 0;
+        filter: blur(5px);
+        transition: 1s;
+    }
+    
+    .animated .aboutMe-text {
+        opacity: 1;
+        filter: blur(0px);
+        animation: pcAnimateFromBottom 1s ease;
+    }
+
+    @keyframes pcAnimateFromBottom {
+        0% {
+            transform: translateY(100%);
+        }
+        100% {
+            transform: translateY(0%);
+        }
     }
 
     .leaveMessage {
