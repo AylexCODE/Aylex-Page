@@ -9,8 +9,12 @@ const sendMessage = (e) => {
         message.textContent = "Message sent successfully.";
         
         setTimeout(() => {
-            message.textContent = " ";
+            message.textContent = "Thank you! & Take care. ❤️";
         }, 5000)
+
+        setTimeout(() => {
+            message.textContent = " ";
+        }, 7000)
         
         contactMe.reset ()
     }, () => {
