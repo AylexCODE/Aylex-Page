@@ -14,7 +14,7 @@ const sendMessage = (e) => {
 
         setTimeout(() => {
             message.textContent = " ";
-        }, 7000)
+        }, 7500)
         
         contactMe.reset ()
     }, () => {
