@@ -712,7 +712,7 @@ li {
 }
 
 .project1, .project2 {
-    scroll-snap-align: start;
+    scroll-snap-align: center;
 }
 
 .project1 {
