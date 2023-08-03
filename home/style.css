@@ -405,7 +405,7 @@ li {
     justify-content: center;
     align-items: center;
     width: 100%;
-    height: 100.1vh;
+    height: 730px;
     background-color: var(--bg-color);
     overflow: hidden;
 }
@@ -491,7 +491,7 @@ li {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100.1vh;
+    height: 730px;
     width: 100%;
     overflow: hidden;
     background-color: var(--bg-color-odd);
@@ -504,7 +504,7 @@ li {
     width: 100%;
     overflow: hidden;
     background-color: var(--bg-color);
-    height: 30vh;
+    height: 216px;
 }
 
 #projects {
@@ -514,7 +514,7 @@ li {
     overflow: hidden;
     width: 100%;
     background-color: var(--bg-color-odd);
-    height: 100.1vh;
+    height: 730px;
 }
 
 #contacts {
@@ -524,7 +524,7 @@ li {
     justify-content: center;
     width: 100%;
     background-color: var(--bg-color);
-    height: 100.1vh;
+    height: 730px;
 }
 
 .aboutMe-box {
@@ -898,7 +898,7 @@ li {
 
 .socials {
     width: 100%;
-    height: 10vh;
+    height: 72px;
     background-color: var(--socialsBG-color);
     display: flex;
     flex-direction: column;
@@ -1415,6 +1415,26 @@ li {
         display: none;
     }
 
+    #home {
+        height: 100.1vh;
+    }
+
+    #aboutMe {
+        height: 100.1vh;
+    }
+
+    #skills {
+        height: 30vh;
+    }
+
+    #projects {
+        height: 100.1vh;
+    }
+
+    #contacts {
+        height: 100.1vh;
+    }
+
     .home-box {
         display: grid;
         grid-auto-flow: column;
@@ -1725,6 +1745,10 @@ li {
 
     .leaveMessage {
         padding-left: 8px;
+    }
+
+    .socials {
+        height: 10vh;
     }
 
     .progamminglabThumbnail {
