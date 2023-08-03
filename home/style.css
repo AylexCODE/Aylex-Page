@@ -1261,6 +1261,46 @@ li {
     }
 }
 
+.optimizedNotify{
+    position: fixed;
+    right: -250px;
+    padding-inline: 5px;
+    top: 100px;
+    font-size: 10px;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    border: 1px solid var(--Aylex-text-color);
+    border-radius: 5px;
+    animation: optimizationNotify 10s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation-delay: 3s;
+}
+
+.optimizedNotify span {
+    opacity: 0.5;
+    font-size: 5px;
+}
+
+.optimizedNotify.hide {
+  transform: translateX(275px);
+}
+
+
+
+@keyframes optimizationNotify {
+    0% {
+        right: -250px;
+    }
+    10% {
+        right: 5px;
+    }
+    80% {
+        right: 5px;
+    }
+    100% {
+        right: -250px;
+    }
+}
+
 /* for Tablets (Portrait/Landscape */
 @media only screen and (min-width: 768px) {
     .recommendDialogue {
