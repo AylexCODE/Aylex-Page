@@ -15,3 +15,9 @@ showDialogue.observe(document.querySelector(".dialogueShow"));
 function autoFocusFeed() {
     document.getElementById("messageFeed").focus();
 }
+
+const hideNotify = document.querySelector(".optimizedNotify");
+
+    hideNotify.onclick = function() {
+        hideNotify.classList.add("hide");
+    }
