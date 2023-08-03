@@ -829,7 +829,7 @@ li {
     position: relative;
     bottom: 2%;
     width: 80%;
-    height: 70vh;
+    height: 504px;
 }
 
 #contact {
@@ -840,7 +840,7 @@ li {
 
 #contacts h2 {
     position: relative;
-    bottom: 4vh;
+    bottom: 28.8px;
     color: var(--text-color);
 }
 
@@ -848,7 +848,7 @@ li {
     display: flex;
     flex-direction: column;
     align-items: center;
-    row-gap: 1vh;
+    row-gap: 7.2px;
 }
 
 .contact-box .username, .gmail, .feedback-text {
@@ -864,18 +864,18 @@ li {
 
 .messageHolder {
     position: relative;
-    top: 1vh;
+    top: 7.2px;
 }
 
 .feedback-text {
-    height: 40vh;
+    height: 288px;
     font-weight: 300;
 }
 
 .messageHolder p {
     position: relative;
-    bottom: 1.2vh;
-    height: 3vh;
+    bottom: 8.64px;
+    height: 21.6px;
     font-size: 13px;
     min-height: 16px;
 }
@@ -889,7 +889,7 @@ li {
     color: var(--textIn-image-color);
     border: 1px solid var(--text-color);
     background-image: var(--submitBtn-color);
-    padding-block: 2vh;
+    padding-block: 14.4px;
 }
 
 .submitBtn:active {
@@ -1659,10 +1659,29 @@ li {
         width: 60vw;
         border-radius: 10px;
         min-height: 300px;
+        top: 2vh;
+        height: 70vh;
     }
 
     .contactHolder, .messageHolder {
         width: 60vw;
+        row-gap: 1vh;
+    }
+
+    .messageHolder {
+        top: 1vh;
+    }
+
+    .feedback-text {
+        height: 40vh;
+    }
+
+    .messageHolder p {
+        bottom: 1.2vh;
+    }
+
+    .submitBtn {
+        padding-block: 2vh;
     }
 
     .aboutMe-box a:hover{
@@ -1685,10 +1704,7 @@ li {
 
     #contacts h2 {
         top: 1vh;
-    }
-
-    .contact-box {
-        top: 2vh;
+        bottom: 4vh;
     }
 
     .leaveMessage {
