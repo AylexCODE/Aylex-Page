@@ -126,7 +126,7 @@ li {
 }
 
 .smooth-scroll section {
-    scroll-snap-align: end;
+    scroll-snap-align: center;
 }
 
 .whiteSpace {
