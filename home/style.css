@@ -1790,6 +1790,14 @@ li {
         height: 10vh;
     }
 
+    .discord-show {
+        bottom: 11vh;
+    }
+
+    .google-show {
+        bottom: 11vh;
+    }
+
     .progamminglabThumbnail {
         display: block;
         position: absolute;
