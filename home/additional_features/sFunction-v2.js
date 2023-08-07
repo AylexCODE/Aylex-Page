@@ -9,5 +9,24 @@ const observeScrollBtn = new IntersectionObserver(entries => {
       }};
     });
 
-
 observeScrollBtn.observe(document.querySelector(".scrollUpBtnDisabled"));
+
+const usernameHsss = document.getElementById("discord-show-toggle");
+const usernameGsss = document.getElementById("google-show-toggle");
+const discordShow = document.querySelector(".discord-show");
+const googleShow = document.querySelector(".google-show");
+
+    usernameHsss.onclick = function() {
+        discordShow.classList.add("active");
+        googleShow.classList.remove("active");
+        setTimeout(() => {
+            discordShow.classList.remove("active");
+        }, 12000)
+    }
+    usernameGsss.onclick = function() {
+        googleShow.classList.add("active");
+        discordShow.classList.remove("active");
+        setTimeout(() => {
+            googleShow.classList.remove("active");
+        }, 12000)
+    }
