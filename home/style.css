@@ -1281,10 +1281,8 @@ li {
 }
 
 .optimizedNotify.hide {
-  transform: translateX(275px);
+    transform: translateX(275px);
 }
-
-
 
 @keyframes optimizationNotify {
     0% {
@@ -1298,6 +1296,47 @@ li {
     }
     100% {
         right: -250px;
+    }
+}
+
+.discord-show {
+    position: relative;
+    bottom: 105px;
+    right: 230px;
+    height: 0px;
+    text-align: center;
+    background-color: var(--socialsBG-color);
+}
+
+.discord-show.active {
+    animation: show-DG 10s;
+}
+
+.google-show {
+    position: relative;
+    bottom: 105px;
+    right: 230px;
+    height: 0px;
+    text-align: center;
+    background-color: var(--socialsBG-color);
+}
+
+.google-show.active {
+    animation: show-DG 10s;
+}
+
+@keyframes show-DG {
+    0% {
+        transform: translateX(0px);
+    }
+    5% {
+        transform: translateX(230px);
+    }
+    95% {
+        transform: translateX(230px);
+    }
+    100% {
+        transform: translateX(460px);
     }
 }
 
