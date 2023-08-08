@@ -1302,7 +1302,7 @@ li {
 .discord-show {
     position: relative;
     bottom: 105px;
-    right: 230px;
+    right: 120vw;
     height: 0px;
     text-align: center;
     background-color: var(--socialsBG-color);
@@ -1315,7 +1315,7 @@ li {
 .google-show {
     position: relative;
     bottom: 105px;
-    right: 230px;
+    right: 120vw;
     height: 0px;
     text-align: center;
     background-color: var(--socialsBG-color);
@@ -1327,16 +1327,16 @@ li {
 
 @keyframes show-DG {
     0% {
-        transform: translateX(0px);
+        transform: translateX(0vw);
     }
     5% {
-        transform: translateX(230px);
+        transform: translateX(120vw);
     }
     95% {
-        transform: translateX(230px);
+        transform: translateX(120vw);
     }
     100% {
-        transform: translateX(460px);
+        transform: translateX(240vw);
     }
 }
 
