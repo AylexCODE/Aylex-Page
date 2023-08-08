@@ -30,3 +30,19 @@ const googleShow = document.querySelector(".google-show");
             googleShow.classList.remove("active");
         }, 12000)
     }
+
+    function showDiscord2(){
+        discordShow.classList.add("active");
+        googleShow.classList.remove("active");
+        setTimeout(() => {
+            googleShow.classList.remove("active");
+        }, 12000)
+    }    
+
+    function showGoogle2(){
+        googleShow.classList.add("active");
+        discordShow.classList.remove("active");
+        setTimeout(() => {
+            googleShow.classList.remove("active");
+        }, 12000)
+    }
