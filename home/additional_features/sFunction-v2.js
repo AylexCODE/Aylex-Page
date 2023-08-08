@@ -21,14 +21,14 @@ const googleShow = document.querySelector(".google-show");
         googleShow.classList.remove("active");
         setTimeout(() => {
             discordShow.classList.remove("active");
-        }, 12000)
+        }, 12000);
     }
     usernameGsss.onclick = function() {
         googleShow.classList.add("active");
         discordShow.classList.remove("active");
         setTimeout(() => {
             googleShow.classList.remove("active");
-        }, 12000)
+        }, 12000);
     }
 
     function showDiscord2(){
@@ -36,7 +36,7 @@ const googleShow = document.querySelector(".google-show");
         googleShow.classList.remove("active");
         setTimeout(() => {
             googleShow.classList.remove("active");
-        }, 12000)
+        }, 12000);
     }    
 
     function showGoogle2(){
@@ -44,5 +44,5 @@ const googleShow = document.querySelector(".google-show");
         discordShow.classList.remove("active");
         setTimeout(() => {
             googleShow.classList.remove("active");
-        }, 12000)
+        }, 12000);
     }
