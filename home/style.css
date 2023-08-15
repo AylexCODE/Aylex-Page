@@ -483,7 +483,7 @@ li {
 }
 
 .homeText a:hover {
-    color: var(---text-colo);
+    color: var(--text-color);
     background-color: var(--AylexBG);
 }
 
@@ -1043,13 +1043,13 @@ li {
     }
 }
 
-.animate .picture-box, .animate .mySkillsAlign, .animate .contactH2 {
+.animate .picture-box, .animate .mySkillsAlign, .animate .contactH2, .animate .myDiary {
     opacity: 0;
     filter: blur(2px);
     transition: 1s;
 }
 
-.animated .picture-box, .animated .mySkillsAlign, .animated .contactH2 {
+.animated .picture-box, .animated .mySkillsAlign, .animated .contactH2, .animated .myDiary {
     opacity: 1;
     filter: blur(0px);
     animation: animateFromTop 1s ease;
@@ -1083,12 +1083,12 @@ li {
     }
 }
 
-.animate .aboutMe-text, .animate #AylexPhoto-about, .animate .project-box {
+.animate .aboutMe-text, .animate #AylexPhoto-about, .animate .project-box, .animate .notALink {
     opacity: 0;
     transition: 1s;
 }
 
-.animated .aboutMe-text, .animated #AylexPhoto-about, .animated .project-box {
+.animated .aboutMe-text, .animated #AylexPhoto-about, .animated .project-box, .animated .notALink {
     opacity: 1;
     animation: animateFromRight 1s ease;
 }
@@ -1299,7 +1299,7 @@ li {
     }
 }
 
-.discord-show {
+.discordShowsss {
     position: relative;
     bottom: 105px;
     right: 120vw;
@@ -1308,11 +1308,11 @@ li {
     background-color: var(--socialsBG-color);
 }
 
-.discord-show.active {
+.discordShowsss.active {
     animation: show-DG 10s;
 }
 
-.google-show {
+.googleShowsss {
     position: relative;
     bottom: 105px;
     right: 120vw;
@@ -1321,7 +1321,7 @@ li {
     background-color: var(--socialsBG-color);
 }
 
-.google-show.active {
+.googleShowsss.active {
     animation: show-DG 10s;
 }
 
@@ -1338,6 +1338,98 @@ li {
     100% {
         transform: translateX(240vw);
     }
+}
+
+.myDiary {
+    position: relative;
+    font-size: 12px;
+    top: 70px;
+    background-color: transparent;
+    border: none;
+}
+
+.myDiary a {
+    background-image: var(--text-color);
+    text-transform: uppercase;
+}
+
+.myDiary a:hover {
+    font-size: 11.5px;
+    background-color: var(--Aylex-text-color);
+    color: var(--AylexBG);
+    border: color 1px solid var(--AylexBG);
+}
+
+.notALink {
+    position: relative;
+    font-size: 10px;
+    text-align: center;
+    border-top: 1px solid var(--text-color);
+    color: var(--text-color);
+    top: 75px;
+}
+
+.WeCovered {
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100vh;
+    width: 0;
+    background-color: var(--text-color);
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.WeCovered.open {
+    width: 100%;
+    z-index: 100;
+}
+
+.coverButtonExit {
+    color: var(--text-color);
+    position: sticky;
+    display: flex;
+    left: 90vw;
+    top: 45vh;
+    border: none;
+    font-size: 24px;
+    background-color: var(--socials-color);
+    z-index: 90;
+    border-radius: 15px;
+    padding: 5px;
+}
+
+.weCoveredContent {
+    position: relative;
+    top: -34px;
+}
+
+#dayCounter:nth-child(odd) {
+    background-color: var(--bg-color);
+    padding: 7.5px;
+    width: 100vw;
+    color: var(--text-color);
+    border-top: 1px solid var(--text-color);
+}
+
+#dayCounter:nth-child(even) {
+    background-color: var(--bg-color-odd);
+    padding: 7.5px;
+    width: 100vw;
+    color: var(--text-color);
+    border-top: 1px solid var(--text-color);
+}
+
+#dayCounter p {
+    font-size: 12px;
+    margin-left: 20px;
+    width: 85vw;
+    text-align: justify;
+}
+
+#dayCounter span {
+    opacity: 0.5;
+    font-size: 8px;
 }
 
 /* for Tablets (Portrait/Landscape */
@@ -1417,7 +1509,7 @@ li {
     .dropdown-selection {
         display: block;
         overflow: visible;
-        color: var(---text-color);
+        color: var(--text-color);
         width: unset;
 
     }

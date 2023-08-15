@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/bd790f12bd.js" crossorigin="anonymous"></script>
+        <link rel="icon" href="./img/logo.png" type="image/x-icon">        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&family=Open+Sans&family=Roboto&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+        <link rel="prefetch" href="https://ezstat.ru/ZmVu5">
+        <link rel="stylesheet" href="./style.css">
+        <title>Aylex-Personal-Website-v0.0.1-beta</title>
+    </head>
+    <body>
+        <div class="smooth-scroll">
+            <nav>
+                <div class="navAlignForPC">
+                <div class="navbarM">
+                    <div class="navText">
+                        <p>Aylex</p>
+                    </div>
+                    <div class="selectionBtn">
+                        <i class="fa-solid fa-bars"></i>
+                    </div>
+                </div>
+                <div class="activeDetector" id="activeDetector">
+                </div>
+                <div class="dropdown-selection">
+                    <div class="gradientLine-navbarM">
+                        <span></span>
+                    </div>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#aboutMe">About</a></li>
+                        <li><a href="#projects">Projects</a></li>
+                        <li><a href="#socialS" class="navForPC">Socials</a></li>
+                    </ul>
+                </div>
+                </div>
+                <div class="mContacts">
+                    <div class="mContactsAlign">
+                        <a href="#contacts">Contacts</a>
+                    </div>
+                </div>
+                <div class="mAlign">
+                    <div class="mContacts-Dropdown">
+                        <div class="mGradient">
+                            <ul>
+                                <li><a href="#socialS" class="google-username" id="google-show-toggle" draggable="false"><i class="fa-brands fa-google" id="google"></i></a></li>
+                                <li><a href="#socialS" class="discord-username" id="discord-show-toggle" draggable="false"><i class="fa-brands fa-discord" id="discord"></i></a></li>
+                                <li><a href="https://twitter.com/_AlexanderMC_?t=H_wdeLhOTH23lzbUEJrkaw&s=09" target="_blank" draggable="false"><i class="fa-brands fa-twitter" id="twitter"></i></a></li>
+                                <li><a href="https://github.com/AylexCODE" target="_blank"><i class="fa-brands fa-github" id="github" draggable="false"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="mContactsBG">
+                </div>
+            </nav>
+            <section class=>
+                <div id="home" class="animate scrollUpBtnDisabled">
+                    <div class="home-box">
+                        <div class="picture-box">
+                            <i class="fa-image fa-regular"></i>
+                            <div class="AylexPhoto">
+                            </div>
+                        </div>
+                        <div class="homeText">
+                            <h3>Hey there!</h3>
+                            <h2>I am Aylex</h2>
+                            <h3>Student</h3>
+                            <div class="AQuotes">
+                                <p>I code cause I'm bored.<br>&lt;&#47;&gt;</p>
+                                <p>There are limits to what a solo player can do.</p>
+                                <p>The way I care for people makes me wish I had somebody like me in my life.</p>
+                                <p>People get tired of me and leave, not knowing I was already tired but I stayed.</p>
+                                <p>I don't care if you are good or bad, if you respect me I'll respect you</p>
+                                <p>Scared of my anger. That's why I laught a lot and stay humble as possible.</p>
+                                <p>The reason why I keep my feelings to my self, is because I can't explain them.</p>
+                                <p>I'm here if you need moron support.<br>It's like moral support but I'am an idiot.</p>
+                                <p>I'm not stupid.<br>I'm just too lazy to show how smart I am.</p>
+                                <p>People treat me like god, they only come to me when they need something.</p>
+                            </div>
+                            <a href="#projects"  draggable="false">VIEW PROJECTS</a>  
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="whiteSpace"></div>
+            <section>
+                <div id="aboutMe" class="animate">
+                    <div class="aboutMe-box">
+                        <div class="aboutMe-text">
+                            <h2>About Me</h2>
+                            <p> Hello World! I'm Aylex, a college student at BISU Balilihan. I started coding in the year 2017 but had to stop due to limitations in accessing resources. However, I resumed coding in the year 2022, and up until now (<span id="currentDate"></span>), I can say I'm competent but never better at <span class="decent"></span><span class="cursor"></span></p>
+                            <p>I'm excited to make the leap and continue refining my skills in the world of programming.</span>
+                            <div class="gridLinks">
+                                <a href="#contacts" draggable="false">Contact Me</a>
+                                <a href="#projects" draggable="false" class="gridProject">See Projects</a>
+                            </div>
+                        </div>
+                        <div class="picture-box">
+                       <!-- <i class="fa-image fa-regular"></i> -->
+                            <div class="AylexPhoto" id="AylexPhoto-about">
+                            </div>
+                        </div>
+                        <a href="#contacts" draggable="false" class="outGridContact">Contact Me</a>
+                        <button onclick="showLearned()" class="myDiary">
+                            <a draggable="false">See what I learned</a>
+                        </button>
+                        <p class="notALink">I'll be taking notes from everything I learn as a freshman BSIT college student from day 1, stay tuned!</p>
+                    </div>
+                </div>
+            </section>
+            <div class="whiteSpace"></div>
+            <section>
+                <div id="skills"  class="animate">
+                    <div class="skills-box">
+                        <div class="mySkillsAlign">
+                            <h2>My skills</h2>
+                            <div class="skillsLogo">
+                                <i class="fa-brands fa-html5"></i>
+                                <i class="fa-brands fa-css3-alt"></i>
+                                <i class="fa-brands fa-js"></i>
+                                <i class="fa-brands fa-java"></i>
+                            </div>
+                        </div>
+                        <div class="skills-list">
+                            <div class="whatIKnow">
+                                <div class="alignHtext"><h4>Intermediate</h4></div>
+                                <div class="alignPtext"><p>HTML & CSS</p>
+                                <p>JavaScript</p></div>                      
+                            </div>
+                            <div class="IKnowABit">
+                                <div class="alignHtext"><h4>Currently Studying</h4></div>
+                                <div class="alignPtext"><p>Java</p></div>
+                            </div>
+                        </div>
+                        <div class="skills-boxAAlign">
+                            <a href="#projects" draggable="false">See Projects</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="whiteSpace"></div>
+            <section>
+                <div id="projects" class="animate">
+                    <div class="project-box">
+                        <h2>Projects</h2>
+                        <div class="project-carousel">
+                            <div class="project-width">
+                                <div class="project1">
+                                    <div class="project1-bg"></div>
+                                    <h3 class="progamminglabThumbnail">Programming Lab</h3>
+                                    <div class="project1-content">
+                                        <h3>Programming Lab</h3>
+                                        <p>An informative website that linked a lot of useful tools together in one place for easy access.</p>
+                                        <h4>Includes:</h4>
+                                        <div class="project1-logo"><i class="fa-solid fa-robot"></i> <i class="fa-solid fa-play"></i> <i class="fa-solid fa-wrench"></i>
+                                        </div>
+                                        <div class="project-aCenter"><a href="./home/progamming_lab/home" target="_blank" draggable="false">Website underdevelopment&nbsp;<i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project2">
+                                    <div class="project2-content">
+                                        <div class="project-aCenter"><a href="#" target="_blank" draggable="false">Thinking <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class="whiteSpace"></div>
+            <section>
+                <div id="contacts"  class="animate dialogueShow">
+                    <h2 class="contactH2">Contact Me</h2>
+                    <div class="contact-box">
+                        <form action="" class="" id="contact">
+                            <div class="contactHolder">
+                                <input name="user_name" type="text" required placeholder="Name" class="username">
+                                <input name="user_email" type="email" placeholder="Gmail (optional)" class="gmail">
+                            </div>
+                            <div class="messageHolder">
+                                <textarea name="user_project" required placeholder="Your Message" class="feedback-text" id="messageFeed"></textarea>
+                                <p id="message"> </p>
+                            </div>
+                            <button type="submit" class="submitBtn">
+                                Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </section>
+            <div class="whiteSpace"><h6 class="discord-showUsername">Discord username: aylexx</h6></div>
+            <section>
+                <div class="socials" id="socialS">
+                    <div class="socials-box">
+                        <h4>Aylex Page</h4>   
+                        <div class="socials-logo">
+                            <a href="https://www.facebook.com/AlexanderIngayJala?mibextid=ZbWKwL" target="_blank" draggable="false"><i class="fa-brands fa-facebook-f" id="facebook-s"></i></a>
+                            <a href="https://twitter.com/_AlexanderMC_?t=H_wdeLhOTH23lzbUEJrkaw&s=09" target="_blank" draggable="false"><i class="fa-brands fa-twitter" id="twitter-s"></i></a>
+                            <button onclick="showDiscord2()" class="google-usernamesss"><i class="fa-brands fa-google" id="google-s" draggable="false"></i></button>
+                            <button onclick="showGoogle2()" class="discord-usernamesss"><i class="fa-brands fa-discord" id="discord-s" draggable="false"></i></button>
+                            <a href="https://github.com/AylexCODE" target="_blank"><i class="fa-brands fa-github" id="github-s" draggable="false"></i></a>
+                        </div>
+                        <p><span>&#169;</span> 2023 Aylex. All Rights Reserved</p>
+                        <div class="discordShowsss">
+                            <p>DISCORD USERNAME<br><b><u>aylexx</b></u></p>
+                        </div>
+                        <div class="googleShowsss">
+                            <p>GOOGLE/GMAIL<br><b><u>aylexcode@gmail.com</b></u></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <a href="#home"><div class="scroll-up"><i class="fa-solid fa-caret-up"></i>
+            </div></a>
+            <div class="toggle-tip">
+                <p>Press my name on the nav bar to toggle between light and dark mode.</p>
+            </div>
+            <button onclick="autoFocusFeed()" class="recommendDialogue">
+                <div class="dialogueBox">
+                    <div class="leaveMessage">
+                        <i class="fa-solid fa-comment"></i>
+                        <p><strong>Leave a review</strong><br>Suggestions&#47comments?<br>You name it.</p>
+                    </div>
+                    <div class="reportIssue">
+                        <i class="fa-solid fa-bug"></i>
+                        <p><strong>Report an issue</strong><br>Something is not working?<br>Let me know!</p>
+                    </div>
+                </div>
+            </button>
+            <button class="optimizedNotify">
+                <p>This webpage is optimized for windows chrome.
+                <br>
+                <span>(click to dismiss)</span>
+                </p>
+            </button>
+            <div class="WeCovered">
+                <button onclick="showLearned()" class="coverButtonExit">
+                    <i class="fa-solid fa-angles-left"></i>
+                </button>
+                <div class="weCoveredContent">
+                    <div id="dayCounter" class="day1">
+                        <h3>Day 1</h3>
+                        <p>:&nbsp;<span>[ 1<sup>ST</sup> CLASS ]</span> (GE MMW) Self Introduction.</p>
+                    </div>
+                    <div id="dayCounter" class="day2">
+                        <h3>Day 2</h3>
+                        <p>:&nbsp;<span>[ 1<sup>ST</sup> CLASS ]</span> (GE US) Introduction to <i>UNDERSTANDING THE SELF</i> and its topics and coverage for the 1st year class.</p>
+                        <p>:&nbsp;<span>[ 1<sup>ST</sup> CLASS ]</span> (<b>CC 112</b>) Self Introduction.</p>
+                        <p>:&nbsp;<span>[ 1<sup>ST</sup> CLASS ]</span> (<b>CC 112</b>) Introduction to <i>FUNDAMENTALS OF PROGRAMMING</i> and a small glimpse of what programming languages we will be using this 1st year class.</p>
+                    </div>
+                        <div id="dayCounter" class="day3">
+                              <h3>Day 3</h3>
+                        </div>
+                        <div id="dayCounter" class="day4">
+                              <h3>Day 4</h3>
+                        </div>
+                        <div id="dayCounter" class="day5">
+                              <h3>Day 5</h3>
+                        </div>
+                        <div id="dayCounter" class="day6">
+                              <h3>Day 6</h3>
+                        </div>
+                        <div id="dayCounter" class="day7">
+                              <h3>Day 7</h3>
+                        </div>
+                        <div id="dayCounter" class="day8">
+                              <h3>Day 8</h3>
+                        </div>
+                        <div id="dayCounter" class="day9">
+                              <h3>Day 9</h3>
+                        </div>
+                        <div id="dayCounter" class="day10">
+                              <h3>Day 10</h3>
+                        </div>
+                        <div id="dayCounter" class="day11">
+                              <h3>Day 11</h3>
+                        </div>
+                        <div id="dayCounter" class="day12">
+                              <h3>Day 12</h3>
+                        </div>
+                        <div id="dayCounter" class="day13">
+                              <h3>Day 13</h3>
+                        </div>
+                        <div id="dayCounter" class="day14">
+                              <h3>Day 14</h3>
+                        </div>
+                        <div id="dayCounter" class="day15">
+                              <h3>Day 15</h3>
+                        </div>
+                        <div id="dayCounter" class="day16">
+                              <h3>Day 16</h3>
+                        </div>
+                        <div id="dayCounter" class="day17">
+                              <h3>Day 17</h3>
+                        </div>
+                        <div id="dayCounter" class="day18">
+                              <h3>Day 18</h3>
+                        </div>
+                        <div id="dayCounter" class="day19">
+                              <h3>Day 19</h3>
+                        </div>
+                        <div id="dayCounter" class="day20">
+                              <h3>Day 20</h3>
+                        </div>
+                        <div id="dayCounter" class="day21">
+                              <h3>Day 21</h3>
+                        </div>
+                        <div id="dayCounter" class="day22">
+                              <h3>Day 22</h3>
+                        </div>
+                        <div id="dayCounter" class="day23">
+                              <h3>Day 23</h3>
+                        </div>
+                        <div id="dayCounter" class="day24">
+                              <h3>Day 24</h3>
+                        </div>
+                        <div id="dayCounter" class="day25">
+                              <h3>Day 25</h3>
+                        </div>
+                        <div id="dayCounter" class="day26">
+                              <h3>Day 26</h3>
+                        </div>
+                        <div id="dayCounter" class="day27">
+                              <h3>Day 27</h3>
+                        </div>
+                        <div id="dayCounter" class="day28">
+                              <h3>Day 28</h3>
+                        </div>
+                        <div id="dayCounter" class="day29">
+                              <h3>Day 29</h3>
+                        </div>
+                        <div id="dayCounter" class="day30">
+                              <h3>Day 30</h3>
+                        </div>
+                </div>
+            </div>
+        </div>
+    </body>
+    <script src="./function.js"></script>
+    <script src="./additional_features/cFunction.js"></script>
+<!--<script src="./additional_features/sFunction.js"></script>-->
+    <script src="./additional_features/sFunction-v2.js"></script>
+<!--<script src="./additional_features/feedFunction.js"></script>-->
+    <script src="./additional_features/feedFunction-v2.js"></script>
+    <script src="./additional_features/scrollFunction.js"></script>
+    <script src="./additional_features/showSocials.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+</html>
