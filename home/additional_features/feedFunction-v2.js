@@ -21,3 +21,9 @@ const hideNotify = document.querySelector(".optimizedNotify");
     hideNotify.onclick = function() {
         hideNotify.classList.add("hide");
     }
+
+const WeCovered = document.querySelector(".WeCovered");
+
+    function showLearned() {
+        WeCovered.classList.toggle("open");
+    }
