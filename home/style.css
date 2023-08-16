@@ -28,6 +28,7 @@
     --submitFormBg-color: #131e3150;
     --socialsBG-color: #061228;
     --socials-color: #0088ff;
+    --JourneyBG-color: #fff;
 }
 
 html[data-theme='light'] {
@@ -51,6 +52,7 @@ html[data-theme='light'] {
     --submitFormBg-color: #131e3150;
     --socialsBG-color: #061228;
     --socials-color: #0077ff;
+    --JourneyBG-color: #fff;
 }
 
 html[data-theme='dark'] {
@@ -73,6 +75,7 @@ html[data-theme='dark'] {
     --submitBtn-color: linear-gradient(315deg, #4b6cb7 0%, #00757aff 74%);
     --submitFormBg-color: #ffffff10;
     --socials-color: #00ff88;
+    --JourneyBG-color: #000;
 }
     
 html{
@@ -535,7 +538,9 @@ li {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
+
 
 .aboutMe-text h2 {
     text-align: center;
@@ -628,6 +633,9 @@ li {
     height: 25vh;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    position: relative;
+    bottom: 5%;
 }
 
 .skills-box h2 {
@@ -968,6 +976,21 @@ li {
 .scroll-up.scrollable {
     position: fixed;
     right: 5vw;
+    border: 2px solid var(--socials-color);
+    animation: scrollUpAnim 0.5s 2 ease-out;
+    animation-delay: 1s;
+}
+
+@keyframes scrollUpAnim {
+    0% {
+        transform: translateY(0px);
+    }
+    40% {
+        transform: translateY(-2.5px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
 }
 
 .AQuotes {
@@ -1369,6 +1392,14 @@ li {
     top: 75px;
 }
 
+.myDiaryPC {
+    display: none;
+}
+
+.notALinkPC {
+    display: none;
+}
+
 .WeCovered {
     position: absolute;
     left: 0px;
@@ -1527,7 +1558,7 @@ li {
 
     .dropdown-selection a:hover {
         color: var(--socials-color);
-        transition: 0.5s;
+        transition: 0s;
     }
 
     .navForPC {
@@ -1622,6 +1653,9 @@ li {
         align-self: center;
         justify-content: center;
         text-align: left;
+        border-bottom: none;
+        position: relative;
+        top: 2vh;
     }
 
     .aboutMe-text p {
@@ -1668,6 +1702,9 @@ li {
         grid-auto-flow: column;
         grid-template-rows: 2;
         height: 75%;
+        justify-content: unset;
+        position: unset;
+        bottom: unset;
     }
 
     .skills-boxAAlign {
@@ -1708,18 +1745,22 @@ li {
 
     .skillsLogo i:hover:nth-child(1) {
         color: crimson;
+        transition: 0s;
     }
 
     .skillsLogo i:hover:nth-child(2) {
         color: mediumblue;
+        transition: 0s;
     }
 
     .skillsLogo i:hover:nth-child(3) {
         color: gold;
+        transition: 0s;
     }
 
     .skillsLogo i:hover:nth-child(4) {
         color: firebrick;
+        transition: 0s;
     }
 
     .skills-box a {
@@ -1761,8 +1802,10 @@ li {
     
     .project1-content h3 {
         font-size: 14px;
-        padding: 1vh;
         text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
     }
     
     .project1-content p {
@@ -1775,7 +1818,7 @@ li {
         position: relative;
         left: 3vw;
         font-size: 12px;
-    }    
+    }
 
     .project-aCenter a {
         position: relative;
@@ -1893,7 +1936,8 @@ li {
     .progamminglabThumbnail {
         display: block;
         position: absolute;
-        left: 25%;
+        left: 15.5%;
+        width: 20%;
         transform: translate(50%);
         color: var(--textIn-image-color);
         font-size: 13px;
@@ -1902,7 +1946,7 @@ li {
 
     .project1-content {
         position: relative;
-        left: 300px;
+        left: 25vw;
         transition: 0.5s ease-out;
         backdrop-filter: blur(5px);
     }
@@ -1998,5 +2042,76 @@ li {
 
     .socials-logo {
         gap: 0vw;
+    }
+    
+    .myDiary, .notALink {
+        display: none;
+    }
+
+    .myDiaryPC, .notALinkPC {
+        background-color: transparent;
+        border: none;
+        display: flex;
+        align-items: left;
+        position: relative;
+        top: 0.5vh;
+    }
+
+    .notALinkPC {
+        border-top: 1px solid var(--text-color);
+    }
+
+    .myDiaryPC {
+        position: relative;
+        top: 3vh;
+    }
+
+    .myDiaryPC a {
+        background-image: var(--imageButton-Gradient);
+        color: var(--textIn-image-color);
+        font-size: 12px;
+        text-transform: uppercase;
+    }
+
+    #dayCounter p {
+        width: 95vw;
+    }
+
+    .myDiaryPC a:hover {
+        background-color: var(--JourneyBG-color);
+        color: var(--text-color);
+        font-size: 12px;
+    }
+
+    .coverButtonExit {
+        position: relative;
+        left: 95vw;
+        border-radius: 50%;
+        border: 1px solid var(--text-color);
+    }
+
+    .coverButtonExit:hover {
+        transform: rotate(360deg);
+        background-color: var(--text-color);
+        color: var(--bg-color);
+        transition: ease-out 0.5s;
+        border: 1px solid var(--socials-color);
+    }
+
+    .project1-logo i{
+        position: relative;
+        bottom: 3px;
+        font-size: 13px;
+        padding: 6px;
+        color: var(--textIn-image-color);
+        opacity: 0.8;
+        left: 1vw;
+        z-index: 10;
+    }
+
+    .project1-logo i:hover {
+        color: var(--socials-color);
+        transform: rotate(20deg);
+        transition: 0.2s linear;
     }
 }
