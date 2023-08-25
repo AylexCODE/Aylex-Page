@@ -100,7 +100,7 @@
                                 <a href="#contacts" draggable="false">Contact Me</a>
                                 <a href="#projects" draggable="false" class="gridProject">See Projects</a>
                             </div>
-                            <button onclick="showLearned()" class="myDiaryPC">
+                            <button onclick="selectJourney()" class="myDiaryPC">
                                 <a draggable="false">My programming journey</a>
                             </button>
                             <p class="notALinkPC">I'll be taking notes from everything I learn as a freshman BSIT college student from day 1, stay tuned!</p>
@@ -111,7 +111,7 @@
                             </div>
                         </div>
                         <a href="#contacts" draggable="false" class="outGridContact">Contact Me</a>
-                        <button onclick="showLearned()" class="myDiary">
+                        <button onclick="selectJourney()" class="myDiary">
                             <a draggable="false">My programming journey</a>
                         </button>
                         <p class="notALink">I'll be taking notes from everything I learn as a freshman BSIT college student from day 1, stay tuned!</p>
@@ -224,9 +224,9 @@
             </section>
             <a href="#home"><div class="scroll-up"><i class="fa-solid fa-caret-up"></i>
             </div></a>
-            <div class="toggle-tip">
+            <button onclick="hideToggleTip()" class="toggle-tip">
                 <p>Press my name on the nav bar to toggle between light and dark mode.</p>
-            </div>
+            </button>
             <button onclick="autoFocusFeed()" class="recommendDialogue">
                 <div class="dialogueBox">
                     <div class="leaveMessage">
@@ -245,103 +245,314 @@
                 <span>(click to dismiss)</span>
                 </p>
             </button>
-            <div class="WeCovered">
-                <button onclick="showLearned()" class="coverButtonExit">
-                    <i class="fa-solid fa-angles-left"></i>
-                </button>
-                <div class="weCoveredContent">
-                    <div id="dayCounter" class="day1">
+            
+            <span class="smallLoadJ"></span>
+            <div class="SelectJourney">
+                <div class="SJourneyNav">
+                        <a href="#" draggable="false">
+                            Class Schedule
+                        </a>
+                        <button onclick="selectJourney()">Back</button>
+                    </div>
+                <div class="SJourneyContainer showJDisclaimer">
+                    <button onclick="showLearned1st()" class="yearContainer">
+                        <h3>1st Year</h3>
+                    </button>
+                    <button onclick="" class="yearContainer">
+                        <h3>2nd Year</h3>
+                    </button>
+                    <button onclick="" class="yearContainer">
+                        <h3>3rd Year</h3>
+                    </button>
+                    <button onclick="" class="yearContainer">
+                        <h3>4th Year</h3>
+                    </button>
+                </div>
+                <div class="SJourneyNav1 showJDisclaimer">
+                        <p>School</p>
+                        <a href="#" draggable="false"><i class="fa-brands fa-facebook-f"></i></a>
+                </div>
+                <div class="JourneyDisclaimer showJDisclaimer">
+                    <h5>Disclaimer</h5>
+                    <p>Copyright disclaimer under section 107 of the copyright act 1976, allowance is made for "fair use" for purposes such as criticism, comment, news reporting, teaching, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing. Non-profit, educational or personal use tips the balance in favor of fair use.</p>
+                    <br>
+                    <p>No copyright infringement intended.<br>This site contains materials and excerpts the use of which have not been authorized. They belong to the rightful owners. For demo purposes only.</p>
+                    <br>
+                    <h5>Limitation of Liability</h5>
+                    <p>The information contained on this website is for general purposes only. You should not rely upon the information on the website as basis for legal or any other decisions.
+                    <br><br>
+                    <h5></h5>
+                    <p>If you have any concerns regarding the materials I made downloadable, please do not hesitate to <a href="#contacts" class="disclaimerMessage disInquire"><u>message me</u><a/><span class="disInquire"> and I will take it down iimmediately.</span></p>
+                </div>
+            </div>
+            <div class="WeCovered1st">
+                <div class="cover1stNav">
+                    <ul class="subjectFilter1st">
+                          <li>
+                              <button onclick="CC111show()" class="CC111key active">CC 111</button>
+                          </li>
+                          <li>
+                              <button onclick="CC112show()" class="CC112key active">CC 112</button>
+                          </li>
+                          <li>
+                              <button onclick="GEMMWshow()" class="GEMMWkey">GE MMW</button>
+                          </li>
+                          <li>
+                              <button onclick="GEUSshow()" class="GEUSkey">GE US</button>
+                          </li>
+                          <li>
+                              <button onclick="GEPCshow()" class="GEPCkey">GE PC</button>
+                          </li>
+                          <li>
+                              <button onclick="PE1show()" class="PE1key">PE 1</button>
+                          </li>
+                    </ul>
+                        <button onclick="showLearned1st()" class="CoverButtonExit1">
+                        <i class="fa-solid fa-angles-left"></i>
+                    </button>
+                </div>
+                <div class="weCovered1stContent">
+                    <div class="dummyNav"></div>
+                    <div id="dayCounter" class="1stDay1">
                         <h3>Day 1</h3>
-                        <p>:&nbsp;<span>[ 1<sup>ST</sup> CLASS ]</span> (GE MMW) Self Introduction.</p>
+                        <div class="GEMMW">
+                            <p>:&nbsp;<span>[ 1<sup>st</sup> CLASS ]</span> (GE MMW) Self Introduction.</p>
+                        </div>
                     </div>
-                    <div id="dayCounter" class="day2">
+                    <div id="dayCounter" class="1stDay2">
                         <h3>Day 2</h3>
-                        <p>:&nbsp;<span>[ 1<sup>ST</sup> CLASS ]</span> (GE US) Introduction to <i>UNDERSTANDING THE SELF</i> and its topics and coverage for the 1st year class.</p>
-                        <p>:&nbsp;<span>[ 1<sup>ST</sup> CLASS ]</span> (<b>CC 112</b>) Self Introduction.</p>
-                        <p>:&nbsp;<span>[ 1<sup>ST</sup> CLASS ]</span> (<b>CC 112</b>) Introduction to <i>FUNDAMENTALS OF PROGRAMMING</i> and a small glimpse of what programming languages we will be using this 1st year class.</p>
+                        <div class="GEUS">
+                            <p>:&nbsp;<span>[ 1<sup>st</sup> CLASS ]</span> (GE US) Introduction to <i>UNDERSTANDING THE SELF</i> and its topics and coverage for the 1st year class.</p>
+                        </div>
+                        <div class="CC112 show"><p>:&nbsp;<span>[ 1<sup>st</sup> CLASS ]</span> (<b>CC 112</b>) Self Introduction.</p>
+                            <p>:&nbsp;<span>[ 1<sup>st</sup> CLASS ]</span> (<b>CC 112</b>) Introduction to <i>FUNDAMENTALS OF PROGRAMMING</i> and a small glimpse of what programming languages we will be using this 1st year class.</p>
+                        </div>
                     </div>
-                        <div id="dayCounter" class="day3">
-                              <h3>Day 3</h3>
+                    <div id="dayCounter" class="1stDay3">
+                        <h3>Day 3</h3>
+                        <div class="GEPC">
+                            <p>:&nbsp;<span>[ 1<sup>st</sup> CLASS ]</span> (GE PC) Introduction to <i>"PURPOSIVE COMMUNICATION"</i> and its lessons we'll be taking.</p></div>
+                            <div class="CC111 show"><p>:&nbsp;<span>[ 1<sup>st</sup> CLASS ]</span> (<b>CC 111</b>) <i>INTRODUCTION TO COMPUTING </i>and its coverage of what we will be doing for the 1st year class. And we will be learning about Data base, Algorithm, Binary, Control Structures and functions, Representing the data, and Computer networks such as the world wide web(www).</p>
                         </div>
-                        <div id="dayCounter" class="day4">
-                              <h3>Day 4</h3>
+                    </div>
+                    <div id="dayCounter" class="1stDay4">
+                        <h3>Day 4</h3>
+                        <div class="CC111 show">
+                            <p>:&nbsp;<span>[ 2<sup>nd</sup> CLASS ]</span> (<b>CC 111</b>) <span>I learned that</span><b> Computing</b> refers to the systematic and deliberate process of utilizing computers and computational methods to perform various tasks, solve problems, manipulate data, and automate processes.</p>
+                            <p>>&nbsp;<b>Abacus</b> - is the earliest known device for computing which were used for basic arithmetic calculations.</p>
+                            <p>>&nbsp;<b>Mechanical Calculators</b> - was invented by <u>Blaise Pascal</u> and <u>Gottfried Wilhelm Leibniz</u> in the <i>17th century</i>. These machines automated mathematical calculations and laid the groundwork for more complex devices.</p>
+                            <p>>&nbsp;<b>Analytical Engine</b> - was designed by <u>Charles Babbage</u> in the <i>1830s</i>, the Analytical Engine was an early mechanical computer concept. It featured an arithmetic logic unit, control flow, and memory, resembling key elements of modern computers.</p>
+                            <p>>&nbsp;The World's First Programmer - is <u>Ada Lovelace</u>, created the first algorithm designed to be processed by a machine. She worked with <u>Charles Babbage</u> on the <b>Analytical Engine</b>.</p>
+                            <p>>&nbsp;<b>Early Computing Machines</b> - are <b>ENIAC</b> (Electronic Numerical Integrated and Computer), and <b>MARK I</b>.</p>
+                            <p>>&nbsp;<b>The Word Wide Web (WWW)</b> - was invented by Tim Berners-Lee in 1990s.</p>
+                            <p>>&nbsp;<b>Cloud Computing and AI</b> <i>(2010)</i> - a computation na enables distant data storage and processing while more complex automation amd data analysis have been made possible by breakthroughs in artificial intelligence and machine learning.</p>
+                            <p>>&nbsp;<b>The "Father of Computer"</b> is <u>Charles Babbage</u>.</p>
+                            <p><a href="https://drive.google.com/u/2/uc?id=1L4G3RmJlkxb-HE43X9Uj8dziGY18RY7h&export=download" draggable="false" download>Download Full DOCUMENT&nbsp;<i class="fa-solid fa-file-pdf"></i></a></p>
                         </div>
-                        <div id="dayCounter" class="day5">
-                              <h3>Day 5</h3>
+                    </div>
+                    <div id="dayCounter" class="1stDay5">
+                        <h3>Day 5</h3>
+                        <div class="GEUS">
+                            <p>>&nbsp;<span>[ 2<sup>nd</sup> Class ]</span> (GE US) Lesson 1: The Self from Various Philosophical Perspectives. The history of philosophy is replete with men and women who inquired into the fundamental nature of the self. The Greeks were the ones who seriously questioned myths and moved away from them in attempting to understand reality and respond to perennial questions of curiosity, including the question of the self.</p>
+                            <p>>&nbsp;Socrates - praised as the greatest philosopher in the western civilization, stated that man is a being who thinks and wills. For Socrates the human person is composed of Body and Soul. This means that every human person is dualistic. The soul should be nurtured properly through its acquisition of knowledge, wisdom and virtue. For him, a man who converges the two into one is a wise man, a man of wisdom.</p>
+                            <p>>&nbsp;Plato - the nature of man is seen in the metaphysical dichotomy between body and soul. The body is material; it cannot live and move apart from the soul; it is mutable and destructible. On the contrary, the soul is immaterial; it can exist apart from the body; it is immutable and indestructible. In Plato's view, the soul has three parts: it has a rational part, an appetitive part, and a spiritual part. Because man is a soul using body, three parts of the soul each has its locus in the body. The rational part is in the head, specifically in the brain; the appetitive part, in the abdomen; and the spiritual part, in the chest.</p>
+                            <p>>&nbsp;St. Augustine - Following the olden view of Plato and infusing it with the new doctrine of Christianity, Augustine settled that man is of a bifurcated nature. The Body is bound to die on earth and the soul is to anticipate living in a realm of spiritual bliss in communion with God. The goal of every human person is to attain this communion and bliss with the Divine by living his life on earth in virtue.</p>
+                            <p>>&nbsp;St. Thomas Aquinas - the most eminent thirteenth century scholar and stalwart of the medieval philosophy. St. Thomas claims that man is considerably united body and soul. Man is point of convergence the corporeal and spiritual substances. In other words, man “is one substance body and soul”.  Aquinas said that indeed, man is composed of two parts: matter and form. Matter (body), or hyle in Greek, refers to the “common stuff that makes up all in the universe”. Man’s body is part of this matter. From on the other hand, or morphe (soul) in Greek refers to the essence of a substance or thing. To Aquinas, just as in Aristotle, the soul is what animates the body; it is what makes us humans.</p>
+                            <p>>&nbsp;Rene Descartes - Modern Philosophy would have been impossible without this French philosopher who was born in La Haye, Touraine, France in the year 1596. Descartes conceived of the human person as having a body and a mind.he claims that there is so much what we should doubt. In fact, he says that since much of what we think and believe are not infallible, they may turn out to be false. One should believe that since which can pass the test of doubt (Descartes 2008). If something is so clear and lucid as not to be even doubted, then that is the only time when one should buy a proposition. In the end, Descartes thought that the only thing that one cannot doubt is the existence of the self, a thing that thinks and therefore, that cannot be doubted. Thus, his famous, cogito ergo sum,” I think therefore I am”In the end, Descartes thought that the only thing that one cannot doubt is the existence of the self, a thing that thinks and therefore, that cannot be doubted. Thus, his famous, cogito ergo sum,” I think therefore I am”. Descartes calls thinking substance Res Cogitans and extended substance Res Extensa. In Descartes view, the body is nothing else but a machine that is attached to the mind.</p>
+                            <p><a href="https://drive.google.com/u/2/uc?id=10k_HoyIH1gPMmmvWs75v0Qf6qmaVX0sA&export=download">Download FUll Document&nbsp;<i class="fa-solid fa-file-word"></i></a></p>
                         </div>
-                        <div id="dayCounter" class="day6">
-                              <h3>Day 6</h3>
+                        <div class="subject-separator GEUS"></div>
+                        <div class="GEMMW">
+                            <p>:&nbsp;<span>[ 1<sup>st</sup> CLASS ]</span> (GE MMW) <b>Nature of Mathematics - Lesson 1: Patterns and Numbers in Nature and in the World</b></p>
+                            <p>>&nbsp;<b>Patterns in Nature</b> - are visible regular forms found in the natural world. These patterns include symmetries, trees, spirals, meanders, waves, foams, tessellation, cracks and stripes.</p>
+                            <p>>&nbsp;<b>Types of Pattern in Nature&nbsp;<</b></p>
+                            <p>>&nbsp;<b>Symmetry</b> - when different sides of something are alike.
+                            <br>-&nbsp;<b>Bilateral or Mirror Symmetry</b> - a symmetry that mirrors each side. Ex a Butterfly's wings.
+                            <br>-&nbsp;<b>Rotational symmetry or radial symmetry</b> - simply a circle pattern. Ex. a Flower, or a Water-drop falls into water and forms circle waves.
+                            <br>-&nbsp;<b>Fivefold symmetry</b> - something that have the same form/pattern on each of its 5 sides. Ex. a Starfish.
+                            <br>-&nbsp;<b>Six-fold symmetry</b> - something with the se pattern on each of its six sides. Ex. a Snowflake.</p>
+                            <p>>&nbsp;<b>Fractals</b> - are infinitely self-similar. Ex. branches of Trees, leaves, lightning and electricity.</p>
+                            <p>>&nbsp;<b>Spirals</b> - a curve which emanates/starts from a point, moving farther away as it revolves arount the point/start. Ex. the shell of a Snail.</p>
+                            <p>>&nbsp;<b>Tessellations</b> - patterns formed by repeating tiles all over a flat surface. Ex. Tiles, or even a Pineapple.</p>
+                            <p>>&nbsp;<b>Bubbles/Foams</b> - literary a Bubbles. Ex. Large amount of bubbles that forms a sphere then it becomes a pattern.</p>
+                            <p>>&nbsp;<b>Stripes</b> - literally stripes. Ex. found in Zebra's, Tropical fishes, and the pattern of colours on a Butterfly wings.</p>
+                            <p>>&nbsp;<b>Cracks</b> - literally cracks. this indicates whether the material is elastic or not (cracks = not elastic). Ex. Cracks on ground.</p>
+                            <p><a href="https://drive.google.com/uc?id=16tCCWaeQ1AEYdMEBHgxbTEB1ig-T5-T8&export=download">Download FUll Document&nbsp;<i class="fa-solid fa-file-pdf"></i></a></p>
                         </div>
-                        <div id="dayCounter" class="day7">
-                              <h3>Day 7</h3>
+                    </div>
+                    <div id="dayCounter" class="1stDay6">
+                        <h3>Day 6</h3>
+                        <div class="CC112 show">
+                            <p>:&nbsp;<span>[ 2<sup>nd</sup> CLASS ]</span> (<b>CC 112</b>) <b>Computer Fundamentals</b> - What is a computer?
+                            <p>>&nbsp;A computer is an automatic electronic apparatus for making calculations or controlling operations that are expressible in numerical or logical terms. It is a data processor. It can accept input, which may be either data or instructions or both. The computer remembers the input by storing it in memory cells. It then processes the stored input by performing calculations or by making logical comparisons or both. The computer accepts input and outputs data in an alphanumeric form. Internally it converts the input data to meaningful binary digits, performs the instructed operations on the binary data, and transforms the data from binary digit form to understandable alphanumeric form.</p>
+                            <p>-&nbsp;<b>Computing in the mechanical era</b> - The first mechanical calculating apparatus was the <b>abacus</b>, which was invented in <i>500 BC in Babylon</i>. It was used extensively without any improvement until1642 when Blaise Pascal designed a calculator that employed gears and wheels. But it was not until the early 1800s that a practical, geared, mechanical computing calculator became available.</p>
+                            <p>>&nbsp;In <i>1823</i>, <u>Charles Babbage</u>, aided by <u>Augusta Ada Byron</u>, the Countess of Lovelace, started an ambitious project. The Input to this mechanical machine, named the <b>Analytical Engine</b>, was given through punched cards and can store 1,000, 20 digits of decimal numbers. This machine that had more than 50,000 mechanical parts could not operate reliably because the parts could not be machined to precision.</p>
+                            <p>-&nbsp;<b>Computing in the electrical era</b> - A mechanical machine, driven by a single electric motor, was developed in <i>1889</i> by <u>Herman Hollerith</u> to count, sort, and collate data stored on punched cards.</p>
+                            <p>>&nbsp;In <i>1941</i>, <u>Konrad Zuse</u> developed the first electronic calculating computer, the <b>Z3</b>. It was used by the Germans in World War II.</p>
+                            <p>>&nbsp;<u>Alan Turing</u> is credited with developing the first electronic computer in 1943. This computer system, named the <b>Colossus</b>, a fixed-program computer and not programmable.</p>
+                            <p>>&nbsp;<u>J.W. Mauchly</u> and <u>S.P. Eckert</u> of the University of Pennsylvania completed the first general-purpose electronic digital computer in <i>1946</i>. Called the <b>ENIAC(Electronic Numerical Integrator and Calculator)</b>. It used 17,000 vacuum tubes, over 500 miles of wires, weighed 30 tons, and performed around 100,000 operations per second.</p>
+                            <p>>&nbsp;In the early <i>1950s</i>, Sperry-Rand Corporation launched the <b>Univac I</b>,<b> Univac II</b>, <b>Univac 1103 series</b> while IBM(International Business Machines) brought out <b>Mark I and 701 series</b>. All these machines used vacuum tubes.</p>
+                            <p>>&nbsp;The transistor was invented at <i>Bell Labs in 1948</i>. In <i>1958</i>, IBM, International Computers Limited (ICL), Digital Equipment Corporation (DEC), and others brought out general-purpose computers using transistors that were faster, smaller in size, weighed less, needed less power, and were more reliable.</p>
+                            <p>>&nbsp;In <i>1971, Intel Corporation</i> announced the development of the single-chip microprocessor 4004, a very large-scale integrated circuit.</p>
+                            <p>>&nbsp;In <i>1972</i>, the 8008 <b>8-bit microprocessor</b> was introduced, and the 8080 and MC 6800 appeared in 1973, which were improved 8-bit microprocessors.</p>
+                            <p>>&nbsp;Though desktop computers were available from <i>1975</i> onwards, none could gain as much popularity as the IBM PC.</p>
+                            <p>>&nbsp;The 80286 <b>16-bit microprocessor</b> came in <i>1983</i>.</p>
+                            <p>>&nbsp;The <b>32-bit microprocessor</b> 80386 arrived in <i>1986</i>.</p>
+                            <p>>&nbsp;Along with the development of computer hardware, <b>Programming languages</b> were devised and perfected. In the <i>1950s</i>, Assembly language was developed for univac computers. In <i>1957</i>, IBM developed fortran language. Then in the years that followed came programming languages such as algol, cobol, basic, pascal, c/c++, ada, and java.</p>
+                            <p>>&nbsp;A variety of operating systems are <b>unix</b> (gained popularity) for large and mini-computers, and <b>msdos</b> and <b>ms-windows</b> for personal computers. However, with the availability of <b>linux</b>, a trend to change over to this operating system is on.</p>
                         </div>
-                        <div id="dayCounter" class="day8">
+                        <div class="subject-separator CC112 show"></div>
+                        <div class="CC111 show">
+                            <p>:&nbsp;<span>[ 3<sup>rd</sup> CLASS ]</span> (<b>CC 111</b>) - Common types of computers and their primary uses:
+                            <p>>&nbsp;<b>Personal Computers(PCs)</b>
+                            <br>-&nbsp;Desktop Computers - A PC designed to fit on a desk. Commonly used for general computing task, such as web browsing, word processing, and multimedia activities.
+                            <br>-&nbsp;Laptop Computers - A PC with built-in display and input devices. Simply a PC that a user can carry around.</p>
+                            <p>>&nbsp;<b>Tablets and convertibles</b>
+                            <br>-&nbsp;Tablets - lightweight, have a touchscreen display, and primarily used for browsing, media consumption, and light productivity tasks.
+                            <br>-&nbsp;2-in-1 Convertibles - devices that can switch between a laptop and tablet mode, offering flexibility for both productivity and entertainment.</p>
+                            <p>>&nbsp;<b>Servers</b>
+                            <br>-&nbsp;File Servers - used to store and manage files in a networked environment.
+                            <br>-&nbsp;Web Servers - Host websites and web applications over the internet.
+                            <br>-&nbsp;Database Servers - stores and manage database, for users to access and update data simultaneously.</p>
+                            <p>>&nbsp;<b>Mainframe Computers</b> - Large, Powerful computers designed for handling vast amounts of data. Commonly for critical applications like financial transactions and data processing.</p>
+                            <p>>&nbsp;<b>Supercomputers</b> - Extremely powerful computers designed to perform complex calculations and simulations at high speeds. Commonly used for scientific research, weather forecasting, and other tasks that requires massive computational power.</p>
+                            <p>>&nbsp;<b>Embedded Systems</b> - Computers that are integrated into other devices and Systems, Like appliances, automobiles, and even in household items.</p>
+                            <p>>&nbsp;<b>Wearable Comouters</b>- Small devices worn on the body, such as smartwatches and fitness trackers.</p>
+                            <p>>&nbsp;<b>Gaming Consoles</b> - Specialized computers designed for playing video games. Provide advanced graphics and audio capabilities to enhance gaming experiences.</p>
+                            <p>>&nbsp;<b>Smartphones</b> - Mobile devices that combine communication, computing, and multimedia capabilities. Used for calls, messaging, internet browsing, apps, and more.</p>
+                            <p>>&nbsp;<b>IoT Devices (Internet of Things)</b> - Devices that can connect to the internet and can communicate with each other. Like Smart TV, home security system, etc.</p>
+                            <p>>&nbsp;<b>Quantum Computers</b> - Experimental computers that leverage quantom mechanics to perform certain calculations exponentially faster that classical computers.</p>
+                            <p>>&nbsp;<b>Computer Hardware</b> - Refers to the physical components of a computer.
+                            <br>-&nbsp;Central Processing Unit (CPU) - The "brain" of the computer that executes instructions and performs calculations. Interprets and processes data from the memory.
+                            <br>-&nbsp;Random Access Memory (RAM) - stores data and instructions temporarily while the computer is running. Allows quick access to the CPU.
+                            <br>-&nbsp;Storage Devices - stores data even when the computer is powered off(HDD & SDD). Used for long-term data storage.
+                            <br>-&nbsp;Motherboard - the main circuit board that connects various hardware components.
+                            <br>-&nbsp;Input/Output (I/O) Devices - used to input data into the computer (Keyboard, mouse) and output data (Monitor, printer).
+                            <br>-&nbsp;Power supply Unit (PSU) - supplies power to all components within the computer.
+                            <br>-&nbsp;Cooling Systems - prevents the computer from overheating, Like fans and heat sinks.</p>
+                            <p>>&nbsp;<b>Computer Software</b> - refers to the intangible instructions, programs, and data that computes the operation of the computer. Essential for enabling different tasks and applications to run on the computer.
+                            <br>-&nbsp;System Software - Operating System (OS) - Manages hardware resources and provides a user interfare. Like Windows, MacOS, and Linux.
+                            <br>-&nbsp;Device Drivers - A software that enables communication between the operating system and the hardware.</p>
+                            <p>>&nbsp;<b>Application Software</b> - exe applications like Word Processor (MS Word), Media Players, Web browsers, Graphics and design Software. This can be installed, updated, and uninstalled.</p>
+                            <p><a href="https://drive.google.com/u/2/uc?id=1L4G3RmJlkxb-HE43X9Uj8dziGY18RY7h&export=download" draggable="false" download>Download Full DOCUMENT&nbsp;<i class="fa-solid fa-file-pdf"></i></a></p>
+                        </div>
+                    </div>
+                    <div id="dayCounter" class="1stDay7">
+                        <h3>Day 7</h3>
+                        <div class="CC112 show">
+                            <p>:&nbsp;<span>[ 3<sup>rd</sup> CLASS ]</span> (<b>CC 112</b>) <b>Classifications of Computers</b>.
+                            <br>>&nbsp;<b>Supercomputer</b> - the most expensive and fastest type of computer that performs at or near the currently highest operational rate for computers.
+                            <br>>&nbsp;<b>Mainframe</b> - a mainframe computer supports a vast number of users to work simultaneously and remotely. The main difference between a supercomputer and a mainframe is that a supercomputer can execute a single program faster than a mainframe, whereas a mainframe uses its power to execute many programs concurrently.
+                            <br>>&nbsp;<b>Minicomputer</b> - a computer that is powerful enough to be used by multiple users (between 10 to 100) but is smaller in size and memory capacity and cheaper than mainframes.
+                            <br>>&nbsp;
+                        </div>
+                        <div class="GEMMW">
+                            <p>:&nbsp;<span>[ 2<sup>nd</sup> CLASS ]</span> (GE MMW) <b>Lesson 2: Fibonacci Sequence</b>
+                            <br>-&nbsp;Sequence is an ordered list of numbers, called <u>terms</u> that may have repeated values. The arrangement of these terms is set by a definite rule.</p>
+                            <p>>&nbsp;Example:<br>-&nbsp;1, 10, 100, 1000 and so on. The sequence is power by 10<sup>nth</sup>.
+                            <br>-&nbsp;2, 5,9,14, 20 and so on. The sequence is obtained by iterating 1 number everytime it adds. Like 2+3=5, then 5+4=9, then 9+5=14. Noticed that the 3 in "2+3" becomes 4 and then it becomes 5 next is 6.</p>
+                            <p>>&nbsp;The <b>Fibonacci Sequence</b> - is a series of numbers.
+                            <br>-&nbsp;0, 1, 1, 2, 3, 5, 8, 13, 21, 34,...
+                            <br>The next number is found by adding up the two numbers before it. Like 2+3=5, take 3 and 5, then add it.(Leave the number 2)</p>
+                            <p>>&nbsp;<b>Fibonacci is found in a spiral</b></p>
+                            <p>>&nbsp;<b>Rule in Fibonacci Sequence</b>
+                            <br>- First, the terms are numbered from 0 onwards like this:
+                            <br>
+                            <table>
+                                <tr><th>n =</th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>...</th></tr>
+                                <tr><th>X<sub>n</sub></th><th>0</th><th>1</th><th>1</th><th>2</th><th>3</th><th>5</th><th>8</th><th>13</th><th>21</th><th>...</th></tr>
+                            </table>
+                            <div class="nTerm">
+                                <table>
+                                    <span><tr><th><span>Term</span></th><th>0</th><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th><th>6</th><th>7</th><th>8</th><th>...</th></tr>
+                                </table>
+                            </div><p>
+                            <p>So term number 6 is called X<sub>6</sub> (which equals 8).
+                            <br>For Example: the 8<sup>th</sup> term is the 7<sup>th</sup> term plus the 6<sup>th</sup> term (X<sub>8</sub> = x<sub>7</sub> + X<sub>6</sub>)</p>
+                            <p>>&nbsp;<b>The rule is X<sub>n</sub> = X<sub>n-1</sub> + X<sub>n-2</sub></b>
+                            <br>>&nbsp;Where : <br>-&nbsp;X<sub>n</sub> is the term number "n"
+                            <br>-&nbsp;X<sub>n-1</sub> is the previous term (n-1)
+                            <br>-&nbsp;X<sub>n-2</sub> is the term before term n-1 (n-2)</p>
+                            <p>>&nbsp;<b>Example: term 9 is calculated like this:</b>
+                            <br>-&nbsp;X<sub>9</sub> = X<sub>9-1</sub> + X<sub>9-2</sub>
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= X<sub>8</sub> + X<sub>7</sub>
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 21 x 13
+                            <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;= 34</p>
+                            <p>>&nbsp;Here is an interesting pattern: <span>(See the table above for illustration)</span>
+                            <br>-&nbsp;Look at the number X<sub>3</sub> = 2 . Every 3<sup>rd</sup> number is a multiple of 2 (2, 8, 34, 144, 610, ...)<span>(n = 3, 6, 9, ...)</span>
+                            <br>-&nbsp;Look at the number X<sub>4</sub> = 3. Every 4<sup>th</sup> number is a multiple of 3 (3, 21, 144, ...)<span>(n = 4, 8, 12, ...)</span>
+                            <br>-&nbsp;Look at the number X<sub>5</sub> = 5. Every 5<sup>th</sup> number is a multiple of 5 (5, 55, 610, ...)<span>(n = 5, 10, 15, ...)</span>
+                            <br>And so on (every <sup>n</sup>th number is a multiple of ( X<sub>n</sub> ).
+                            <p><a href="https://drive.google.com/uc?id=16tCCWaeQ1AEYdMEBHgxbTEB1ig-T5-T8&export=download">Download FUll Document&nbsp;<i class="fa-solid fa-file-pdf"></i></a></p>
+                        </div>
+                    </div>
+                        <div id="dayCounter" class="1stDay8">
                               <h3>Day 8</h3>
                         </div>
-                        <div id="dayCounter" class="day9">
+                        <div id="dayCounter" class="1stDay9">
                               <h3>Day 9</h3>
                         </div>
-                        <div id="dayCounter" class="day10">
+                        <div id="dayCounter" class="1stDay10">
                               <h3>Day 10</h3>
                         </div>
-                        <div id="dayCounter" class="day11">
+                        <div id="dayCounter" class="1stDay11">
                               <h3>Day 11</h3>
                         </div>
-                        <div id="dayCounter" class="day12">
+                        <div id="dayCounter" class="1stDay12">
                               <h3>Day 12</h3>
                         </div>
-                        <div id="dayCounter" class="day13">
+                        <div id="dayCounter" class="1stDay13">
                               <h3>Day 13</h3>
                         </div>
-                        <div id="dayCounter" class="day14">
+                        <div id="dayCounter" class="1stDay14">
                               <h3>Day 14</h3>
                         </div>
-                        <div id="dayCounter" class="day15">
+                        <div id="dayCounter" class="1stDay15">
                               <h3>Day 15</h3>
                         </div>
-                        <div id="dayCounter" class="day16">
+                        <div id="dayCounter" class="1stDay16">
                               <h3>Day 16</h3>
                         </div>
-                        <div id="dayCounter" class="day17">
+                        <div id="dayCounter" class="1stDay17">
                               <h3>Day 17</h3>
                         </div>
-                        <div id="dayCounter" class="day18">
+                        <div id="dayCounter" class="1stDay18">
                               <h3>Day 18</h3>
                         </div>
-                        <div id="dayCounter" class="day19">
+                        <div id="dayCounter" class="1stDay19">
                               <h3>Day 19</h3>
                         </div>
-                        <div id="dayCounter" class="day20">
+                        <div id="dayCounter" class="1stDay20">
                               <h3>Day 20</h3>
                         </div>
-                        <div id="dayCounter" class="day21">
+                        <div id="dayCounter" class="1stDay21">
                               <h3>Day 21</h3>
                         </div>
-                        <div id="dayCounter" class="day22">
+                        <div id="dayCounter" class="1stDay22">
                               <h3>Day 22</h3>
                         </div>
-                        <div id="dayCounter" class="day23">
+                        <div id="dayCounter" class="1stDay23">
                               <h3>Day 23</h3>
                         </div>
-                        <div id="dayCounter" class="day24">
+                        <div id="dayCounter" class="1stDay24">
                               <h3>Day 24</h3>
                         </div>
-                        <div id="dayCounter" class="day25">
+                        <div id="dayCounter" class="1stDay25">
                               <h3>Day 25</h3>
                         </div>
-                        <div id="dayCounter" class="day26">
+                        <div id="dayCounter" class="1stDay26">
                               <h3>Day 26</h3>
                         </div>
-                        <div id="dayCounter" class="day27">
+                        <div id="dayCounter" class="1stDay27">
                               <h3>Day 27</h3>
                         </div>
-                        <div id="dayCounter" class="day28">
+                        <div id="dayCounter" class="1stDay28">
                               <h3>Day 28</h3>
                         </div>
-                        <div id="dayCounter" class="day29">
+                        <div id="dayCounter" class="1stDay29">
                               <h3>Day 29</h3>
                         </div>
-                        <div id="dayCounter" class="day30">
+                        <div id="dayCounter" class="1stDay30">
                               <h3>Day 30</h3>
                         </div>
                 </div>
@@ -356,5 +567,6 @@
     <script src="./additional_features/feedFunction-v2.js"></script>
     <script src="./additional_features/scrollFunction.js"></script>
     <script src="./additional_features/showSocials.js"></script>
+    <script src="./additional_features/subjectsFilter.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </html>

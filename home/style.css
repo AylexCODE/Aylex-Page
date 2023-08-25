@@ -29,6 +29,8 @@
     --socialsBG-color: #061228;
     --socials-color: #0088ff;
     --JourneyBG-color: #fff;
+    --selecting-JourneyBG-color: linear-gradient(315deg, #00757a 0%, #3eadcf 74%);
+    --SJouneyNav-Color: #13c365;
 }
 
 html[data-theme='light'] {
@@ -53,6 +55,8 @@ html[data-theme='light'] {
     --socialsBG-color: #061228;
     --socials-color: #0077ff;
     --JourneyBG-color: #fff;
+    --selecting-JourneyBG-color: linear-gradient(315deg, #00757a 0%, #3eadcf 74%);
+    --SJouneyNav-Color: #13c365;
 }
 
 html[data-theme='dark'] {
@@ -76,6 +80,11 @@ html[data-theme='dark'] {
     --submitFormBg-color: #ffffff10;
     --socials-color: #00ff88;
     --JourneyBG-color: #000;
+    --selecting-JourneyBG-color: linear-gradient(315deg, #030407 0%, #373a6c 74%);
+    --SJouneyNav-Color: #56527a;
+  /* --select-Journey-color-odd: #373a6c;
+    --select-Journey-color-even: #030407;
+  */
 }
     
 html{
@@ -1127,6 +1136,7 @@ li {
 }
 
 .toggle-tip {
+    background-color: transparent;
     position: fixed;
     bottom: -100px;
     color: var(--socials-color);
@@ -1135,6 +1145,7 @@ li {
     z-index: 50;
     width: 90vw;
     left: 50%;
+    border: none;
     transform: translateX(-50%);
     animation: toggleDarkLightTip 15s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     animation-delay: 30s;
@@ -1145,6 +1156,10 @@ li {
     background-color: var(--text-color);
     border: 1px solid var(--socials-color);
     border-radius: 10px;
+}
+
+.toggle-tip.hide {
+    transform: translate(-50%, 200%);
 }
 
 .autoFocusBtn {
@@ -1400,23 +1415,24 @@ li {
     display: none;
 }
 
-.WeCovered {
-    position: absolute;
+.WeCovered1st {
+    position: fixed;
     left: 0px;
     top: 0px;
     height: 100vh;
-    width: 0;
+    width: 0%;
     background-color: var(--text-color);
     overflow-y: scroll;
     overflow-x: hidden;
+    z-index: 100;
 }
 
-.WeCovered.open {
+.WeCovered1st.open {
     width: 100%;
     z-index: 100;
 }
 
-.coverButtonExit {
+.CoverButtonExit1 {
     color: var(--text-color);
     position: sticky;
     display: flex;
@@ -1426,13 +1442,19 @@ li {
     font-size: 24px;
     background-color: var(--socials-color);
     z-index: 90;
-    border-radius: 15px;
+    border-radius: 50%;
     padding: 5px;
+    border: 1px solid var(--text-color);
+    pointer-events: auto;
 }
 
-.weCoveredContent {
-    position: relative;
-    top: -34px;
+.CoverButtonExit1:hover {
+    transform: rotate(360deg);
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    transition: ease-out 0.5s;
+    border: 1px solid var(--socials-color);
+    pointer-events: auto;
 }
 
 #dayCounter:nth-child(odd) {
@@ -1456,11 +1478,356 @@ li {
     margin-left: 20px;
     width: 85vw;
     text-align: justify;
+    margin-block: 10px;
+}
+
+#dayCounter a {
+    border: 1px solid var(--text-color);
+    background-image: var(--imageButton-Gradient);
+    border-radius: 5px;
+    padding: 3px;
+    text-transform: uppercase;
+    color: var(--textIn-image-color);
+}
+
+#dayCounter a:active {
+    font-size: 11.5px;
+    transition: none;
+    color: var(--text-color);
+}
+
+#dayCounter a:hover {
+    background-image: none;
+    color: var(--text-color);
 }
 
 #dayCounter span {
     opacity: 0.5;
     font-size: 8px;
+}
+
+.smallLoadJ {
+    position: absolute;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--socials-color);
+    z-index: 50;
+    top: 115%;
+    right: 0px;
+}
+
+.smallLoadJ.load {
+    animation: smallLoad 1.2s ease-in-out;
+}
+
+@keyframes smallLoad {
+    0% {
+        transform: translateY(0%);
+    }
+    100% {
+        transform: translateY(-215%);
+    }
+}
+
+.SelectJourney::-webkit-scrollbar:horizontal {}
+
+.SelectJourney {
+    position: absolute;
+    top: 100%;
+    right: 0px;
+    width: 100%;
+    height: 100vh;
+    background-image: var(--selecting-JourneyBG-color);
+    z-index: 40;
+    transition: 1s ease-in-out;
+    pointer-events: auto;
+    overflow-y: scroll;
+}
+
+.SelectJourney.show {
+    top: 0%;
+    transition: 1s ease-in-out;
+}
+
+.SJourneyContainer {
+    width: 100%;
+    height: 89vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.SJourneyNav {
+    position: sticky;
+    top: 0px;
+    z-index: 50;
+    width: 100%;
+    background-color: var(--navBg-color);
+    backdrop-filter: blur(4px);
+    height: 40px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.SJourneyNav a {
+    font-size: 16px;
+    width: 50%;
+    height: 23px;
+    border-radius: 5px;
+    background-image: var(--AylexBG);
+    border: 1px solid var(--text-color);
+    text-align: center;
+}
+
+.SJourneyNav a:hover {
+    background-image: none;
+}
+
+.SJourneyNav button {
+    font-size: 16px;
+    color: white;
+    width: 40%;
+    height: 23px;
+    border-radius: 5px;
+    background-color: transparent;
+    border: 1px solid var(--text-color);
+    text-align: center;
+    transition: 0s;
+}
+
+.SJourneyNav button:active {
+    background-color: var(--text-color);
+    color: var(--bg-color);
+    border: 1px solid var(--bg-color);
+}
+
+.SJourneyNav1 {
+    position: relative;
+    top: 0px;
+    height: 40px;
+    width: 100%;
+    background-color: var(--navBg-color);
+    border-bottom: 1px solid var(--textIn-image-color);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    color: var(--text-color);
+}
+
+.SJourneyNav1 p {
+    font-size: 12px;
+}
+
+.SJourneyNav1 i {
+    position: relative;
+    bottom: 3px;
+    border: 1px solid var(--text-color);
+    border-radius: 5px;
+    width: 20px;
+    height: 20px;
+    background-color: navy;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.JourneyDisclaimer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--socialsBG-color);
+    color: var(--socials-color);
+    padding-bottom: 20px;
+    padding-top: 5px;
+}
+
+.JourneyDisclaimer h5{
+    border-bottom: 1px solid white;
+    width: 90%;
+    text-align: left;
+    text-transform: uppercase;
+}
+
+.JourneyDisclaimer p, .disInquire {
+    font-size: 12px;
+    width: 90%;
+    color: var(--socials-color);
+}
+
+.showJDisclaimer.animating {
+    animation: showJDisclaimer 2s;
+}
+
+@keyframes showJDisclaimer {
+    0% {
+        transform: translateY(-250px);
+    }
+    25% {
+        transform: translateY(-250px);
+    }
+    100% {
+        transform: translateY(0px);
+    }
+}
+
+.subjectFilter1st {
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    width: 100vw;
+    height: 40px;
+    top: 0px;
+    z-index: 50;
+    backdrop-filter: blur(5px);
+}
+
+.subjectFilter1st li {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    pointer-events: auto;
+    border-radius: 5px;
+}
+
+.subjectFilter1st button {
+    background-color: transparent;
+    font-weight: bold;
+    color: var(--text-color);
+}
+
+.dummyNav {
+    width: 100%;
+    height: 40px;
+    background-color: var(--bg-color-odd);
+}
+
+.yearContainer {
+    width: 95%;
+    height: 19vh;
+    background-color: #7567F850;
+    border: none;
+    border-radius: 15px;
+    margin-block: 1vh;
+    color: var(--textIn-image-color);
+}
+
+.yearContainer h3 {
+    position: relative;
+    text-align: left;
+    padding-inline: 15px;
+    top: 35%;
+}
+
+.cover1stNav {
+    position: fixed;
+    top: 0px;
+    left: 105%;
+    height: 100vh;
+    width: 100%;
+    z-index: 50;
+    pointer-events: none;
+}
+
+.cover1stNav.show {
+    left: 0%;
+}
+
+.subject-separator {
+    position: relative;
+    border-top: 1px solid var(--textIn-image-color);
+    width: 30%;
+    height: 1px;
+    left: 48%;
+    transform: translateX(-50%);
+}
+
+.GEMMWkey, .GEUSkey, .CC112key, .CC111key, .GEPCkey, .PE1key {
+    border: none;
+    border-radius: 5px;
+    padding-inline: 5px;
+    padding-block: 2.5px;
+    box-shadow: -1px -1px 4px rgba(255, 255, 255, 0.05), 4px 4px 6px rgba(0, 0, 0, 0.2), inset -1px -1px 4px rgba(255, 255, 255, 0.05), inset 1px 1px 1px rgba(0, 0, 0, 0.1);
+}
+
+.GEMMWkey.active, .GEUSkey.active, .CC112key.active, .CC111key.active, .GEPCkey.active, .PE1key.active {
+    text-shadow: 0 0 5px var(--socials-color), 0 0 10px var(--socials-color);
+    color: var(--socials-color);
+    background-color: rgba(255, 255, 255, 0.5);
+    transition: 0s;
+}
+
+.GEMMW th {
+    outline: 1px solid var(--text-color);
+    width: 8%;
+}
+
+.GEMMW .nTerm th {
+    width: 6.22vw;
+    outline: none;
+    opacity: 0.25;
+}
+
+.GEMMW table {
+    position: relative;
+    left: 48%;
+    transform: translateX(-50%);
+    font-size: 12px;
+}
+
+.GEMMW {
+    display: none;
+}
+
+.GEMMW.show {
+    display: block;
+}
+
+.GEUS {
+    display: none;
+}
+
+.GEUS.show {
+    display: block;
+}
+
+.CC112 {
+    display: none;
+}
+
+.CC112.show {
+    display: block;
+}
+
+.CC111 {
+    display: none;
+}
+
+.CC111.show {
+    display: block;
+}
+
+.GEPC {
+    display: none;
+}
+
+.GEPC.show {
+    display: block;
+}
+
+.PE1 {
+    display: none;
+}
+
+.PE1.show {
+    display: block;
 }
 
 /* for Tablets (Portrait/Landscape */
