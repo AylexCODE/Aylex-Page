@@ -22,8 +22,39 @@ const hideNotify = document.querySelector(".optimizedNotify");
         hideNotify.classList.add("hide");
     }
 
-const WeCovered = document.querySelector(".WeCovered");
-
-    function showLearned() {
+const WeCovered = document.querySelector(".WeCovered1st");
+const showJourneyOptions = document.querySelector(".SelectJourney");
+const smallLoadJourney = document.querySelector(".smallLoadJ");
+const nav1stYear = document.querySelector(".cover1stNav");
+const showJDisclaimer = document.querySelectorAll(".showJDisclaimer")
+    
+    function selectJourney() {
+        showJourneyOptions.classList.toggle("show");
+        smallLoadJourney.classList.toggle("load");
+        return JDisclaimer();
+    }
+    
+     function showLearned1st() {
         WeCovered.classList.toggle("open");
+        nav1stYear.classList.toggle("show");
+    }
+    
+    const JDisclaimer = () => {
+        showJDisclaimer.forEach( (wholeSelectJourney) => {
+            wholeSelectJourney.classList.toggle("animating");
+        })
+    }
+
+const disMessage = document.querySelector(".disclaimerMessage");
+
+    function closeAll() {
+       showJourneyOptions.classList.remove("show");
+    }
+
+disMessage.addEventListener("click", closeAll);
+
+const toggleTip = document.querySelector(".toggle-tip");
+
+    function hideToggleTip() {
+        toggleTip.classList.add("hide");
     }
