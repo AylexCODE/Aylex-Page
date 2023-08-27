@@ -95,6 +95,12 @@ html{
     -ms-user-select: none;
     user-select: none;
     font-size: 16px;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
 nav {
@@ -1506,6 +1512,10 @@ li {
     font-size: 8px;
 }
 
+.unknown-bug {
+    display: none;
+}
+
 .smallLoadJ {
     position: absolute;
     width: 100%;
@@ -1529,19 +1539,25 @@ li {
     }
 }
 
-.SelectJourney::-webkit-scrollbar:horizontal {}
+.SelectJourney::-webkit-scrollbar:horizontal {
+    display: block;
+}
 
 .SelectJourney {
     position: absolute;
-    top: 100%;
+    top: 125%;
     right: 0px;
     width: 100%;
-    height: 100vh;
+    height: 100%;
     background-image: var(--selecting-JourneyBG-color);
     z-index: 40;
     transition: 1s ease-in-out;
     pointer-events: auto;
     overflow-y: scroll;
+    overflow: hidden;
+    position: fixed;
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
 }
 
 .SelectJourney.show {
@@ -1551,12 +1567,14 @@ li {
 
 .SJourneyContainer {
     width: 100%;
-    height: 89vh;
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     position: relative;
+    justify-content: space-between;
+
 }
 
 .SJourneyNav {
@@ -1715,7 +1733,6 @@ li {
     background-color: #7567F850;
     border: none;
     border-radius: 15px;
-    margin-block: 1vh;
     color: var(--textIn-image-color);
 }
 
