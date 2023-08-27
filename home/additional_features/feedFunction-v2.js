@@ -48,7 +48,9 @@ const showJDisclaimer = document.querySelectorAll(".showJDisclaimer")
 const disMessage = document.querySelector(".disclaimerMessage");
 
     function closeAll() {
-       showJourneyOptions.classList.remove("show");
+        showJourneyOptions.classList.toggle("show");
+        smallLoadJourney.classList.toggle("load");
+        return JDisclaimer();
     }
 
 disMessage.addEventListener("click", closeAll);
