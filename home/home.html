@@ -213,6 +213,17 @@
                             <a href="https://github.com/AylexCODE" target="_blank"><i class="fa-brands fa-github" id="github-s" draggable="false"></i></a>
                         </div>
                         <p><span>&#169;</span> 2023 Aylex. All Rights Reserved</p>
+                        <br>
+                        <i class="fa-solid fa-eye"></i>
+                        <?php
+                            $count = ("./additional_features/visits.txt");
+                            $visit = file($count);
+                            $visit[0]++;
+                            $vcount = fopen($count , "w");
+                            fputs($vcount , "$visit[0]");
+                            fclose($vcount);
+                            echo "$visit[0]";
+                        ?>
                         <div class="discordShowsss">
                             <p>DISCORD USERNAME<br><b><u>aylexx</b></u></p>
                         </div>
