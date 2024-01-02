@@ -22,7 +22,7 @@ const hideNotify = document.querySelector(".optimizedNotify");
         hideNotify.classList.add("hide");
     }
 
-const WeCovered = document.querySelector(".WeCovered1st");
+/* const WeCovered = document.querySelector(".WeCovered1st");
 const showJourneyOptions = document.querySelector(".SelectJourney");
 const smallLoadJourney = document.querySelector(".smallLoadJ");
 const nav1stYear = document.querySelector(".cover1stNav");
@@ -53,7 +53,7 @@ const disMessage = document.querySelector(".disclaimerMessage");
         return JDisclaimer();
     }
 
-disMessage.addEventListener("click", closeAll);
+disMessage.addEventListener("click", closeAll); */
 
 const toggleTip = document.querySelector(".toggle-tip");
 
