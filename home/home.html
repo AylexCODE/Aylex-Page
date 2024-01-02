@@ -204,6 +204,7 @@
             <section>
                 <div class="socials" id="socialS">
                     <div class="socials-box">
+                        <iframe src="https://aylexcounter.000webhostapp.com/Vcounter/Vcounter1/Vcounter1.php" width="100px" height="25px"></iframe>
                         <h4>Aylex Page</h4>   
                         <div class="socials-logo">
                             <a href="https://www.facebook.com/AlexanderIngayJala?mibextid=ZbWKwL" target="_blank" draggable="false"><i class="fa-brands fa-facebook-f" id="facebook-s"></i></a>
@@ -213,17 +214,6 @@
                             <a href="https://github.com/AylexCODE" target="_blank"><i class="fa-brands fa-github" id="github-s" draggable="false"></i></a>
                         </div>
                         <p><span>&#169;</span> 2023 Aylex. All Rights Reserved</p>
-                        <br>
-                        <i class="fa-solid fa-eye"></i>
-                        <?php
-                            $count = ("./additional_features/visits.txt");
-                            $visit = file($count);
-                            $visit[0]++;
-                            $vcount = fopen($count , "w");
-                            fputs($vcount , "$visit[0]");
-                            fclose($vcount);
-                            echo "$visit[0]";
-                        ?>
                         <div class="discordShowsss">
                             <p>DISCORD USERNAME<br><b><u>aylexx</b></u></p>
                         </div>
@@ -257,6 +247,7 @@
                 </p>
             </button>
             
+    <!--
             <span class="smallLoadJ"></span>
             <div class="SelectJourney">
                 <div class="SJourneyNav">
@@ -585,6 +576,8 @@
                         </div>
                 </div>
             </div>
+            -->
+            
         </div>
     </body>
     <script src="./function.js"></script>
@@ -595,6 +588,6 @@
     <script src="./additional_features/feedFunction-v2.js"></script>
     <script src="./additional_features/scrollFunction.js"></script>
     <script src="./additional_features/showSocials.js"></script>
-    <script src="./additional_features/subjectsFilter.js"></script>
+<!--<script src="./additional_features/subjectsFilter.js"></script>-->
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </html>
