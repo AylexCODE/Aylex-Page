@@ -927,7 +927,7 @@ li {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    min-height: 141px;
+    min-height: 100px;
 }
 
 .socials h4 {
