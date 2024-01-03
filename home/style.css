@@ -978,7 +978,7 @@ li {
 .socials iframe {
   position: relative;
   top: 108px;
-  /*border: none;*/
+  border: none;
 }
 
 .scroll-up {
