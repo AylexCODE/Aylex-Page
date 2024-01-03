@@ -940,7 +940,7 @@ li {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    bottom: 50px;
+    bottom: 62px;
 }
 
 .socials-logo {
@@ -977,7 +977,7 @@ li {
 
 .socials iframe {
   position: relative;
-  top: 84px;
+  top: 108px;
   border: none;
 }
 
