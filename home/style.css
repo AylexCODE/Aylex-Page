@@ -976,9 +976,10 @@ li {
 }
 
 .socials iframe {
-  position: relative;
-  top: 108px;
-  border: none;
+    position: relative;
+    top: 108px;
+    border: none;
+    font-color: white;
 }
 
 .scroll-up {
