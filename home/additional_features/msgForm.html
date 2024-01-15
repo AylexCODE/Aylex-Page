@@ -11,61 +11,69 @@
         <link href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&family=Open+Sans&family=Roboto&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
         <link rel="prefetch" href="https://ezstat.ru/ZmVu5">
         <style>
+            body {
+                background-color: #192841;
+            }
             .contactHolder, .messageHolder {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    row-gap: 7.2px;
-}
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                row-gap: 7.2px;
+            }
+            .contact-box {
+                position: relative;
+                top: 5vh;
+            }
+            .contact-box .username, .gmail, .feedback-text {
+                width: 90%;
+                background-color: #ffffff10;
+                border: none;
+                border-radius: 5px;
+                padding: 5px;
+                outline: none;
+                color: #fff;
+                font-weight: bold;
+            }
 
-.contact-box .username, .gmail, .feedback-text {
-    width: 95%;
-    background-color: var(--submitFormBg-color);
-    border: none;
-    border-radius: 5px;
-    padding: 5px;
-    outline: none;
-    color: var(--text-color);
-    font-weight: bold;
-}
+            .messageHolder {
+                position: relative;
+                top: 7.2px;
+            }
 
-.messageHolder {
-    position: relative;
-    top: 7.2px;
-}
+            .feedback-text {
+                height: 288px;
+                font-weight: 300;
+            }
 
-.feedback-text {
-    height: 288px;
-    font-weight: 300;
-}
+            .messageHolder p {
+                position: relative;
+                bottom: 8.64px;
+                height: 21.6px;
+                font-size: 13px;
+                min-height: 16px;
+                color: #fff;
+            }
 
-.messageHolder p {
-    position: relative;
-    bottom: 8.64px;
-    height: 21.6px;
-    font-size: 13px;
-    min-height: 16px;
-}
+            .submitBtn {
+                position: relative;
+                left: 50%;
+                transform: translate(-50%, -40%);
+                width: 25vw;
+                border-radius: 10px;
+                color: #fefffe;
+                border: 1px solid #fff;
+                background-image: linear-gradient(315deg, #4969ff 0%, #099999 74%);
+                padding-block: 14.4px;
+            }
 
-.submitBtn {
-    position: relative;
-    left: 50%;
-    transform: translate(-50%, 0%);
-    width:140px;
-    border-radius: 10px;
-    color: var(--textIn-image-color);
-    border: 1px solid var(--text-color);
-    background-image: var(--submitBtn-color);
-    padding-block: 14.4px;
-}
-
-.submitBtn:active {
-    top: 2px;
-}
+            .submitBtn:active {
+                top: 2px;
+            }
         </style>
         <title>Aylex-Personal-Website-v0.0.1-beta</title>
     </head>
     <body>
+        <div class="contact-box">
         <form action="" class="" id="contact">
             <div class="contactHolder">
                 <input name="user_name" type="text" required placeholder="Name" class="username">
@@ -77,6 +85,7 @@
              </div>
              <button type="submit" class="submitBtn">Send Message</button>
         </form>
+        </div>
     </body>
     <script src="./cFunction.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
