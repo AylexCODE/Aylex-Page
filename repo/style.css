@@ -15,3 +15,31 @@ html{
     scroll-behavior: smooth;
     font-size: 16px;
 }
+
+div{
+    display: flex;
+    margin: 10px;
+}
+
+span{
+    border: 1px solid black;
+    display: flex;
+    padding: 5px;
+}
+
+p{
+    margin-right: 5px;
+}
+
+a{
+    background-color: #123456;
+    padding-inline: 5px;
+    padding-block: 2.5px;
+    text-decoration: none;
+    color: white;
+    border-radius: 5px;
+}
+
+a:hover{
+    background-color: #006b00;
+}
