@@ -43,3 +43,25 @@ a{
 a:hover{
     background-color: #006b00;
 }
+
+table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    font-size: 2px;
+    white-space: nowrap;
+}
+
+.sql_practice {
+    display: flex;
+    flex-direction: column;
+}
+
+.sql_practice > span {
+    display: flex;
+    flex-direction: column;
+    overflow-x: scroll;
+}
+
+.sql_practice > span > button {
+    margin-top: 5px;
+}
