@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script src="https://kit.fontawesome.com/bd790f12bd.js" crossorigin="anonymous"></script>
+        <link rel="icon" href="./img/logo.png" type="image/x-icon">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Lato&family=Montserrat&family=Open+Sans&family=Roboto&family=Poppins:wght@400;500;600&display=swap">
+        <link rel="stylesheet" href="./style.css">
+        <link rel="stylesheet" href="./css/particles.css">
+        <title>Aylex-Personal-Website-v0.0.2</title>
+    </head>
+    <body>
+        <section>
+            <span class="loading">
+                <span class="box">
+                    <span class="line">
+                        <span class="line"></span>
+                    </span>
+                </span>
+                <span class="box">
+                    <span class="line">
+                        <span class="line"></span>
+                    </span>
+                </span>
+            </span>
+            <span class="box">
+                <span class="line"></span>
+                <span class="line"></span>
+            </span>
+        </section>
+        <noscript>
+            <div style="position: absolute; top: 0px; left: 0px; background-color: #FFF; height: 100dvh; width: 100dvw; display: flex; flex-direction: column; justify-content: center; align-items: center; cursor: default;">
+                <p>JavaScript is disabled from Your browser!</p>
+            </div>
+        </noscript>
+        <!-- ---------------- -->
+        <header>
+            <p>Aylex</p>
+            <div class="info_icon" onclick="show_info_buttons()">
+                <i class="fa-solid fa-bars"></i>
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <nav onclick="show_info_buttons()">
+                <span class="gradient-line">
+                    <span></span>
+                </span>
+                <ul>
+                    <li><a href="#home" draggable="false" name="page-selector" onclick="setWindow(0, 'down', 'all')">Home</a></li>
+                    <li><a href="#aboutMe" draggable="false" name="page-selector" onclick="setWindow(1, 'down', 'all')">About</a></li>
+                    <li><a href="#portfolio" draggable="false" name="page-selector" onclick="setWindow(2, 'down', 'all')">Portfolio</a></li>
+                    <li><a href="#socials" draggable="false" name="page-selector" onclick="setWindow(3, 'down', 'all')">Socials</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div class="close-info-ontouch" onclick="show_info_buttons()"></div>
+        <section>
+            <main id="home">
+                <div class="main-bg"></div>
+                <p style="position: absolute; top: 50px; left: 100px; z-index: 10; color: red;" name="page-selector" id="ff">hey</p>
+            </main>
+            <article id="particles-jss">
+                <span class="nav-offset"></span>
+                <!-- <canvas id="particles-js"></canvas> -->
+                <h2>About Me</h2>
+                
+            </article>
+            <article>
+                <span class="nav-offset"></span>
+                <h2>Portfolio</h2>
+                <div class="portfolio-nav">
+                    <button onclick="portfolio_navigator(0);" class="enabled"><span><i class="fa-solid fa-code"></i> Projects </span></button>
+                    <button onclick="portfolio_navigator(1);" class="disabled"><span><i class="fa-solid fa-circle-nodes"></i> Techies </span></button>
+                </div>
+                <div class="portfolio-wrapper">
+                    <!-- PROJECTS -->
+                    <div name="project">
+                      <p>1</p>
+                    </div>
+                    <div name="project">
+                      <p>2</p>
+                    </div>
+                    <div name="project">
+                      <p>3</p>
+                    </div>
+                    <div name="project">
+                      <p>4</p>
+                    </div>
+                    <div name="project">
+                      <p>5</p>
+                    </div>
+                    <!-- KNOWN PROGRAMMING LANGUAGE -->
+                    <div name="lang">
+                      <p>Lang 1</p>
+                    </div>
+                    <div name="lang">
+                      <p>Lang 2</p>
+                    </div>
+                </div>
+            </article>
+            <article>
+                <span class="nav-offset"></span>
+                <h2>Contact Me</h2>
+                <p>Got a question? Send me a message, and I'll get back to you ASAP.</p>
+                <div class="contact-wrapper">
+                    <div class="message-wrapper">
+                        <div class="sendMessage">
+                            <p><i class="fa-solid fa-pen-nib"></i>&nbsp;Compose message</p>
+                            <span class="line-break"></span>
+                            <form>
+                                <label for="name">Name <span class="required">*</span></label>
+                                <input type="text" id="name" placeholder="e.g Lex" spellcheck="false" required>
+                                <label for="email">Gmail <sup class="optional">( optional )</sup></label>
+                                <input type="email" id="email">
+                                <label for="messgae">Message <span class="required" required>*</span></label>
+                                <textarea id="message" placeholder="Write your message here..."></textarea>
+                                <button type="submit"><i class="fa-solid fa-paper-plane"></i>&nbsp;Send Message</button>
+                            </form>
+                        </div>
+                    </div>
+                    <span class="line-break"></span>
+                    <div class="socials">
+                        
+                    </div>
+                </div>
+            </article>
+        </section>
+        
+        <!-- https://michalsnik.github.io/aos/ -->
+        <!-- https://www.youtube.com/watch?v=UmzFk68Bwdk -->
+        <!-- https://gsap.com/docs/v3/ -->
+        <!-- ---------------- -->
+        <span class="mouse">
+            <span class="mouse_status">
+                <i class="fa-solid fa-sort mouse-icon"></i>
+                <i class="fa-solid fa-info mouse-icon"></i>
+                <i class="fa-solid fa-a mouse-icon" style="color: #123456; transform: rotate(0deg);"></i>
+            </span>
+        </span>
+        <!-- ----------------- -->
+    </body>
+    <script src="./function.js"></script>
+    <script src="./js/design_lock.js"></script>
+    <script src="./additional_features/mouse_effect.js"></script>
+    <!-- ---------------- -->
+    <script src="./js/animation.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Observer.min.js"></script>
+</html>
