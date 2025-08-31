@@ -1151,6 +1151,18 @@
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
+  .\[\&\>li\>\.title\]\:font-bold {
+    &>li>.title {
+      --tw-font-weight: var(--font-weight-bold);
+      font-weight: var(--font-weight-bold);
+    }
+  }
+  .\[\&\>li\>\.title\]\:font-medium {
+    &>li>.title {
+      --tw-font-weight: var(--font-weight-medium);
+      font-weight: var(--font-weight-medium);
+    }
+  }
   .\[\&\>li\>a\]\:flex {
     &>li>a {
       display: flex;
@@ -1212,6 +1224,16 @@
       width: 100%;
     }
   }
+  .\[\&\>li\>img\]\:aspect-\[1\.4\/1\] {
+    &>li>img {
+      aspect-ratio: 1.4/1;
+    }
+  }
+  .\[\&\>li\>img\]\:w-full {
+    &>li>img {
+      width: 100%;
+    }
+  }
   .\[\&\>li\>span\]\:block {
     &>li>span {
       display: block;
@@ -1220,6 +1242,11 @@
   .\[\&\>li\>span\]\:p-\[0\.5rem\] {
     &>li>span {
       padding: 0.5rem;
+    }
+  }
+  .\[\&\>li\>span\]\:opacity-60 {
+    &>li>span {
+      opacity: 60%;
     }
   }
   .\[\&\>li\>span\>p\]\:first\:font-medium {
