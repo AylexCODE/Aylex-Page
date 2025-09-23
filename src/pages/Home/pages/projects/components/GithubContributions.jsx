@@ -5,7 +5,6 @@ export default function GithubContributions(){
     const [data, setData] = useState();
     const [contributions, setContributions] = useState();
     const [activeYear, setActiveYear] = useState(0);
-    const [statistics, setStatistics] = useState();
     
     useEffect(() => {
         (async function(){
@@ -59,95 +58,30 @@ export default function GithubContributions(){
             data = data.data['y'+index];
         }
         
-        let currentMonth = null, currentWeek = 0, monthForLatest = 0, totalContribution = 0, firstMonth, streak = 0, longestStreak = 0, firstLongestStreak, lastLongestStreak, firstStreak, lastStreak, resetStreak = true, resetLongestStreak = true;
-        const months = [], possibleFirstLongestStreak = [];
+        let currentMonth = null, currentWeek = 0, monthForLatest = 0, firstMonth;
+        const months = [];
 
-        if(index === "Last Year"){
-            for(const day of data){
-                const monthInData = parseInt(day.date.split("-")[1]);
-                totalContribution += day.contributionCount; if(!firstMonth) firstMonth = day.date;
+        for(const day of data){
+            const monthInData = parseInt(day.date.split("-")[1]);
+            if(!firstMonth) firstMonth = day.date;
                 
-                if((currentMonth === monthInData || day.weekday !== 0) && currentMonth){
-                    if(day.weekday === 0){
-                        months[monthForLatest][++currentWeek] = [day];
-                    }else{
-                        months[monthForLatest][currentWeek].push(day);
-                    }
+            if((currentMonth === monthInData || day.weekday !== 0) && currentMonth){
+                if(day.weekday === 0){
+                    months[monthForLatest][++currentWeek] = [day];
                 }else{
-                    currentMonth = monthInData; monthForLatest++;
-                    currentWeek = 0;
-                    months[monthForLatest] = [];
-                    months[monthForLatest][currentWeek] = [day];
+                    months[monthForLatest][currentWeek].push(day);
                 }
-                
-                if(day.contributionCount !== 0){
-                    streak++;
-                    lastStreak = day.date;
-                    if(resetStreak){
-                        firstStreak = day.date;
-                        resetStreak = false;
-                        possibleFirstLongestStreak.push(firstStreak);
-                    }
-                    if(resetLongestStreak){
-                        firstLongestStreak = day.date;
-                        resetLongestStreak = false;
-                    }
-                }else{
-                    if(streak > longestStreak){
-                        longestStreak = streak;
-                        lastLongestStreak = day.date;
-                        resetLongestStreak = true;
-                    }
-                    streak = 0;
-                    resetStreak = true;
-                }
-            }
-        }else{
-            for(const day of data){
-                const monthInData = parseInt(day.date.split("-")[1]);
-                totalContribution += day.contributionCount; if(!firstMonth) firstMonth = day.date;
-                
-                if((currentMonth === monthInData || day.weekday !== 0) && currentMonth){
-                    if(day.weekday === 0){
-                        months[currentMonth][++currentWeek] = [day];
-                    }else{
-                        months[currentMonth][currentWeek].push(day);
-                    }
-                }else{
-                    currentMonth = monthInData;
-                    currentWeek = 0;
-                    months[currentMonth] = [];
-                    months[currentMonth][currentWeek] = [day];
-                }
+            }else{
+                currentMonth = monthInData; monthForLatest++;
+                currentWeek = 0;
+                months[monthForLatest] = [];
+                months[monthForLatest][currentWeek] = [day];
             }
         }
-        //if(maxContributionCount < day.contributionCount) maxContributionCount = day.contributionCount;
-        const lastMonth = months[months.length-1][months[months.length-1].length-1][months[months.length-1][months[months.length-1].length-1].length-1].date;
-        if(streak > longestStreak){
-            longestStreak = streak;
-            lastLongestStreak = lastMonth;
-            possibleFirstLongestStreak.push(lastLongestStreak);
-        }else{
-            possibleFirstLongestStreak.push(lastMonth);
-        }
-        
+
         setContributions(months);
-        if(index === "Last Year"){
-            firstLongestStreak = possibleFirstLongestStreak[possibleFirstLongestStreak.indexOf(lastLongestStreak)-1];
-            
-            setStatistics([totalContribution, firstMonth, lastMonth, longestStreak, firstLongestStreak, lastLongestStreak, streak, firstStreak, lastStreak, "the last year"]);
-        }else{
-            setStatistics([totalContribution, firstMonth, lastMonth, statistics[3], statistics[4], statistics[5], statistics[6], statistics[7], statistics[8], index]);
-        }
     }
     
-    function formatDate(date){
-        const year = date.split("-")[0];
-        const month = date.split("-")[1];
-        const day = date.split("-")[2];
-        
-        return `${getMonth(month)} ${parseInt(day)}, ${year}`;
-    }
     return (
         <div className="h-fit w-full p-[16px] overflow-scroll text-[14px] border border-borderColor rounded-2xl">
         {data ? (
@@ -174,7 +108,7 @@ export default function GithubContributions(){
                     ))}</ul>
                 </div>
             </div>
-            <div className="w-full flex flex-col gap-[16px] h-[116px]">
+            <div className="w-full flex flex-col gap-[16px] h-[0px]">
                 <span className="w-[calc(100%-90px)] h-[16px] relative top-[-20px] flex flex-row justify-between items-center gap-[8px] [&>span>ul]:flex [&>span>ul]:flex-row [&>span>ul]:gap-[2px] [&>span>ul>li]:rounded-xs [&>span>ul>li]:size-[12px]">
                     <span>
                         <p>Total Contributions {data.totalContributions}</p>
@@ -187,30 +121,11 @@ export default function GithubContributions(){
                         <p>More</p>
                     </span>
                 </span>
-                <div className="w-full flex justify-center relative bottom-[16px]">
-                    <div className="w-full flex flex-row justify-around border border-borderColor rounded-lg h-[100px] p-[16px] [&>span]:w-full [&>span]:text-center [&>span]:overflow-scroll [&>span]:text-nowrap [&>span]:whitespace-nowrap [&>span>h4]:font-medium [&>span>h4]:text-[16px]">
-                        <span>
-                            <p>Contributions in {statistics[9]}</p>
-                            <h4>{statistics[0]}</h4>
-                            <p>{formatDate(statistics[1])} - {formatDate(statistics[2])}</p>
-                        </span>
-                        <span className="border-x border-dashed border-borderColor">
-                            <p>Longest Streak</p>
-                            <h4>{statistics[3]} {statistics[3] > 1 ? "Days" : "Day"}</h4>
-                            <p>{formatDate(statistics[4])} - {formatDate(statistics[5])}</p>
-                        </span>
-                        <span>
-                            <p>Current Streak</p>
-                            <h4>{statistics[6]} {statistics[6] > 1 ? "Days" : "Day"}</h4>
-                            <p>{formatDate(statistics[7])} - {formatDate(statistics[8])}</p>
-                        </span>
-                    </div>
-                </div>
             </div>
         </div>
         ) : (
-        <div className="h-[310px]">
-            <p>Getting data...</p>
+        <div className="h-[160px] grid place-items-center">
+            <span className="flex animate-ping rounded-max size-[1rem] bg-[#000]"></span>
         </div>
         )}
         </div>

@@ -7,6 +7,7 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-500: oklch(63.7% 0.237 25.331);
     --color-black: #000;
     --spacing: 0.25rem;
     --text-xs: 0.75rem;
@@ -30,6 +31,8 @@
     --radius-xl: 0.75rem;
     --radius-2xl: 1rem;
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --animate-spin: spin 1s linear infinite;
+    --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -228,9 +231,6 @@
   .bottom-\[3rem\] {
     bottom: 3rem;
   }
-  .bottom-\[16px\] {
-    bottom: 16px;
-  }
   .bottom-\[calc\(80px\+3\.5rem\)\] {
     bottom: calc(80px + 3.5rem);
   }
@@ -335,12 +335,19 @@
   .aspect-\[4\/1\] {
     aspect-ratio: 4/1;
   }
+  .size-\[1rem\] {
+    width: 1rem;
+    height: 1rem;
+  }
   .size-\[10rem\] {
     width: 10rem;
     height: 10rem;
   }
   .h-95 {
     height: calc(var(--spacing) * 95);
+  }
+  .h-\[0px\] {
+    height: 0px;
   }
   .h-\[1\.5rem\] {
     height: 1.5rem;
@@ -369,17 +376,8 @@
   .h-\[100\%\] {
     height: 100%;
   }
-  .h-\[100px\] {
-    height: 100px;
-  }
-  .h-\[116px\] {
-    height: 116px;
-  }
   .h-\[160px\] {
     height: 160px;
-  }
-  .h-\[310px\] {
-    height: 310px;
   }
   .h-\[calc\(80px\+3\.5rem\)\] {
     height: calc(80px + 3.5rem);
@@ -456,6 +454,9 @@
   .w-full {
     width: 100%;
   }
+  .animate-ping {
+    animation: var(--animate-ping);
+  }
   .resize {
     resize: both;
   }
@@ -488,9 +489,6 @@
   }
   .items-start {
     align-items: flex-start;
-  }
-  .justify-around {
-    justify-content: space-around;
   }
   .justify-between {
     justify-content: space-between;
@@ -581,20 +579,15 @@
     border-style: var(--tw-border-style);
     border-width: 3px;
   }
-  .border-x {
-    border-inline-style: var(--tw-border-style);
-    border-inline-width: 1px;
-  }
-  .border-dashed {
-    --tw-border-style: dashed;
-    border-style: dashed;
-  }
   .border-none {
     --tw-border-style: none;
     border-style: none;
   }
   .border-borderColor {
     border-color: var(--color-borderColor);
+  }
+  .bg-\[\#000\] {
+    background-color: #000;
   }
   .bg-\[\#5E5452\] {
     background-color: #5E5452;
@@ -1151,12 +1144,6 @@
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
-  .\[\&\>li\>\.title\]\:font-bold {
-    &>li>.title {
-      --tw-font-weight: var(--font-weight-bold);
-      font-weight: var(--font-weight-bold);
-    }
-  }
   .\[\&\>li\>\.title\]\:font-medium {
     &>li>.title {
       --tw-font-weight: var(--font-weight-medium);
@@ -1268,11 +1255,6 @@
       display: flex;
     }
   }
-  .\[\&\>span\]\:w-full {
-    &>span {
-      width: 100%;
-    }
-  }
   .\[\&\>span\]\:flex-col {
     &>span {
       flex-direction: column;
@@ -1293,26 +1275,6 @@
       gap: 4px;
     }
   }
-  .\[\&\>span\]\:overflow-scroll {
-    &>span {
-      overflow: scroll;
-    }
-  }
-  .\[\&\>span\]\:text-center {
-    &>span {
-      text-align: center;
-    }
-  }
-  .\[\&\>span\]\:text-nowrap {
-    &>span {
-      text-wrap: nowrap;
-    }
-  }
-  .\[\&\>span\]\:whitespace-nowrap {
-    &>span {
-      white-space: nowrap;
-    }
-  }
   .\[\&\>span\]\:first\:\[\&\>span\]\:items-end {
     &>span {
       &:first-child {
@@ -1320,17 +1282,6 @@
           align-items: flex-end;
         }
       }
-    }
-  }
-  .\[\&\>span\>h4\]\:text-\[16px\] {
-    &>span>h4 {
-      font-size: 16px;
-    }
-  }
-  .\[\&\>span\>h4\]\:font-medium {
-    &>span>h4 {
-      --tw-font-weight: var(--font-weight-medium);
-      font-weight: var(--font-weight-medium);
     }
   }
   .\[\&\>span\>p\]\:text-center {
@@ -1516,6 +1467,17 @@
 @property --tw-ease {
   syntax: "*";
   inherits: false;
+}
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes ping {
+  75%, 100% {
+    transform: scale(2);
+    opacity: 0;
+  }
 }
 @layer properties {
   @supports ((-webkit-hyphens: none) and (not (margin-trim: inline))) or ((-moz-orient: inline) and (not (color:rgb(from red r g b)))) {
