@@ -5,6 +5,7 @@ export default function SideProjectsList(){
     useEffect(() => {
         (async function(){
             const data = await new OctoKitRest().getSideProjectsFiles();
+            console.log(data);
         })();
         // eslint-disable-next-line
     }, []);
