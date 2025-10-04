@@ -1012,6 +1012,22 @@
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
+  .\[\&\>div\>div\>p\]\:text-\[1\.4rem\] {
+    &>div>div>p {
+      font-size: 1.4rem;
+    }
+  }
+  .\[\&\>div\>div\>p\]\:font-bold {
+    &>div>div>p {
+      --tw-font-weight: var(--font-weight-bold);
+      font-weight: var(--font-weight-bold);
+    }
+  }
+  .\[\&\>div\>div\>p\]\:text-nowrap {
+    &>div>div>p {
+      text-wrap: nowrap;
+    }
+  }
   .\[\&\>div\>div\>span\]\:flex {
     &>div>div>span {
       display: flex;
@@ -1030,6 +1046,11 @@
   .\[\&\>div\>div\>span\]\:gap-\[0\.75rem\] {
     &>div>div>span {
       gap: 0.75rem;
+    }
+  }
+  .\[\&\>div\>div\>span\>p\]\:text-\[1\.4rem\] {
+    &>div>div>span>p {
+      font-size: 1.4rem;
     }
   }
   .\[\&\>div\>div\>span\>p\]\:text-\[1\.35rem\] {
