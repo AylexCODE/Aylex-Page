@@ -11,7 +11,7 @@ export default function About(){
     
     return (
         <div className={`w-full scrollbar-hidden gap-y-[0.5rem] grid [&>div]:w-full [&>div]:flex [&>div]:flex-col [&>div]:gap-y-[0.5rem] [&>div>div]:bg-componentsColor [&>div>div]:p-[1rem] [&>div>div>span]:flex [&>div>div>span]:flex-row [&>div>div>span]:gap-[0.75rem] [&>div>div>span]:items-center ${breakpoint >= 992 ? "h-full grid-cols-[2fr_1fr]" : "h-fit grid-cols-1"} ${breakpoint >= 768 ? `gap-y-[1rem] [&>div]:overflow-scroll [&>div]:h-full [&>div]:gap-y-[1rem] ${breakpoint >= 992 ? "[&>div]:first:[&>div]:ml-[1rem] [&>div>div]:mr-[1rem]" : "[&>div>div]:mx-[1rem]"} [&>div>div]:border [&>div>div]:border-borderColor [&>div]:first:[&>div]:w-[calc(100%-2rem)] [&>div>div]:rounded-xl [&>div]:gap-[1rem]` : "[&>div]:h-fit [&>div>div]:shadow-[0px_0px_10px_var(--color-componentsShadow)] [&>div]:first:[&>div]:w-full"}`}>
-            <div className={breakpoint >= 992 ? "pb-[1rem]" : ""}>
+            <div className={`{breakpoint >= 992 ? "pb-[1rem]" : ""}`}>
                 <AnimatePresence initial={false}>
                     {isMessageVisible ? (<>
                         <span className="bg-sideBarCover fixed top-0 left-0 h-dvh w-dvw flex items-center justify-center z-11" onClick={() => setIsMessageVisible(false)}></span>
@@ -48,7 +48,7 @@ export default function About(){
                         <svg width="22px" height="22px" viewBox="0 0 22 22"><path fill="#000000" fillOpacity="0.0" stroke="#000000" strokeWidth="1.5" strokeOpacity="1.0" strokeMiterlimit="10" d="M11.0,4.0C12.65,4.0,14.0,5.35,14.0,7.0C14.0,8.65,12.65,10.0,11.0,10.0C9.35,10.0,8.0,8.65,8.0,7.0C8.0,5.35,9.35,4.0,11.0,4.0Z" strokeLinecap="round"/><path fill="#000000" fillOpacity="0.0" stroke="#000000" strokeWidth="1.5" strokeOpacity="1.0" strokeMiterlimit="10" d="M11.14,1.0C14.44,1.0,17.14,3.72,17.14,7.05C17.14,10.38,14.44,13.1,11.14,13.1C7.84,13.1,5.14,10.38,5.14,7.05C5.14,3.72,7.84,1.0,11.14,1.0Z" strokeLinecap="round"/><path fill="#000000" fillOpacity="0.0" stroke="#000000" strokeWidth="1.5" strokeOpacity="1.0" strokeMiterlimit="10" d="M7.46,11.89C7.46,11.89,4.72,20.26,4.82,20.01C4.82,20.01,7.41,19.05,7.42,19.08C8.12,20.47,8.78,21.36,8.79,21.25C8.79,21.25,11.12,13.0,11.14,13.1C11.14,13.1,13.23,21.37,13.21,21.28C13.21,21.28,14.83,19.35,14.83,19.36C14.83,19.36,17.32,20.21,17.29,20.18C17.29,20.18,14.81,11.87,14.81,11.87C12.66,13.23,11.14,13.1,11.14,13.1C11.14,13.1,9.09,13.1,7.46,11.89Z" strokeLinecap="round"/></svg>
                         <p className="font-bold text-[1.4rem] text-nowrap">Certificates</p>
                     </span>
-                    <Certificates />
+                    <Certificates bp={breakpoint}/>
                 </div>
             </div>
             <div className={`${breakpoint >= 992 ? "[&>div]:ml-[0rem] pt-[1rem]" : "mb-[1rem]"} ${breakpoint >= 768 ? `${breakpoint >= 992 ? "[&>div]:w-[calc(100%-1rem)]" : "[&>div]:w-[calc(100%-2rem)]"} [&>div]:rounded-xl` : "w-full"}`}>
