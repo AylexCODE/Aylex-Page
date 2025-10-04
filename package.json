@@ -5,6 +5,7 @@
   "type": "module",
   "private": true,
   "dependencies": {
+    "@octokit/rest": "^22.0.0",
     "@tailwindcss/postcss": "^4.1.11",
     "@tanstack/react-query": "^5.81.2",
     "@testing-library/dom": "^10.4.0",
