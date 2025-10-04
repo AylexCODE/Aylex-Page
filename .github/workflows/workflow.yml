@@ -31,7 +31,7 @@ jobs:
 
       # Runs a single command using the runners shell
       - name: Get secret
-        run: echo "Secret is ${{ secrets.GHGRAPHQL_TOKEN }}"
+        run: echo "Secret is Secret"
 
       # Runs a set of commands using the runners shell
       - name: Build
@@ -40,6 +40,7 @@ jobs:
             npm run build
         env:
             REACT_APP_GITHUBGRAPHQL_TOKEN: ${{ secrets.GHGRAPHQL_TOKEN }}
+            REACT_APP_OCTOKIT_TOKEN: ${{ secrets.OCTOKIT_TOKEN }}
 
      # - name: Deploy
      #   uses: JamesIves/github-pages-deploy-action@releases/v4
