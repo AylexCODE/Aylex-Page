@@ -5,27 +5,30 @@ const octokit = new Octokit({
 });
 
 export default class OctoKitRest {
+    #owner = "AylexCODE";
+    #repo = "Side_Projects";
+
     async getSideProjectsFiles(){
         try {
             const ref = await octokit.git.getRef({
-                owner: "AylexCODE",
-                repo: "Side_Projects",
+                owner: this.#owner,
+                repo: this.#repo,
                 ref: "heads/main"
             });
 
             const sha = ref.data?.object?.sha;
 
             const commit = await octokit.git.getCommit({
-                owner: "AylexCODE",
-                repo: "Side_Projects",
+                owner: this.#owner,
+                repo: this.#repo,
                 commit_sha: sha
             });
 
             const commitSha = commit?.data?.tree.sha;
 
             const files = await octokit.git.getTree({
-                owner: "AylexCODE",
-                repo: "Side_Projects",
+                owner: this.#owner,
+                repo: this.#repo,
                 tree_sha: commitSha
             });
 
@@ -35,5 +38,15 @@ export default class OctoKitRest {
         }catch(e){
             return [];
         }
+    }
+
+    async getSideProjectFile(path){
+        const result = await octokit.repos.getContent({
+            owner: this.#owner,
+            repo: this.#repo,
+            path
+        });
+        
+        return atob(result?.data?.content);
     }
 }
