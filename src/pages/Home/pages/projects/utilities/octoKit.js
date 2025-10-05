@@ -47,6 +47,6 @@ export default class OctoKitRest {
             path
         });
         
-        return atob(result?.data?.content);
+        return { content: atob(result?.data?.content), download_url: result?.data?.download_url };
     }
 }
