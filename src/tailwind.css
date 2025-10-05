@@ -7,7 +7,6 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-500: oklch(63.7% 0.237 25.331);
     --color-black: #000;
     --spacing: 0.25rem;
     --text-xs: 0.75rem;
@@ -815,13 +814,6 @@
     -webkit-user-select: none;
     user-select: none;
   }
-  .hover\:stroke-red-500 {
-    &:hover {
-      @media (hover: hover) {
-        stroke: var(--color-red-500);
-      }
-    }
-  }
   .in-\[\.bg-componentsColorClear\]\:stroke-sideTextColorActive {
     :where(*:is(.bg-componentsColorClear)) & {
       stroke: var(--color-sideTextColorActive);
@@ -859,45 +851,6 @@
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
-  .\[\&\>button\]\:duration-300 {
-    &>button {
-      --tw-duration: 300ms;
-      transition-duration: 300ms;
-    }
-  }
-  .\[\&\>button\]\:ease-out {
-    &>button {
-      --tw-ease: var(--ease-out);
-      transition-timing-function: var(--ease-out);
-    }
-  }
-  .\[\&\>button\]\:hover\:bg-red-500 {
-    &>button {
-      &:hover {
-        @media (hover: hover) {
-          background-color: var(--color-red-500);
-        }
-      }
-    }
-  }
-  .\[\&\>button\&\>svg\]\:hover\:bg-red-500 {
-    &>button&>svg {
-      &:hover {
-        @media (hover: hover) {
-          background-color: var(--color-red-500);
-        }
-      }
-    }
-  }
-  .\[\&\>button\&\>svg\]\:hover\:stroke-red-500 {
-    &>button&>svg {
-      &:hover {
-        @media (hover: hover) {
-          stroke: var(--color-red-500);
-        }
-      }
-    }
-  }
   .\[\&\>button\>svg\>path\]\:duration-300 {
     &>button>svg>path {
       --tw-duration: 300ms;
@@ -908,37 +861,6 @@
     &>button>svg>path {
       --tw-ease: var(--ease-out);
       transition-timing-function: var(--ease-out);
-    }
-  }
-  .\[\&\>button\>svg\>path\]\:hover\:\[\&\>button\>svg\>path\]\:stroke-red-500 {
-    &>button>svg>path {
-      &:hover {
-        @media (hover: hover) {
-          &>button>svg>path {
-            stroke: var(--color-red-500);
-          }
-        }
-      }
-    }
-  }
-  .\[\&\>button\>svg\>path\]\:hover\:stroke-red-500 {
-    &>button>svg>path {
-      &:hover {
-        @media (hover: hover) {
-          stroke: var(--color-red-500);
-        }
-      }
-    }
-  }
-  .\[\&\>button\]\:hover\:\[\&\>button\>svg\>path\]\:stroke-red-500 {
-    &>button {
-      &:hover {
-        @media (hover: hover) {
-          &>button>svg>path {
-            stroke: var(--color-red-500);
-          }
-        }
-      }
     }
   }
   .\[\&\>div\]\:ml-\[0rem\] {
@@ -1511,17 +1433,6 @@
       border-radius: var(--radius-xs);
     }
   }
-  .\[\&\>button\]\:hover\:\[\&\>svg\>path\]\:stroke-red-500 {
-    &>button {
-      &:hover {
-        @media (hover: hover) {
-          &>svg>path {
-            stroke: var(--color-red-500);
-          }
-        }
-      }
-    }
-  }
   .\[\&\>button\]\:hover\:\[\&\>svg\>path\]\:stroke-sideTextColorActive {
     &>button {
       &:hover {
@@ -1536,17 +1447,6 @@
   .\[\&\>ul\>li\>div\]\:m-\[0\.5rem\] {
     &>ul>li>div {
       margin: 0.5rem;
-    }
-  }
-  .\[\&\>button\]\:hover\:\[\&svg\>path\]\:stroke-red-500 {
-    &>button {
-      &:hover {
-        @media (hover: hover) {
-          &svg>path {
-            stroke: var(--color-red-500);
-          }
-        }
-      }
     }
   }
 }

@@ -1,12 +1,13 @@
 import OctoKitRest from "./utilities/octoKit";
 import hljs from "highlight.js"; import 'highlight.js/styles/atom-one-dark.min.css';
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { useParams } from "react-router-dom";
 
 export default function ProjectsFile(){
     const [content, setContent] = useState();
     const [type, setType] = useState();
     const filePath = useParams().file;
+    const code = useRef(null);
 
     useEffect(() => {
         setType(filePath.split(".").findLast((type) => type));
@@ -14,7 +15,10 @@ export default function ProjectsFile(){
             const data = await new OctoKitRest().getSideProjectFile(filePath);
             
             setContent(data);
-            setTimeout(() => hljs.highlightAll(), 500);
+            setTimeout(() => {
+                hljs.highlightAll();
+                code.current.style.opacity = "1";
+            }, 50);
         })();
         // eslint-disable-next-line
     }, []);
@@ -51,7 +55,7 @@ export default function ProjectsFile(){
                     <span className="flex flex-row gap-[0.5rem] [&>button]:hover:[&>svg>path]:stroke-sideTextColorActive [&>button>svg>path]:duration-300 [&>button>svg>path]:ease-out">
                         <button onClick={() => {copyCode()}}>{copyStatus}</button>
                         {content ? (
-                            <button><a href={content.download_url} download={true}>{icons.downloadIcon}</a></button>
+                            <button><a href={`data:text/plain, ${content.content}`} download={filePath}>{icons.downloadIcon}</a></button>
                         ) : (
                             <button>{icons.downloadIcon}</button>
                         )}
@@ -60,7 +64,7 @@ export default function ProjectsFile(){
                 </div>
                 <pre className="h-full w-full overflow-scroll pb-[1.5rem]">
                     {content ? (
-                        <code className="">{content.content}</code>
+                        <code ref={code} className="opacity-0">{content.content}</code>
                     ) : (
                         <code></code>
                     )}
