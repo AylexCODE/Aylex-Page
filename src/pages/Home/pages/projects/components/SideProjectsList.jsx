@@ -33,8 +33,8 @@ export default function SideProjectsList(){
             <ul className="[&>li>a]:flex [&>li>a]:flex-row [&>li>a]:items-center [&>li>a]:p-[0.5rem] [&>li>a]:gap-[0.5rem] [&>li>a]:hover:bg-[#bdeeff] [&>li>a]:duration-300 [&>li>a]:ease-out">
                 {projectsFiles.map((file) => (
                     <li key={file.path}>
-                        <NavLink to={`/projects/${file.path}`}>
-                            {icons[file.type]}{file.path}
+                        <NavLink to={`/projects/${file.path}`} target="_blank">
+                            {icons[file.type]}{file.path.slice(0, -(file.type.length+1)).replaceAll("_", " ")}
                         </NavLink>
                     </li>
                 ))}
