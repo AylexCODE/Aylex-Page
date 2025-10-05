@@ -8,6 +8,7 @@ import Home from './pages/Home/index';
 import Main from './pages/Home/pages/main/Main';
 import About from './pages/Home/pages/about/About';
 import Projects from './pages/Home/pages/projects/Projects';
+import ProjectsFile from './pages/Home/pages/projects/ProjectsFile';
 
 import ClashofClans from './pages/Clash-of-Clans/index';
 import Minecraft from './pages/Minecraft/index';
@@ -21,6 +22,7 @@ function App(){
             <Route index element={<Main />} />
             <Route path="about" element={<About />} />
             <Route path="projects" element={<Projects />} />
+            <Route path="projects/:file" element={<ProjectsFile />} />
         </Route>
         <Route path="/clash-of-clans" element={<ClashofClans />} />
         <Route path="/minecraft" element={<Minecraft />} />
