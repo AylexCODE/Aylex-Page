@@ -8,7 +8,6 @@
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
     --color-red-500: oklch(63.7% 0.237 25.331);
-    --color-green-500: oklch(72.3% 0.219 149.579);
     --color-black: #000;
     --spacing: 0.25rem;
     --text-xs: 0.75rem;
@@ -365,12 +364,6 @@
   .h-\[6rem\] {
     height: 6rem;
   }
-  .h-\[10rem\] {
-    height: 10rem;
-  }
-  .h-\[15rem\] {
-    height: 15rem;
-  }
   .h-\[16px\] {
     height: 16px;
   }
@@ -386,6 +379,9 @@
   .h-\[calc\(80px\+3\.5rem\)\] {
     height: calc(80px + 3.5rem);
   }
+  .h-\[calc\(100\%-2rem\)\] {
+    height: calc(100% - 2rem);
+  }
   .h-auto {
     height: auto;
   }
@@ -400,9 +396,6 @@
   }
   .max-h-\[10rem\] {
     max-height: 10rem;
-  }
-  .max-h-\[15rem\] {
-    max-height: 15rem;
   }
   .w-90 {
     width: calc(var(--spacing) * 90);
@@ -680,6 +673,9 @@
   .pb-\[0\.8rem\] {
     padding-bottom: 0.8rem;
   }
+  .pb-\[1\.5rem\] {
+    padding-bottom: 1.5rem;
+  }
   .pb-\[1\.25rem\] {
     padding-bottom: 1.25rem;
   }
@@ -815,13 +811,16 @@
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
   }
-  .ease-out {
-    --tw-ease: var(--ease-out);
-    transition-timing-function: var(--ease-out);
-  }
   .select-none {
     -webkit-user-select: none;
     user-select: none;
+  }
+  .hover\:stroke-red-500 {
+    &:hover {
+      @media (hover: hover) {
+        stroke: var(--color-red-500);
+      }
+    }
   }
   .in-\[\.bg-componentsColorClear\]\:stroke-sideTextColorActive {
     :where(*:is(.bg-componentsColorClear)) & {
@@ -831,22 +830,6 @@
   .in-\[\.bg-componentsColorClear\]\:text-sideTextColorActive {
     :where(*:is(.bg-componentsColorClear)) & {
       color: var(--color-sideTextColorActive);
-    }
-  }
-  .\[\&_svg\]\:scale-50 {
-    & svg {
-      --tw-scale-x: 50%;
-      --tw-scale-y: 50%;
-      --tw-scale-z: 50%;
-      scale: var(--tw-scale-x) var(--tw-scale-y);
-    }
-  }
-  .\[\&_svg\]\:scale-75 {
-    & svg {
-      --tw-scale-x: 75%;
-      --tw-scale-y: 75%;
-      --tw-scale-z: 75%;
-      scale: var(--tw-scale-x) var(--tw-scale-y);
     }
   }
   .\[\&\>\.active\]\:border-activeBtnColor {
@@ -874,6 +857,88 @@
     &>.active {
       --tw-shadow: 0px 2px 0px var(--tw-shadow-color, var(--color-activeBtnShadowColor));
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .\[\&\>button\]\:duration-300 {
+    &>button {
+      --tw-duration: 300ms;
+      transition-duration: 300ms;
+    }
+  }
+  .\[\&\>button\]\:ease-out {
+    &>button {
+      --tw-ease: var(--ease-out);
+      transition-timing-function: var(--ease-out);
+    }
+  }
+  .\[\&\>button\]\:hover\:bg-red-500 {
+    &>button {
+      &:hover {
+        @media (hover: hover) {
+          background-color: var(--color-red-500);
+        }
+      }
+    }
+  }
+  .\[\&\>button\&\>svg\]\:hover\:bg-red-500 {
+    &>button&>svg {
+      &:hover {
+        @media (hover: hover) {
+          background-color: var(--color-red-500);
+        }
+      }
+    }
+  }
+  .\[\&\>button\&\>svg\]\:hover\:stroke-red-500 {
+    &>button&>svg {
+      &:hover {
+        @media (hover: hover) {
+          stroke: var(--color-red-500);
+        }
+      }
+    }
+  }
+  .\[\&\>button\>svg\>path\]\:duration-300 {
+    &>button>svg>path {
+      --tw-duration: 300ms;
+      transition-duration: 300ms;
+    }
+  }
+  .\[\&\>button\>svg\>path\]\:ease-out {
+    &>button>svg>path {
+      --tw-ease: var(--ease-out);
+      transition-timing-function: var(--ease-out);
+    }
+  }
+  .\[\&\>button\>svg\>path\]\:hover\:\[\&\>button\>svg\>path\]\:stroke-red-500 {
+    &>button>svg>path {
+      &:hover {
+        @media (hover: hover) {
+          &>button>svg>path {
+            stroke: var(--color-red-500);
+          }
+        }
+      }
+    }
+  }
+  .\[\&\>button\>svg\>path\]\:hover\:stroke-red-500 {
+    &>button>svg>path {
+      &:hover {
+        @media (hover: hover) {
+          stroke: var(--color-red-500);
+        }
+      }
+    }
+  }
+  .\[\&\>button\]\:hover\:\[\&\>button\>svg\>path\]\:stroke-red-500 {
+    &>button {
+      &:hover {
+        @media (hover: hover) {
+          &>button>svg>path {
+            stroke: var(--color-red-500);
+          }
+        }
+      }
     }
   }
   .\[\&\>div\]\:ml-\[0rem\] {
@@ -1112,11 +1177,6 @@
       display: block;
     }
   }
-  .\[\&\>li\]\:flex {
-    &>li {
-      display: flex;
-    }
-  }
   .\[\&\>li\]\:h-full {
     &>li {
       height: 100%;
@@ -1135,11 +1195,6 @@
   .\[\&\>li\]\:snap-center {
     &>li {
       scroll-snap-align: center;
-    }
-  }
-  .\[\&\>li\]\:flex-col {
-    &>li {
-      flex-direction: column;
     }
   }
   .\[\&\>li\]\:rounded-lg {
@@ -1190,11 +1245,6 @@
       display: flex;
     }
   }
-  .\[\&\>li\>a\]\:flex-col {
-    &>li>a {
-      flex-direction: column;
-    }
-  }
   .\[\&\>li\>a\]\:flex-row {
     &>li>a {
       flex-direction: row;
@@ -1240,42 +1290,6 @@
     &>li>a {
       --tw-ease: var(--ease-out);
       transition-timing-function: var(--ease-out);
-    }
-  }
-  .\[\&\>li\>a\]\:hover\:bg-\[\#\#4884CA\] {
-    &>li>a {
-      &:hover {
-        @media (hover: hover) {
-          background-color: ##4884CA;
-        }
-      }
-    }
-  }
-  .\[\&\>li\>a\]\:hover\:bg-\[\#7adcff\] {
-    &>li>a {
-      &:hover {
-        @media (hover: hover) {
-          background-color: #7adcff;
-        }
-      }
-    }
-  }
-  .\[\&\>li\>a\]\:hover\:bg-\[\#9ba9e8\] {
-    &>li>a {
-      &:hover {
-        @media (hover: hover) {
-          background-color: #9ba9e8;
-        }
-      }
-    }
-  }
-  .\[\&\>li\>a\]\:hover\:bg-\[\#4884CA\] {
-    &>li>a {
-      &:hover {
-        @media (hover: hover) {
-          background-color: #4884CA;
-        }
-      }
     }
   }
   .\[\&\>li\>a\]\:hover\:bg-\[\#bdeeff\] {
@@ -1497,9 +1511,42 @@
       border-radius: var(--radius-xs);
     }
   }
+  .\[\&\>button\]\:hover\:\[\&\>svg\>path\]\:stroke-red-500 {
+    &>button {
+      &:hover {
+        @media (hover: hover) {
+          &>svg>path {
+            stroke: var(--color-red-500);
+          }
+        }
+      }
+    }
+  }
+  .\[\&\>button\]\:hover\:\[\&\>svg\>path\]\:stroke-sideTextColorActive {
+    &>button {
+      &:hover {
+        @media (hover: hover) {
+          &>svg>path {
+            stroke: var(--color-sideTextColorActive);
+          }
+        }
+      }
+    }
+  }
   .\[\&\>ul\>li\>div\]\:m-\[0\.5rem\] {
     &>ul>li>div {
       margin: 0.5rem;
+    }
+  }
+  .\[\&\>button\]\:hover\:\[\&svg\>path\]\:stroke-red-500 {
+    &>button {
+      &:hover {
+        @media (hover: hover) {
+          &svg>path {
+            stroke: var(--color-red-500);
+          }
+        }
+      }
     }
   }
 }
@@ -1596,21 +1643,6 @@
   syntax: "*";
   inherits: false;
 }
-@property --tw-scale-x {
-  syntax: "*";
-  inherits: false;
-  initial-value: 1;
-}
-@property --tw-scale-y {
-  syntax: "*";
-  inherits: false;
-  initial-value: 1;
-}
-@property --tw-scale-z {
-  syntax: "*";
-  inherits: false;
-  initial-value: 1;
-}
 @keyframes ping {
   75%, 100% {
     transform: scale(2);
@@ -1639,9 +1671,6 @@
       --tw-ring-offset-shadow: 0 0 #0000;
       --tw-duration: initial;
       --tw-ease: initial;
-      --tw-scale-x: 1;
-      --tw-scale-y: 1;
-      --tw-scale-z: 1;
     }
   }
 }
