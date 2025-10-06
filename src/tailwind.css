@@ -417,6 +417,9 @@
   .w-\[22rem\] {
     width: 22rem;
   }
+  .w-\[24px\] {
+    width: 24px;
+  }
   .w-\[26rem\] {
     width: 26rem;
   }
@@ -669,6 +672,9 @@
   .pr-0 {
     padding-right: calc(var(--spacing) * 0);
   }
+  .pr-\[1rem\] {
+    padding-right: 1rem;
+  }
   .pb-\[0\.8rem\] {
     padding-bottom: 0.8rem;
   }
@@ -680,6 +686,12 @@
   }
   .pb-\[1rem\] {
     padding-bottom: 1rem;
+  }
+  .pl-\[0\.5rem\] {
+    padding-left: 0.5rem;
+  }
+  .pl-\[1rem\] {
+    padding-left: 1rem;
   }
   .text-center {
     text-align: center;
@@ -824,6 +836,11 @@
       color: var(--color-sideTextColorActive);
     }
   }
+  .\[\&_p\]\:whitespace-nowrap {
+    & p {
+      white-space: nowrap;
+    }
+  }
   .\[\&\>\.active\]\:border-activeBtnColor {
     &>.active {
       border-color: var(--color-activeBtnColor);
@@ -849,6 +866,28 @@
     &>.active {
       --tw-shadow: 0px 2px 0px var(--tw-shadow-color, var(--color-activeBtnShadowColor));
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
+    }
+  }
+  .\[\&\>button\]\:hover\:\[\&_path\]\:stroke-sideTextColorActive {
+    &>button {
+      &:hover {
+        @media (hover: hover) {
+          & path {
+            stroke: var(--color-sideTextColorActive);
+          }
+        }
+      }
+    }
+  }
+  .\[\&\>button\]\:hover\:\[\&\+path\]\:stroke-sideTextColorActive {
+    &>button {
+      &:hover {
+        @media (hover: hover) {
+          &+path {
+            stroke: var(--color-sideTextColorActive);
+          }
+        }
+      }
     }
   }
   .\[\&\>button\>svg\>path\]\:duration-300 {
@@ -1187,6 +1226,11 @@
       gap: 0.65rem;
     }
   }
+  .\[\&\>li\>a\]\:overflow-scroll {
+    &>li>a {
+      overflow: scroll;
+    }
+  }
   .\[\&\>li\>a\]\:p-\[0\.5rem\] {
     &>li>a {
       padding: 0.5rem;
@@ -1301,6 +1345,26 @@
         --tw-font-weight: var(--font-weight-medium);
         font-weight: var(--font-weight-medium);
       }
+    }
+  }
+  .\[\&\>p\]\:flex {
+    &>p {
+      display: flex;
+    }
+  }
+  .\[\&\>p\]\:flex-row {
+    &>p {
+      flex-direction: row;
+    }
+  }
+  .\[\&\>p\]\:items-center {
+    &>p {
+      align-items: center;
+    }
+  }
+  .\[\&\>p\]\:gap-\[0\.5rem\] {
+    &>p {
+      gap: 0.5rem;
     }
   }
   .\[\&\>small\]\:text-xs {
@@ -1431,6 +1495,11 @@
   .\[\&\>span\>ul\>li\]\:rounded-xs {
     &>span>ul>li {
       border-radius: var(--radius-xs);
+    }
+  }
+  .\[\&\>svg\]\:w-\[24px\] {
+    &>svg {
+      width: 24px;
     }
   }
   .\[\&\>button\]\:hover\:\[\&\>svg\>path\]\:stroke-sideTextColorActive {
