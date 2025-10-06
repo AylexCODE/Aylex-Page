@@ -11,7 +11,7 @@ export default function About(){
     
     return (
         <div className={`w-full scrollbar-hidden gap-y-[0.5rem] grid [&>div]:w-full [&>div]:flex [&>div]:flex-col [&>div]:gap-y-[0.5rem] [&>div>div]:bg-componentsColor [&>div>div]:p-[1rem] [&>div>div>span]:flex [&>div>div>span]:flex-row [&>div>div>span]:gap-[0.75rem] [&>div>div>span]:items-center ${breakpoint >= 992 ? "h-full grid-cols-[2fr_1fr]" : "h-fit grid-cols-1"} ${breakpoint >= 768 ? `gap-y-[1rem] [&>div]:overflow-scroll [&>div]:h-full [&>div]:gap-y-[1rem] ${breakpoint >= 992 ? "[&>div]:first:[&>div]:ml-[1rem] [&>div>div]:mr-[1rem]" : "[&>div>div]:mx-[1rem]"} [&>div>div]:border [&>div>div]:border-borderColor [&>div]:first:[&>div]:w-[calc(100%-2rem)] [&>div>div]:rounded-xl [&>div]:gap-[1rem]` : "[&>div]:h-fit [&>div>div]:shadow-[0px_0px_10px_var(--color-componentsShadow)] [&>div]:first:[&>div]:w-full"}`}>
-            <div className={`{breakpoint >= 992 ? "pb-[1rem]" : ""}`}>
+            <div className={`${breakpoint >= 992 ? "pb-[1rem]" : ""}`}>
                 <AnimatePresence initial={false}>
                     {isMessageVisible ? (<>
                         <span className="bg-sideBarCover fixed top-0 left-0 h-dvh w-dvw flex items-center justify-center z-11" onClick={() => setIsMessageVisible(false)}></span>
