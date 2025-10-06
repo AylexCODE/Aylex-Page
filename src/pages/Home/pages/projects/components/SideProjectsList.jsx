@@ -26,7 +26,7 @@ export default function SideProjectsList(){
 
     return (
         <div className="pt-[1rem] w-full">
-            <p className="opacity-60">Side Projects</p>
+            <div className="flex flex-row justify-between opacity-60"><p>Side Projects</p><a href="https://github.com/AylexCODE/Side_Projects" target="_blank" title="Redirect"><u>See all</u></a></div>
             <div className="w-full max-h-[10rem] border border-borderColor rounded-xl overflow-scroll">
             {projectsFiles ? (
             <ul className="[&>li>a]:flex [&>li>a]:flex-row [&>li>a]:items-center [&>li>a]:p-[0.5rem] [&>li>a]:gap-[0.5rem] [&>li>a]:overflow-scroll [&>li>a]:hover:bg-[#bdeeff] [&>li>a]:duration-300 [&>li>a]:ease-out [&_p]:text-nowrap">
