@@ -29,7 +29,7 @@ export default function SideProjectsList(){
             <p className="opacity-60">Side Projects</p>
             <div className="w-full max-h-[10rem] border border-borderColor rounded-xl overflow-scroll">
             {projectsFiles ? (
-            <ul className="[&>li>a]:flex [&>li>a]:flex-row [&>li>a]:items-center [&>li>a]:p-[0.5rem] [&>li>a]:gap-[0.5rem] [&>li>a]:overflow-scroll [&>li>a]:hover:bg-[#bdeeff] [&>li>a]:duration-300 [&>li>a]:ease-out [&_p]:whitespace-nowrap">
+            <ul className="[&>li>a]:flex [&>li>a]:flex-row [&>li>a]:items-center [&>li>a]:p-[0.5rem] [&>li>a]:gap-[0.5rem] [&>li>a]:overflow-scroll [&>li>a]:hover:bg-[#bdeeff] [&>li>a]:duration-300 [&>li>a]:ease-out [&_p]:text-nowrap">
                 {projectsFiles.map((file) => (
                     <li key={file.path}>
                         <NavLink to={`/projects/${file.path}`} target="_blank">

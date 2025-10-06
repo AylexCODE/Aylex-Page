@@ -7,6 +7,7 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-500: oklch(63.7% 0.237 25.331);
     --color-black: #000;
     --spacing: 0.25rem;
     --text-xs: 0.75rem;
@@ -290,6 +291,9 @@
   .mb-\[1rem\] {
     margin-bottom: 1rem;
   }
+  .ml-\[0\.5rem\] {
+    margin-left: 0.5rem;
+  }
   .block {
     display: block;
   }
@@ -331,6 +335,10 @@
   .aspect-\[4\/1\] {
     aspect-ratio: 4/1;
   }
+  .size-2 {
+    width: calc(var(--spacing) * 2);
+    height: calc(var(--spacing) * 2);
+  }
   .size-\[1rem\] {
     width: 1rem;
     height: 1rem;
@@ -338,6 +346,10 @@
   .size-\[10rem\] {
     width: 10rem;
     height: 10rem;
+  }
+  .size-\[200px\] {
+    width: 200px;
+    height: 200px;
   }
   .h-95 {
     height: calc(var(--spacing) * 95);
@@ -368,6 +380,9 @@
   }
   .h-\[20rem\] {
     height: 20rem;
+  }
+  .h-\[50\%\] {
+    height: 50%;
   }
   .h-\[100\%\] {
     height: 100%;
@@ -612,6 +627,9 @@
   .bg-componentsColorClear {
     background-color: var(--color-componentsColorClear);
   }
+  .bg-red-500 {
+    background-color: var(--color-red-500);
+  }
   .bg-sideBarCover {
     background-color: var(--color-sideBarCover);
   }
@@ -687,6 +705,9 @@
   .pb-\[1rem\] {
     padding-bottom: 1rem;
   }
+  .pb-\[2rem\] {
+    padding-bottom: 2rem;
+  }
   .pl-\[0\.5rem\] {
     padding-left: 0.5rem;
   }
@@ -695,6 +716,9 @@
   }
   .text-center {
     text-align: center;
+  }
+  .text-left {
+    text-align: left;
   }
   .font-textFont {
     font-family: var(--font-textFont);
@@ -834,6 +858,11 @@
   .in-\[\.bg-componentsColorClear\]\:text-sideTextColorActive {
     :where(*:is(.bg-componentsColorClear)) & {
       color: var(--color-sideTextColorActive);
+    }
+  }
+  .\[\&_p\]\:text-nowrap {
+    & p {
+      text-wrap: nowrap;
     }
   }
   .\[\&_p\]\:whitespace-nowrap {

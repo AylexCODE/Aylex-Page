@@ -48,10 +48,11 @@ export default function ProjectsFile(){
     }
 
     return (
-        <div className="h-[calc(100%-2rem)] w-[calc(100%-2rem)] grid m-[1rem] border border-borderColor rounded-xl bg-componentsColor">
-            <div className="h-full w-full overflow-hidden rounded-xl">
+        <main className="h-dvh w-dvw overflow-hidden">
+            <div className="h-[calc(100%-2rem)] w-[calc(100%-2rem)] m-[1rem] overflow-hidden border border-borderColor rounded-xl bg-componentsColor">
                 <div className="flex flex-row items-center justify-between p-[0.5rem]">
-                    <span className="flex flex-row items-center overflow-scroll gap-[0.5rem]"><span className="w-[24px]">{icons[type]}</span><p>{filePath}</p></span>
+                    <span className="w-[24px]">{icons[type]}</span>
+                    <div className="overflow-scroll w-full ml-[0.5rem]">{filePath}</div>
                     <span className="flex flex-row gap-[0.5rem] pl-[0.5rem] [&>button]:hover:[&_path]:stroke-sideTextColorActive [&>button>svg>path]:duration-300 [&>button>svg>path]:ease-out">
                         <button onClick={() => {copyCode()}}>{copyStatus}</button>
                         {content ? (
@@ -62,7 +63,7 @@ export default function ProjectsFile(){
                         <button onClick={() => {window.close()}}>{icons.exitIcon}</button>
                     </span>
                 </div>
-                <pre className="h-full w-full overflow-scroll pb-[1.5rem]">
+                <pre className="h-full w-full overflow-scroll pb-[2rem]">
                     {content ? (
                         <code ref={code} className="opacity-0">{content.content}</code>
                     ) : (
@@ -70,6 +71,6 @@ export default function ProjectsFile(){
                     )}
                 </pre>
             </div>
-        </div>
+        </main>
     )
 }
