@@ -54,13 +54,13 @@ export default function ProjectsFile(){
                     <span className="w-[24px]">{icons[type]}</span>
                     <div className="overflow-scroll w-full ml-[0.5rem]">{filePath}</div>
                     <span className="flex flex-row gap-[0.5rem] pl-[0.5rem] [&>button]:hover:[&_path]:stroke-sideTextColorActive [&>button>svg>path]:duration-300 [&>button>svg>path]:ease-out">
-                        <button onClick={() => {copyCode()}}>{copyStatus}</button>
+                        <button onClick={() => {copyCode()}} title="Copy code to clipboard">{copyStatus}</button>
                         {content ? (
-                            <button><a href={`data:text/plain, ${content.content}`} download={filePath}>{icons.downloadIcon}</a></button>
+                            <button title={`Download ${filePath}`}><a href={`data:text/plain, ${content.content}`} download={filePath}>{icons.downloadIcon}</a></button>
                         ) : (
                             <button>{icons.downloadIcon}</button>
                         )}
-                        <button onClick={() => {window.close()}}>{icons.exitIcon}</button>
+                        <button onClick={() => {window.close()}} title="Close">{icons.exitIcon}</button>
                     </span>
                 </div>
                 <pre className="h-full w-full overflow-scroll pb-[2rem]">
