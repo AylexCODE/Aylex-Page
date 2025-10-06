@@ -22,8 +22,8 @@ function App(){
             <Route index element={<Main />} />
             <Route path="about" element={<About />} />
             <Route path="projects" element={<Projects />} />
-            <Route path="projects/:file" element={<ProjectsFile />} />
         </Route>
+        <Route path="projects/:file" element={<ProjectsFile />} />
         <Route path="/clash-of-clans" element={<ClashofClans />} />
         <Route path="/minecraft" element={<Minecraft />} />
       </Routes>
