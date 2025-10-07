@@ -7,7 +7,6 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-500: oklch(63.7% 0.237 25.331);
     --color-yellow-500: oklch(79.5% 0.184 86.047);
     --color-green-500: oklch(72.3% 0.219 149.579);
     --color-black: #000;
@@ -352,9 +351,6 @@
   .h-95 {
     height: calc(var(--spacing) * 95);
   }
-  .h-\[0\.5rem\] {
-    height: 0.5rem;
-  }
   .h-\[0px\] {
     height: 0px;
   }
@@ -391,20 +387,11 @@
   .h-\[calc\(80px\+3\.5rem\)\] {
     height: calc(80px + 3.5rem);
   }
-  .h-\[calc\(100\%-\)\] {
-    height: calc(100% - );
-  }
   .h-\[calc\(100\%-2\.5rem\)\] {
     height: calc(100% - 2.5rem);
   }
-  .h-\[calc\(100\%-2\.rem\)\] {
-    height: calc(100% - 2.rem);
-  }
   .h-\[calc\(100\%-2rem\)\] {
     height: calc(100% - 2rem);
-  }
-  .h-\[calc\(100\)\] {
-    height: calc(100);
   }
   .h-auto {
     height: auto;
@@ -423,9 +410,6 @@
   }
   .w-90 {
     width: calc(var(--spacing) * 90);
-  }
-  .w-\[0\.5rem\] {
-    width: 0.5rem;
   }
   .w-\[1\.25rem\] {
     width: 1.25rem;
@@ -583,9 +567,6 @@
   .rounded-2xl {
     border-radius: var(--radius-2xl);
   }
-  .rounded-full {
-    border-radius: calc(infinity * 1px);
-  }
   .rounded-lg {
     border-radius: var(--radius-lg);
   }
@@ -649,9 +630,6 @@
   }
   .bg-componentsColorClear {
     background-color: var(--color-componentsColorClear);
-  }
-  .bg-green-500 {
-    background-color: var(--color-green-500);
   }
   .bg-sideBarCover {
     background-color: var(--color-sideBarCover);
@@ -1372,11 +1350,6 @@
         --tw-font-weight: var(--font-weight-medium);
         font-weight: var(--font-weight-medium);
       }
-    }
-  }
-  .\[\&\>p\]\:text-\[0\.5rem\] {
-    &>p {
-      font-size: 0.5rem;
     }
   }
   .\[\&\>p\]\:text-\[0\.75rem\] {
