@@ -12,6 +12,7 @@ import ProjectsFile from './pages/Home/pages/projects/ProjectsFile';
 
 import ClashofClans from './pages/Clash-of-Clans/index';
 import Minecraft from './pages/Minecraft/index';
+import Clipboard from './pages/Home/components/clipboard/clipboard';
 
 function App(){
     return (
@@ -26,6 +27,7 @@ function App(){
         <Route path="projects/:file" element={<ProjectsFile />} />
         <Route path="/clash-of-clans" element={<ClashofClans />} />
         <Route path="/minecraft" element={<Minecraft />} />
+        <Route path="/clipboard" element={<Clipboard />} />
       </Routes>
     </HashRouter>
     );
