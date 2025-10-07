@@ -36,8 +36,8 @@ export default function Clipboard(){
             statusIndicator("Connected", "green", false);
             isFetching = false;
 
-            if(refresh && txt.current.value !== text){
-                txt.current.value = text;
+            if(refresh){
+                txt.current.value = response.data;
             }
         }catch(e){
             statusIndicator("Disconnected", "red", false);
