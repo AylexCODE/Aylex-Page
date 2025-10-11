@@ -27,6 +27,7 @@ export default function SideProjectsList(){
         clearTimeout(searchTime);
         searchTime = setTimeout(() => {
             const search = tempProjectFiles.current.filter((file) => { return file.path.toLowerCase().includes(txt.toLowerCase()) });
+
             setProjectsFiles(search);
         }, 250);
     }
@@ -45,7 +46,7 @@ export default function SideProjectsList(){
                     </span>
                     <input type="text" className="h-full w-full rounded-t-xl indent-[2.5rem]" onInput={(e) => {handleSearch(e.target.value)}} />
                 </div>
-            {projectsFiles ? (
+                {projectsFiles ? (
                 <ul className="[&>li>a]:flex [&>li>a]:flex-row [&>li>a]:items-center [&>li>a]:p-[0.5rem] [&>li>a]:gap-[0.5rem] [&>li>a]:overflow-scroll [&>li>a]:hover:bg-[#bdeeff] [&>li>a]:duration-300 [&>li>a]:ease-out [&_p]:text-nowrap">
                     {projectsFiles.map((file) => (
                         <li key={file.path}>
@@ -54,12 +55,19 @@ export default function SideProjectsList(){
                             </NavLink>
                         </li>
                     ))}
+                    {projectsFiles.length === 0 ? (
+                        <div className="h-[9.5rem] w-full grid place-items-center">
+                            <span>Error | No Projects Found!</span>
+                        </div>
+                    ) : (
+                        <></>
+                    )}
                 </ul>
-            ) : ( 
+                ) : ( 
                 <div className="h-full w-full grid place-items-center">
                     <span className="flex animate-ping rounded-max size-[1rem] bg-[#000]"></span>
                 </div>
-            )}
+                )}
             </div>
         </div>
     )
