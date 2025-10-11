@@ -23,6 +23,7 @@
     --text-2xl: 1.5rem;
     --text-2xl--line-height: calc(2 / 1.5);
     --font-weight-medium: 500;
+    --font-weight-semibold: 600;
     --font-weight-bold: 700;
     --font-weight-extrabold: 800;
     --font-weight-black: 900;
@@ -901,6 +902,29 @@
       color: var(--color-sideTextColorActive);
     }
   }
+  .\[\&_\.title\]\:text-\[1rem\] {
+    & .title {
+      font-size: 1rem;
+    }
+  }
+  .\[\&_\.title\]\:font-medium {
+    & .title {
+      --tw-font-weight: var(--font-weight-medium);
+      font-weight: var(--font-weight-medium);
+    }
+  }
+  .\[\&_\.title\]\:font-semibold {
+    & .title {
+      --tw-font-weight: var(--font-weight-semibold);
+      font-weight: var(--font-weight-semibold);
+    }
+  }
+  .\[\&_h1\]\:font-medium {
+    & h1 {
+      --tw-font-weight: var(--font-weight-medium);
+      font-weight: var(--font-weight-medium);
+    }
+  }
   .\[\&_p\]\:text-nowrap {
     & p {
       text-wrap: nowrap;
@@ -1249,10 +1273,20 @@
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
+  .\[\&\>li\>\.title\]\:text-\[1rem\] {
+    &>li>.title {
+      font-size: 1rem;
+    }
+  }
   .\[\&\>li\>\.title\]\:font-medium {
     &>li>.title {
       --tw-font-weight: var(--font-weight-medium);
       font-weight: var(--font-weight-medium);
+    }
+  }
+  .\[\&\>li\>\.title\]\:text-\[1\] {
+    &>li>.title {
+      color: 1;
     }
   }
   .\[\&\>li\>a\]\:flex {
@@ -1352,9 +1386,40 @@
       width: 100%;
     }
   }
+  .\[\&\>li\>div\>span\]\:flex {
+    &>li>div>span {
+      display: flex;
+    }
+  }
+  .\[\&\>li\>div\>span\]\:flex-row {
+    &>li>div>span {
+      flex-direction: row;
+    }
+  }
+  .\[\&\>li\>div\>span\]\:items-center {
+    &>li>div>span {
+      align-items: center;
+    }
+  }
+  .\[\&\>li\>div\>span\]\:gap-\[0\.5rem\] {
+    &>li>div>span {
+      gap: 0.5rem;
+    }
+  }
   .\[\&\>li\>div\>span\]\:opacity-60 {
     &>li>div>span {
       opacity: 60%;
+    }
+  }
+  .\[\&\>li\>h1\]\:text-\[1rem\] {
+    &>li>h1 {
+      font-size: 1rem;
+    }
+  }
+  .\[\&\>li\>h1\]\:font-medium {
+    &>li>h1 {
+      --tw-font-weight: var(--font-weight-medium);
+      font-weight: var(--font-weight-medium);
     }
   }
   .\[\&\>li\>img\]\:aspect-\[1\.4\/1\] {
@@ -1381,6 +1446,11 @@
   .\[\&\>li\>img\]\:border-borderColor {
     &>li>img {
       border-color: var(--color-borderColor);
+    }
+  }
+  .\[\&\>li\>le\]\:text-\[1rem\] {
+    &>li>le {
+      font-size: 1rem;
     }
   }
   .\[\&\>li\>span\]\:block {
