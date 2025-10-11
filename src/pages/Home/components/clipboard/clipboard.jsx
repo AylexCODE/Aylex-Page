@@ -138,17 +138,19 @@ export default function Clipboard(){
     return (
         <main className="h-dvh w-dvw overflow-hidden">
             <div className="h-[calc(100%-2rem)] w-[calc(100%-2rem)] m-[1rem] overflow-hidden border border-borderColor rounded-xl bg-componentsColor">
-                <div className="flex flex-row items-center justify-between p-[0.5rem]">
-                    <span className="flex flex-row items-center gap-[0.5rem] overflow-hidden [&>p]:text-[0.75rem] [&>p]:opacity-50">
-                        <div className="font-bold text-nowrap overflow-scroll">SHARED CLIPBOARD</div>
-                        <button ref={clipboardColorStatus} onClick={()=>{cancelGetClipboardData()}} className="block flex size-[0.5rem] bg-yellow-500 rounded-max"></button>
-                        <p ref={clipboardStatus}>Connecting</p>
-                    </span>
-                    <span className="flex flex-row gap-[0.5rem] pl-[0.5rem] [&>button]:hover:[&_path]:stroke-sideTextColorActive [&>button>svg>path]:duration-300 [&>button>svg>path]:ease-out">
-                        <button title="Copy" onClick={()=>{copyClipboard()}}>{copyStatus}</button>
-                        <button title="Paste" onClick={()=>{pasteClipboard()}}>{pasteStatus}</button>
-                        <button title="Save" onClick={()=>{saveClipboard()}}>{icons.saveIcon}</button>
-                        <button title="Close" onClick={()=>{window.close()}}>{icons.exitIcon}</button>
+                <div className="flex flex-row items-center justify-between gap-[0.5rem] p-[0.5rem]">
+                    <h1 className="font-bold text-nowrap overflow-scroll">SHARED CLIPBOARD</h1>
+                    <span className="flex flex-row justify-between grow">
+                        <span className="flex flex-row items-center gap-[0.5rem] [&>p]:opacity-50">
+                            <button ref={clipboardColorStatus} onClick={()=>{cancelGetClipboardData()}} className="block flex size-[0.5rem] bg-yellow-500 rounded-max"></button>
+                            <p ref={clipboardStatus}>Connecting</p>
+                        </span>
+                        <span className="flex flex-row gap-[0.5rem] pl-[0.5rem] [&>button]:hover:[&_path]:stroke-sideTextColorActive [&>button>svg>path]:duration-300 [&>button>svg>path]:ease-out">
+                            <button title="Copy" onClick={()=>{copyClipboard()}}>{copyStatus}</button>
+                            <button title="Paste" onClick={()=>{pasteClipboard()}}>{pasteStatus}</button>
+                            <button title="Save" onClick={()=>{saveClipboard()}}>{icons.saveIcon}</button>
+                            <button title="Close" onClick={()=>{window.close()}}>{icons.exitIcon}</button>
+                        </span>
                     </span>
                 </div>
                 <pre className="h-[calc(100%-2.5rem)] w-full overflow-hidden border-t border-borderColor">

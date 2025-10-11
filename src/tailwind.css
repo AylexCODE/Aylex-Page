@@ -489,6 +489,9 @@
   .w-full {
     width: 100%;
   }
+  .grow {
+    flex-grow: 1;
+  }
   .animate-ping {
     animation: var(--animate-ping);
   }
