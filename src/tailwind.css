@@ -1557,6 +1557,32 @@
       }
     }
   }
+  .\[\&\>p\]\:rounded-md {
+    &>p {
+      border-radius: var(--radius-md);
+    }
+  }
+  .\[\&\>p\]\:border-\[0\.5px\] {
+    &>p {
+      border-style: var(--tw-border-style);
+      border-width: 0.5px;
+    }
+  }
+  .\[\&\>p\]\:border-\[\#CCC\] {
+    &>p {
+      border-color: #CCC;
+    }
+  }
+  .\[\&\>p\]\:bg-\[\#D5D8CD\] {
+    &>p {
+      background-color: #D5D8CD;
+    }
+  }
+  .\[\&\>p\]\:p-\[0\.5rem\] {
+    &>p {
+      padding: 0.5rem;
+    }
+  }
   .\[\&\>p\]\:opacity-50 {
     &>p {
       opacity: 50%;

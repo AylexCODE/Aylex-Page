@@ -103,16 +103,16 @@ function ClashofClans(){
                     </button>
                 </section>
                 <section className="flex flex-col mx-[0.5rem]">
-                    <span className="flex flex-row items-center justify-center gap-[0.5rem] [&>h1]:semibold-coc-text">
+                    <span className="flex flex-row items-center justify-center gap-[0.5rem] [&>h1]:semibold-coc-text py-[0.5rem]">
                         <p className="regular-coc-text">Members 49/50</p>
                         <p>O</p>
                         <h1>Most Tropies</h1>
                     </span>
-                    <div>
+                    <div className="flex flex-col gap-[0.25rem] [&>p]:p-[0.5rem] [&>p]:bg-[#D5D8CD] [&>p]:border-[0.5px] [&>p]:border-[#CCC] [&>p]:rounded-md">
                         <p>1</p>
                         <p>2</p>
                         <p>3</p>
-                        <p>r</p>
+                        <p>4</p>
                     </div>
                 </section>
             </div>
