@@ -102,7 +102,7 @@ export default function Clipboard(){
     const [pasteStatus, setPasteStatus] = useState(icons.pasteIcon);
 
     function copyClipboard(){
-        navigator.clipboard.writeText(text).then(() => {
+        navigator.clipboard.writeText(txt.current.value).then(() => {
             setCopyStatus(icons.copySuccessIcon);
         }).catch((e) => {
             setCopyStatus(icons.copyErrorIcon);
@@ -116,6 +116,7 @@ export default function Clipboard(){
 
     function pasteClipboard(){
         navigator.clipboard.readText().then((text) => {
+            txt.current.value = text;
             setText(text);
             setPasteStatus(icons.pasteSuccessIcon);
         }).catch((e) => {
