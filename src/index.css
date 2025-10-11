@@ -1,8 +1,18 @@
 @import "tailwindcss";
 
+@font-face {
+  font-family: Oswald;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: url("./components/fonts/Clash_Regular.otf");
+}
+
 @theme {
     --radius-max: 100%;
     --font-textFont: "Space Grotesk", "Poppins", sans-serif;
+    --font-oswald: "Oswald", "Poppins", sans-serif;
+    --font-poppins: "Poppins", sans-serif;
     --color-bgColor: #F2F1F6;
     --color-componentsColor: #F8F8F3;
     --color-componentsColorClear: #FEFFFE;
@@ -22,6 +32,20 @@
   &::-webkit-scrollbar {
     display: none;
   }
+}
+
+@utility semibold-coc-text {
+    font-size: 0.75rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    text-shadow: 0px 1px 1px rgba(0,0,0,0.8), 0px 1px 2px rgba(0,0,0,0.8), 0px 2px 4px rgba(0,0,0,0.8);
+}
+
+@utility regular-coc-text {
+    font-size: 0.75rem;
+    font-family: "Poppins", sans-serif;
+    font-weight: 500;
+    color: #434037;
 }
 
 ::-webkit-scrollbar {
