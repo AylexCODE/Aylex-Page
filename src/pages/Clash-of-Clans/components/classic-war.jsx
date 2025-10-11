@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 function ClassicWar(){
     const getWarData = useQuery({
         queryKey: ["warData"],
-        queryFn: () => { return fetch("https://discord-bot-g423.onrender.com/clashofclans", { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ type: 'war' }) }).then(res => res.json() )}
+        queryFn: async () => { return fetch("https://discord-bot-g423.onrender.com/clashofclans", { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ type: 'war' }) }).then(res => res.json() )}
     });
 
     // if(ClashofClansWarData.isFetching){
