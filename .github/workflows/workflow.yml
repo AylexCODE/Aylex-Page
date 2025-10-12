@@ -42,6 +42,7 @@ jobs:
             REACT_APP_GITHUBGRAPHQL_TOKEN: ${{ secrets.GHGRAPHQL_TOKEN }}
             REACT_APP_OCTOKIT_TOKEN: ${{ secrets.OCTOKIT_TOKEN }}
             REACT_APP_SHARED_CLIPBOARD_API_URL: ${{ secrets.SHARED_CLIPBOARD_API_URL }}
+            REACT_APP_CLASH_OF_CLANS_API_URL: ${{ secrets.CLASH_OF_CLANS_API_URL }}
 
      # - name: Deploy
      #   uses: JamesIves/github-pages-deploy-action@releases/v4
