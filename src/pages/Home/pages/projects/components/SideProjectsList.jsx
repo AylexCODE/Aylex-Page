@@ -42,7 +42,7 @@ export default function SideProjectsList(){
             <div className="w-full h-[12.5rem] border border-borderColor rounded-xl overflow-scroll">
                 <div className="h-[2.5rem] w-full flex flex-row items-center sticky top-0 bg-componentsColor border-b border-borderColor">
                     <span className="absolute top-0 left-0">
-                        <svg width="40px" height="40px" viewBox="0 0 40 40"><path fill="#000000" fill-opacity="0.0" stroke="#000000" stroke-width="1.5" stroke-opacity="1.0" stroke-miterlimit="10" d="M10.0,18.24C10.0,14.31,12.77,10.93,16.63,10.16C20.49,9.39,24.34,11.46,25.84,15.09C27.34,18.71,26.07,22.9,22.81,25.09C19.54,27.27,15.19,26.84,12.41,24.06C10.87,22.51,10.0,20.41,10.0,18.24Z" stroke-linecap="round"/><path fill="#000000" fill-opacity="0.0" stroke="#000000" stroke-width="1.5" stroke-opacity="1.0" stroke-miterlimit="10" d="M26.47,26.47C26.47,26.47,30.0,30.0,30.0,30.0" stroke-linecap="round"/></svg>
+                        <svg width="40px" height="40px" viewBox="0 0 40 40"><path fill="#000000" fill-opacity="0.0" stroke="#000000" strokeWidth="1.5" stroke-opacity="1.0" stroke-miterlimit="10" d="M10.0,18.24C10.0,14.31,12.77,10.93,16.63,10.16C20.49,9.39,24.34,11.46,25.84,15.09C27.34,18.71,26.07,22.9,22.81,25.09C19.54,27.27,15.19,26.84,12.41,24.06C10.87,22.51,10.0,20.41,10.0,18.24Z" stroke-linecap="round"/><path fill="#000000" fill-opacity="0.0" stroke="#000000" strokeWidth="1.5" stroke-opacity="1.0" stroke-miterlimit="10" d="M26.47,26.47C26.47,26.47,30.0,30.0,30.0,30.0" stroke-linecap="round"/></svg>
                     </span>
                     <input type="text" className="h-full w-full rounded-t-xl indent-[2.5rem]" onInput={(e) => {handleSearch(e.target.value)}} />
                 </div>
