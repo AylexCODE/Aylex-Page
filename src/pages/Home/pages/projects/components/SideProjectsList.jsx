@@ -26,7 +26,7 @@ export default function SideProjectsList(){
     function handleSearch(txt){
         clearTimeout(searchTime);
         searchTime = setTimeout(() => {
-            const search = tempProjectFiles.current.filter((file) => { return file.path.toLowerCase().includes(txt.toLowerCase()) });
+            const search = tempProjectFiles.current.filter((file) => { return file.path.toLowerCase().includes(txt.replaceAll(" ", "_").toLowerCase()) });
 
             setProjectsFiles(search);
         }, 250);
