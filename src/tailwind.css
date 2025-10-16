@@ -7,7 +7,6 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-500: oklch(63.7% 0.237 25.331);
     --color-yellow-500: oklch(79.5% 0.184 86.047);
     --color-black: #000;
     --color-white: #fff;
@@ -239,6 +238,9 @@
   .top-\[calc\(50\%-5rem\)\] {
     top: calc(50% - 5rem);
   }
+  .top-\[calc\(50\%-7\.5rem\)\] {
+    top: calc(50% - 7.5rem);
+  }
   .bottom-\[3rem\] {
     bottom: 3rem;
   }
@@ -394,6 +396,9 @@
   .h-\[12\.5rem\] {
     height: 12.5rem;
   }
+  .h-\[15rem\] {
+    height: 15rem;
+  }
   .h-\[16px\] {
     height: 16px;
   }
@@ -448,6 +453,9 @@
   .w-\[6rem\] {
     width: 6rem;
   }
+  .w-\[10rem\] {
+    width: 10rem;
+  }
   .w-\[22rem\] {
     width: 22rem;
   }
@@ -498,6 +506,12 @@
   }
   .grow {
     flex-grow: 1;
+  }
+  .animate-\[fadePulse_2s_2s_linear_infinite_alternate\] {
+    animation: fadePulse 2s 2s linear infinite alternate;
+  }
+  .animate-\[fadePulse_2s_linear_infinite_alternate\] {
+    animation: fadePulse 2s linear infinite alternate;
   }
   .animate-ping {
     animation: var(--animate-ping);
@@ -688,6 +702,9 @@
   .bg-\[\#E8E8E0\] {
     background-color: #E8E8E0;
   }
+  .bg-\[\#F8F8F3\] {
+    background-color: #F8F8F3;
+  }
   .bg-bgColor {
     background-color: var(--color-bgColor);
   }
@@ -856,6 +873,9 @@
   }
   .text-\[1\.35rem\] {
     font-size: 1.35rem;
+  }
+  .text-\[2rem\] {
+    font-size: 2rem;
   }
   .text-\[12\.8px\] {
     font-size: 12.8px;
@@ -1028,14 +1048,35 @@
       box-shadow: var(--tw-inset-shadow), var(--tw-inset-ring-shadow), var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow);
     }
   }
+  .\[\&\>button\]\:w-full {
+    &>button {
+      width: 100%;
+    }
+  }
   .\[\&\>button\]\:grow {
     &>button {
       flex-grow: 1;
     }
   }
+  .\[\&\>button\]\:rounded-\[0\.5rem\] {
+    &>button {
+      border-radius: 0.5rem;
+    }
+  }
   .\[\&\>button\]\:rounded-md {
     &>button {
       border-radius: var(--radius-md);
+    }
+  }
+  .\[\&\>button\]\:border {
+    &>button {
+      border-style: var(--tw-border-style);
+      border-width: 1px;
+    }
+  }
+  .\[\&\>button\]\:bg-\[\#CCCCCC\] {
+    &>button {
+      background-color: #CCCCCC;
     }
   }
   .\[\&\>button\]\:bg-linear-\[0deg\,\#A39C92_30\%\,\#847B72_60\%\] {
@@ -1047,6 +1088,22 @@
   .\[\&\>button\]\:p-px {
     &>button {
       padding: 1px;
+    }
+  }
+  .\[\&\>button\]\:px-\[1rem\] {
+    &>button {
+      padding-inline: 1rem;
+    }
+  }
+  .\[\&\>button\]\:py-\[0\.5rem\] {
+    &>button {
+      padding-block: 0.5rem;
+    }
+  }
+  .\[\&\>button\]\:font-bold {
+    &>button {
+      --tw-font-weight: var(--font-weight-bold);
+      font-weight: var(--font-weight-bold);
     }
   }
   .\[\&\>button\]\:hover\:\[\&_path\]\:stroke-sideTextColorActive {
@@ -1767,6 +1824,12 @@
       display: grid;
     }
   }
+  .\[\&\>span\]\:size-\[2rem\] {
+    &>span {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
   .\[\&\>span\]\:h-\[50\%\] {
     &>span {
       height: 50%;
@@ -1823,10 +1886,39 @@
       border-bottom-left-radius: var(--radius-md);
     }
   }
+  .\[\&\>span\]\:border-t-\[1px\] {
+    &>span {
+      border-top-style: var(--tw-border-style);
+      border-top-width: 1px;
+    }
+  }
+  .\[\&\>span\]\:border-r-\[2px\] {
+    &>span {
+      border-right-style: var(--tw-border-style);
+      border-right-width: 2px;
+    }
+  }
   .\[\&\>span\]\:border-b {
     &>span {
       border-bottom-style: var(--tw-border-style);
       border-bottom-width: 1px;
+    }
+  }
+  .\[\&\>span\]\:border-b-\[2px\] {
+    &>span {
+      border-bottom-style: var(--tw-border-style);
+      border-bottom-width: 2px;
+    }
+  }
+  .\[\&\>span\]\:border-l-\[1px\] {
+    &>span {
+      border-left-style: var(--tw-border-style);
+      border-left-width: 1px;
+    }
+  }
+  .\[\&\>span\]\:border-black {
+    &>span {
+      border-color: var(--color-black);
     }
   }
   .\[\&\>span\]\:px-\[0\.5rem\] {
@@ -2020,6 +2112,17 @@
 }
 .anim-size {
   interpolate-size: "allow-keywords";
+}
+@keyframes fadePulse {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 @property --tw-scroll-snap-strictness {
   syntax: "*";
