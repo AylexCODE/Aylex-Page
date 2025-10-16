@@ -154,11 +154,7 @@ export default function Clipboard(){
                     </span>
                 </div>
                 <pre className="h-[calc(100%-2.5rem)] w-full overflow-hidden border-t border-borderColor">
-                    {text ? (
-                        <textarea ref={txt} className="h-full w-full resize-none rounded-b-xl p-[0.5rem]" defaultValue={text}></textarea>
-                    ) : (
-                        <p></p>
-                    )}
+                    <textarea ref={txt} className="h-full w-full resize-none rounded-b-xl p-[0.5rem]" defaultValue={text}></textarea>
                 </pre>
             </div>
         </main>
