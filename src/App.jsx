@@ -14,7 +14,6 @@ import Clipboard from './pages/Home/components/clipboard/clipboard';
 import ClashofClans from './pages/Clash-of-Clans/index';
 import Minecraft from './pages/Minecraft/index';
 
-import Games from './pages/Games';
 import NumberLock from './pages/Games/numberlock';
 
 function App(){
