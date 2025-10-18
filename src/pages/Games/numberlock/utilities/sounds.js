@@ -3,7 +3,7 @@ const bgmList = ["bgm_loop1", "bgm_loop2", "bgm_sorcerer_loop", "blues_guitar_lo
 let bgm = new Audio(`../assets/bgm/${bgmList[Math.floor(Math.random() * 7)]}.ogg`);
 const start_sound = new Audio("../assets/sounds/start.ogg");
 const lockIn_sound = new Audio("../assets/sounds/lock_in.ogg");
-const boxSnap_sound = new Audio("../assets/sounds/box_snap.ogg");
+const boxSnap_sound = new Audio("%PUBLIC_URL%/../assets/games/numberlock/sounds/box_snap.ogg");
 const scoreResult_sound = new Audio("../assets/sounds/score_result.ogg");
 const btnDisabled_sound = new Audio("../assets/sounds/button_disabled.ogg");
 
