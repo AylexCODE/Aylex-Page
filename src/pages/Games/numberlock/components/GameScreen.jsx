@@ -101,7 +101,7 @@ export default function GameScreen(props){
             <span ref={boxContainer} className="absolute top-[2px] left-[2px] size-[50px] border border-gray-500 border-dashed z-1" id="boxContainer"></span>
             <span className="[&>button]:py-[0.5rem] [&>button]:px-[1rem] [&>button]:font-bold [&>button]:rounded-[0.5rem] [&>button]:border-t-[1px] [&>button]:border-r-[2px] [&>button]:border-b-[2px] [&>button]:border-l-[1px] [&>button]:hover:border-r-[1px] [&>button]:hover:border-b-[1px] [&>button]:hover:top-[1px] [&>button]:hover:left-[1px] [&>button]:hover:mt-[1px] [&>button]:hover:ml-[1px]">
             {didGameEnded ? (
-                <button className="bg-[#CCCCCC]">RESET</button>
+                <button className="bg-[#CCCCCC]" onClick={() => {props.reset(!props.resetValue)}}>RESET</button>
             ) : (
                 <button ref={lockInBtn} onClick={() => {logics.current.lockIn(currentNumber)}}>LOCK-IN</button>
             )}

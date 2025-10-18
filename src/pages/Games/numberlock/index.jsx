@@ -10,6 +10,7 @@ function NumberLock(){
     const [isInMenu, setIsInMenu] = useState(true);
     const [isSelectingDifficulty, setIsSelectingDifficulty] = useState(false);
     const [difficulty, setDifficulty] = useState({boxCount: 10, rngLimit: 100});
+    const [playAgain, setPlayAgain] = useState(false);
     const screenWindow = useRef(null);
     
     Breakpoints(setBreakpoint);
@@ -51,7 +52,7 @@ function NumberLock(){
                 </AnimatePresence>
             </section>
         ) : (
-            <GameScreen difficulty={difficulty} setIsInMenu={setIsInMenu} screenWindow={screenWindow} />
+            <GameScreen difficulty={difficulty} setIsInMenu={setIsInMenu} screenWindow={screenWindow} reset={setPlayAgain} resetValue={playAgain} key={`Play: ${playAgain}`} />
         )}
         </main>
     );
