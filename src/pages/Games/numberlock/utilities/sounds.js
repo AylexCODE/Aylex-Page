@@ -1,17 +1,17 @@
 const bgmList = ["bgm_loop1", "bgm_loop2", "bgm_sorcerer_loop", "blues_guitar_loop", "jazzy_spy_loop", "soft_piano_loop", "tutorial_loop"];
 
-let bgm = new Audio(`../assets/bgm/${bgmList[Math.floor(Math.random() * 7)]}.ogg`);
-const start_sound = new Audio("../assets/sounds/start.ogg");
-const lockIn_sound = new Audio("../assets/sounds/lock_in.ogg");
+let bgm = new Audio(`%PUBLIC_URL%/../assets/games/numberlock/bgm/${bgmList[Math.floor(Math.random() * 7)]}.ogg`);
+const start_sound = new Audio("%PUBLIC_URL%/../assets/games/numberlock/sounds/start.ogg");
+const lockIn_sound = new Audio("%PUBLIC_URL%/../assets/games/numberlock/sounds/lock_in.ogg");
 const boxSnap_sound = new Audio("%PUBLIC_URL%/../assets/games/numberlock/sounds/box_snap.ogg");
-const scoreResult_sound = new Audio("../assets/sounds/score_result.ogg");
-const btnDisabled_sound = new Audio("../assets/sounds/button_disabled.ogg");
+const scoreResult_sound = new Audio("%PUBLIC_URL%/../assets/games/numberlock/sounds/score_result.ogg");
+const btnDisabled_sound = new Audio("%PUBLIC_URL%/../assets/games/numberlock/sounds/button_disabled.ogg");
 
 export default class Sounds {
     BGMMusic(){
         bgm.pause();
         bgm.currentTime = 0;
-        bgm = new Audio(`../assets/bgm/${bgmList[Math.floor(Math.random() * 7)]}.ogg`);
+        bgm = new Audio(`%PUBLIC_URL%/../assets/games/numberlock/bgm/${bgmList[Math.floor(Math.random() * 7)]}.ogg`);
         bgm.loop = true;
         
         setTimeout(() => bgm.play(), 1000);
