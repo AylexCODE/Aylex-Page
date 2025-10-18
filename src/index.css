@@ -56,6 +56,14 @@
     interpolate-size: "allow-keywords";
 }
 
+.numberlock-lockbtn {
+    @apply border-[#006400] bg-[#00FF00] text-white;
+}
+
+.numberlock-lockbtn-disabled {
+    @apply border-[#FF0000] bg-[#8B0000] text-[#FF0000];
+}
+
 @keyframes fadePulse {
     0%{
         opacity: 0;
