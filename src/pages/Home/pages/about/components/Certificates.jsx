@@ -7,7 +7,7 @@ export default function Certificates(props){
         <div className="mt-[0.75rem] [&>ul>li>div]:m-[0.5rem]">
             <ul className={`flex gap-[1rem] [&_.title]:font-semibold [&_.title]:text-[1rem] [&>li>div>span]:opacity-60 [&>li>div>span]:flex [&>li>div>span]:flex-row [&>li>div>span]:items-center [&>li>div>span]:gap-[0.5rem] [&>li>img]:w-full [&>li>img]:aspect-[1.4/1] [&>li>img]:border [&>li>img]:border-borderColor [&>li>img]:rounded-xl ${props.bp > 768 ? "flex-wrap [&>li]:w-[calc(50%-0.5rem)]" : "flex-col"}`}>
                 <li>
-                    <img src="%PUBLIC_URL%/../Certificate_Proficient_in_Java.webp" alt="Certificate"></img>
+                    <img src="%PUBLIC_URL%/../assets/home/certificates/Certificate_Proficient_in_Java.webp" alt="Certificate"></img>
                     <div>
                     <h1 className="title">Proficient in Java</h1>
                         <p>BISU</p>
@@ -18,7 +18,7 @@ export default function Certificates(props){
                     </div>
                 </li>
                 <li>
-                    <img src="%PUBLIC_URL%/../Certificate_Proficient_in_MYSQL_Database.webp" alt="Certificate"></img>
+                    <img src="%PUBLIC_URL%/../assets/home/certificates/Certificate_Proficient_in_MYSQL_Database.webp" alt="Certificate"></img>
                     <div>
                     <h1 className="title">Proficient in MYSQL Database</h1>
                     <p>BISU</p>
