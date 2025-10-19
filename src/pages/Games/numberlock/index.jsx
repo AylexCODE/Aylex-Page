@@ -52,7 +52,7 @@ function NumberLock(){
                 </AnimatePresence>
             </section>
         ) : (
-            <GameScreen difficulty={difficulty} setIsInMenu={setIsInMenu} screenWindow={screenWindow} reset={setPlayAgain} resetValue={playAgain} key={`Play: ${playAgain}`} breakpoint={breakpoint} />
+            <GameScreen difficulty={difficulty} setIsInMenu={setIsInMenu} screenWindow={screenWindow} reset={setPlayAgain} resetValue={playAgain} key={`Play: ${playAgain}`} />
         )}
         </main>
     );
