@@ -1,49 +1,49 @@
-const bgmList = ["bgm_loop1", "bgm_loop2", "bgm_sorcerer_loop", "blues_guitar_loop", "jazzy_spy_loop", "soft_piano_loop", "tutorial_loop"];
-
-let bgm = new Audio(`%PUBLIC_URL%/../assets/games/numberlock/bgm/${bgmList[Math.floor(Math.random() * 7)]}.ogg`);
-const start_sound = new Audio("%PUBLIC_URL%/../assets/games/numberlock/sounds/start.ogg");
-const lockIn_sound = new Audio("%PUBLIC_URL%/../assets/games/numberlock/sounds/lock_in.ogg");
-const boxSnap_sound = new Audio("%PUBLIC_URL%/../assets/games/numberlock/sounds/box_snap.ogg");
-const scoreResult_sound = new Audio("%PUBLIC_URL%/../assets/games/numberlock/sounds/score_result.ogg");
-const btnDisabled_sound = new Audio("%PUBLIC_URL%/../assets/games/numberlock/sounds/button_disabled.ogg");
-
 export default class Sounds {
+    #bgmList = ["bgm_loop1", "bgm_loop2", "bgm_sorcerer_loop", "blues_guitar_loop", "jazzy_spy_loop", "soft_piano_loop", "tutorial_loop"];
+    
+    bgm = new Audio(`%PUBLIC_URL%/../assets/games/numberlock/bgm/${this.#bgmList[Math.floor(Math.random() * 7)]}.ogg`);
+    #start_sound = new Audio("%PUBLIC_URL%/../assets/games/numberlock/sounds/start.ogg");
+    #lockIn_sound = new Audio("%PUBLIC_URL%/../assets/games/numberlock/sounds/lock_in.ogg");
+    #boxSnap_sound = new Audio("%PUBLIC_URL%/../assets/games/numberlock/sounds/box_snap.ogg");
+    #scoreResult_sound = new Audio("%PUBLIC_URL%/../assets/games/numberlock/sounds/score_result.ogg");
+    #btnDisabled_sound = new Audio("%PUBLIC_URL%/../assets/games/numberlock/sounds/button_disabled.ogg");
+    
     BGMMusic(){
-        bgm.pause();
-        bgm.currentTime = 0;
-        bgm = new Audio(`%PUBLIC_URL%/../assets/games/numberlock/bgm/${bgmList[Math.floor(Math.random() * 7)]}.ogg`);
-        bgm.loop = true;
+        this.bgm.pause();
+        this.bgm.currentTime = 0;
+        this.bgm = new Audio(`%PUBLIC_URL%/../assets/games/numberlock/bgm/${this.#bgmList[Math.floor(Math.random() * 7)]}.ogg`);
+        this.bgm.loop = true;
         
-        setTimeout(() => bgm.play(), 1000);
+        setTimeout(() => this.bgm.play(), 1000);
     }
 
     playStartSound(){
-        start_sound.pause();
-        start_sound.currentTime = 0;
-        start_sound.play();
+        this.#start_sound.pause();
+        this.#start_sound.currentTime = 0;
+        this.#start_sound.play();
     }
 
     playButtonDisabledSound(){
-        btnDisabled_sound.pause();
-        btnDisabled_sound.currentTime = 0;
-        btnDisabled_sound.play();
+        this.#btnDisabled_sound.pause();
+        this.#btnDisabled_sound.currentTime = 0;
+        this.#btnDisabled_sound.play();
     }
 
     playLockInSound(){
-        lockIn_sound.pause();
-        lockIn_sound.currentTime = 0;
-        lockIn_sound.play();
+        this.#lockIn_sound.pause();
+        this.#lockIn_sound.currentTime = 0;
+        this.#lockIn_sound.play();
     }
 
     playScoreResultSound(){
-        scoreResult_sound.pause();
-        scoreResult_sound.currentTime = 0;
-        scoreResult_sound.play();
+        this.#scoreResult_sound.pause();
+        this.#scoreResult_sound.currentTime = 0;
+        this.#scoreResult_sound.play();
     }
 
     playBoxSnapSound(){
-        boxSnap_sound.pause();
-        boxSnap_sound.currentTime = 0;
-        boxSnap_sound.play();
+        this.#boxSnap_sound.pause();
+        this.#boxSnap_sound.currentTime = 0;
+        this.#boxSnap_sound.play();
     }
 }
