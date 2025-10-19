@@ -56,7 +56,7 @@ export default class Logics {
             if(n.x === this.snapTo[0] && n.y === this.snapTo[1]){
                 const boxIndex = this.#dataBoxes.findIndex((box) => (box.x === n.x && box.y === n.y));
                 this.#numbers[boxIndex] = number;
-                this.#resetBox();
+                this.#resetBox(false);
                 this.#currentNumber(this.rng());
 
                 this.#guessBoxes.children[boxIndex].innerHTML = `<h2>${number}</h2>`;
@@ -101,5 +101,14 @@ export default class Logics {
             this.#lockInBtn.classList.remove("numberlock-lockbtn");
             this.#lockInBtn.classList.add("numberlock-lockbtn-disabled");
         }
+    }
+
+    updateBoxes(guessBoxes){
+        Array.from(guessBoxes.children).forEach((box, i) => {
+            if(typeof(this.boxes[i]) === 'object'){
+                this.boxes[i] = { x: box.getBoundingClientRect().x, y: box.getBoundingClientRect().y};
+                this.#dataBoxes[i] = { x: box.getBoundingClientRect().x, y: box.getBoundingClientRect().y};
+            }
+        });
     }
 }

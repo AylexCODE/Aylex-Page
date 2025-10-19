@@ -22,7 +22,7 @@ function NumberLock(){
         {isInMenu ? (
             <section className="[&>span]:flex [&>span]:flex-col [&>span]:justify-center [&>span]:items-center [&>span]:gap-[0.5rem]">
                 <span className={`${isSelectingDifficulty ? "opacity-25" : ""}`}>
-                    <h1 className="flex flex-row flex-wrap justify-center items-center font-bold text-[2rem]">Sort Randomly Generated&nbsp;<br/><span>Numbers</span></h1>
+                    <h1 className={`flex flex-wrap justify-center items-center font-bold text-center ${breakpoint >= 768 ? "text-[2rem] flex-row" : "text-[1rem] flex-col"}`}>Sort Randomly Generated&nbsp;<br/><span className="text-[2rem]">Numbers</span></h1>
                     <div className="flex flex-row gap-[0.5rem] mb-[1rem] [&>span]:grid [&>span]:place-items-center [&>span]:size-[2rem] [&>span]:border-black [&>span]:border-t-[1px] [&>span]:border-r-[2px] [&>span]:border-b-[2px] [&>span]:border-l-[1px]">
                         <span>7</span><span>24</span><span><p className="animate-[fadePulse_2s_linear_infinite_alternate]">67</p></span><span><p className="opacity-0 animate-[fadePulse_2s_2s_linear_infinite_alternate]">67</p></span><span>98</span>
                     </div>

@@ -31,24 +31,32 @@ export default function GameScreen(props){
         logics.current = new Logics(guessBoxes.current, lockInBtn.current, setBox, setCurrentNumber, props.difficulty.rngLimit, setDidGameEnded, setIsBoxHidden);
         logics.current.buttonState(false);
 
+        setBox(true);
+        window.addEventListener('resize', updateScreen);
         // eslint-disable-next-line
     }, []);
-
-    function setBox(){
+    
+    const updateScreen = () => {
+        setBox(true);
+        logics.current.buttonState(false);
+        logics.current.updateBoxes(guessBoxes.current);
+    }
+    
+    function setBox(setAll){
         gsap.set(box.current, {
             x: window.innerWidth / 2 - 25,
-            y: window.innerHeight / 2 - 225
+            y: guessBoxes.current.getBoundingClientRect().y - 50
         });
+
+        if(setAll){
+            gsap.set(boxContainer.current, {
+                x: window.innerWidth / 2 - 25,
+                y: guessBoxes.current.getBoundingClientRect().y - 50
+            });
+        }
     }
 
     useGSAP(() => {
-        gsap.set(boxContainer.current, {
-            x: window.innerWidth / 2 - 25,
-            y: window.innerHeight / 2 - 225
-        });
-
-        setBox();
-        
         Draggable.create(box.current, {
             type: "x,y",
             inertia: true,
@@ -60,7 +68,7 @@ export default function GameScreen(props){
                     for(const p of logics.current.boxes){
                         const dx = point.x - p.x;
                         const dy = point.y - p.y;
-                        if (dx * dx + dy * dy < 900) {
+                        if(dx * dx + dy * dy < 900){
                             logics.current.snapTo = [p.x, p.y];
                             return point;
                         }
