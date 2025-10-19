@@ -21,7 +21,6 @@ export default function GameScreen(props){
     const boxContainer = useRef(null);
     const box = useRef(null);
     const guessBoxes = useRef(null);
-    const dragging = useRef(null);
     const lockInBtn = useRef(null);
 
     function setGuessBox(reference){
@@ -57,36 +56,33 @@ export default function GameScreen(props){
             liveSnap: {
                 points: function (point) {
                     logics.current.buttonState(false);
-                    clearTimeout(dragging.current);
-                    dragging.current = setTimeout(() => {
-                        for(const p of logics.current.boxes){
-                            const dx = point.x - p.x;
-                            const dy = point.y - p.y;
-                            if (Math.sqrt(dx * dx + dy * dy) < 30) {
-                                logics.current.snapTo = [p.x, p.y];
-                                return point;
-                            }
+
+                    for(const p of logics.current.boxes){
+                        const dx = point.x - p.x;
+                        const dy = point.y - p.y;
+                        if (dx * dx + dy * dy < 900) {
+                            logics.current.snapTo = [p.x, p.y];
+                            return point;
                         }
-                    }, 200);
+                    }
+
                     logics.current.snapTo = null;
                     return point;
                 }
             },
             onDragEnd: function(){
-                setTimeout(() => {
-                    if(logics.current.snapTo){
-                        gsap.to(box.current, {
-                            x: logics.current.snapTo[0],
-                            y: logics.current.snapTo[1],
-                            delay: 0.2,
-                            ease: "power2.inOut"
-                        });
-                        
-                        setTimeout(() => {logics.current.buttonState(true); sounds.playBoxSnapSound();}, 400);
-                    }else{
-                        logics.current.buttonState(false);
-                    }
-                }, 400);
+                if(logics.current.snapTo){
+                    gsap.to(box.current, {
+                        x: logics.current.snapTo[0],
+                        y: logics.current.snapTo[1],
+                        delay: 0.2,
+                        ease: "power2.inOut"
+                    });
+                    
+                    setTimeout(() => {logics.current.buttonState(true); sounds.playBoxSnapSound();}, 400);
+                }else{
+                    logics.current.buttonState(false);
+                }
             }
         });
     }, {gameContainer});
