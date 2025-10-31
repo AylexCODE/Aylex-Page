@@ -7,7 +7,9 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
+    --color-red-500: oklch(63.7% 0.237 25.331);
     --color-yellow-500: oklch(79.5% 0.184 86.047);
+    --color-green-500: oklch(72.3% 0.219 149.579);
     --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-black: #000;
     --color-white: #fff;
@@ -34,6 +36,8 @@
     --radius-lg: 0.5rem;
     --radius-xl: 0.75rem;
     --radius-2xl: 1rem;
+    --radius-3xl: 1.5rem;
+    --radius-4xl: 2rem;
     --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
@@ -257,6 +261,9 @@
   .right-\[1rem\] {
     right: 1rem;
   }
+  .bottom-\[0\.75rem\] {
+    bottom: 0.75rem;
+  }
   .bottom-\[3rem\] {
     bottom: 3rem;
   }
@@ -268,6 +275,9 @@
   }
   .left-\[-100dvw\] {
     left: -100dvw;
+  }
+  .left-\[0\.75rem\] {
+    left: 0.75rem;
   }
   .left-\[2px\] {
     left: 2px;
@@ -410,6 +420,9 @@
   .h-\[2\.5rem\] {
     height: 2.5rem;
   }
+  .h-\[3rem\] {
+    height: 3rem;
+  }
   .h-\[4rem\] {
     height: 4rem;
   }
@@ -454,6 +467,9 @@
   }
   .h-\[calc\(100\%-2rem\)\] {
     height: calc(100% - 2rem);
+  }
+  .h-\[calc\(100\%-7\.5rem\)\] {
+    height: calc(100% - 7.5rem);
   }
   .h-auto {
     height: auto;
@@ -515,6 +531,9 @@
   .w-\[935px\] {
     width: 935px;
   }
+  .w-\[calc\(100\%-1\.5rem\)\] {
+    width: calc(100% - 1.5rem);
+  }
   .w-\[calc\(100\%-2rem\)\] {
     width: calc(100% - 2rem);
   }
@@ -547,6 +566,9 @@
   }
   .animate-ping {
     animation: var(--animate-ping);
+  }
+  .cursor-pointer {
+    cursor: pointer;
   }
   .resize {
     resize: both;
@@ -644,6 +666,9 @@
   .self-center {
     align-self: center;
   }
+  .self-end {
+    align-self: flex-end;
+  }
   .overflow-hidden {
     overflow: hidden;
   }
@@ -661,6 +686,12 @@
   }
   .rounded-2xl {
     border-radius: var(--radius-2xl);
+  }
+  .rounded-3xl {
+    border-radius: var(--radius-3xl);
+  }
+  .rounded-4xl {
+    border-radius: var(--radius-4xl);
   }
   .rounded-lg {
     border-radius: var(--radius-lg);
@@ -822,6 +853,9 @@
   .p-px {
     padding: 1px;
   }
+  .px-\[0\.5rem\] {
+    padding-inline: 0.5rem;
+  }
   .px-\[0\.25rem\] {
     padding-inline: 0.25rem;
   }
@@ -968,6 +1002,10 @@
     --tw-font-weight: var(--font-weight-extrabold);
     font-weight: var(--font-weight-extrabold);
   }
+  .font-medium {
+    --tw-font-weight: var(--font-weight-medium);
+    font-weight: var(--font-weight-medium);
+  }
   .text-nowrap {
     text-wrap: nowrap;
   }
@@ -1047,6 +1085,10 @@
     --tw-ease: var(--ease-in-out);
     transition-timing-function: var(--ease-in-out);
   }
+  .outline-none {
+    --tw-outline-style: none;
+    outline-style: none;
+  }
   .select-none {
     -webkit-user-select: none;
     user-select: none;
@@ -1095,6 +1137,17 @@
   .\[\&_p\]\:text-nowrap {
     & p {
       text-wrap: nowrap;
+    }
+  }
+  .\[\&_pre\]\:break-normal {
+    & pre {
+      overflow-wrap: normal;
+      word-break: normal;
+    }
+  }
+  .\[\&_pre\]\:whitespace-pre-wrap {
+    & pre {
+      white-space: pre-wrap;
     }
   }
   .\[\&\>\.active\]\:border-activeBtnColor {
