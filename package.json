@@ -5,6 +5,7 @@
   "type": "module",
   "private": true,
   "dependencies": {
+    "@google/genai": "^1.28.0",
     "@gsap/react": "^2.1.2",
     "@octokit/rest": "^22.0.0",
     "@tailwindcss/postcss": "^4.1.11",
