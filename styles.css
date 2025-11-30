@@ -8,8 +8,8 @@
 
 body {
     background-color: #2E3047;
-    height: 100vh;
-    width: 100vw;
+    height: 100dvh;
+    width: 100dvw;
     overflow: hidden;
 }
 
@@ -44,7 +44,7 @@ header .logo {
 }
 
 header > span > p {
-    font-family:'Orbitron', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family:'Gugi', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #FFF;
     font-size: 2rem;
 }
@@ -56,17 +56,28 @@ nav > ul {
     gap: 2.5rem;
 }
 
-nav > ul > li > a {
+nav > ul > li > a, .contactBtn, .contactBtnM {
     color: rgba(255, 255, 255, 0.75);
     text-decoration: none;
 }
 
-.showNavBtn, .navBlur, .cancelNav {
+.contactBtn {
+    padding: 6px 8px;
+}
+
+.contactBtn, .contactBtnM {
+    background-color: #FFF;
+    color: #2E304A;
+    font-weight: bold;
+}
+
+.showNavBtn, .navBlur, .cancelNav, .contactBtnM {
     display: none;
 }
 
 main {
-    height: 100vh;
+    height: 100dvh;
+    width: 100dvw;
     color: #FFF;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -78,7 +89,7 @@ main::-webkit-scrollbar {
 }
 
 section {
-    height: 100vh;
+    height: 100dvh;
     padding-top: 3.75rem;
     padding-inline: 2rem;
 }
@@ -117,6 +128,283 @@ section:nth-child(even) {
     height: 330px;
     width: 330px;
     border: 24px solid #1F2031;
+}
+
+#aboutMe {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    font-size: 20px;
+}
+
+#aboutMe .profileM {
+    display: none;
+}
+
+#aboutMe > .bio > article > p {
+    margin-block: 1rem;
+    opacity: 0.8;
+}
+
+#aboutMe > .skillSet {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#aboutMe > .skillSet > img, #aboutMe .profileM {
+    border: 40px solid #1F2031;
+    height: 300px;
+    width: 300px;
+    transform: rotate(270deg);
+    margin-bottom: 32px;
+}
+
+#aboutMe > .skillSet > span > img {
+    scale: 0.6;
+}
+
+#aboutMe > .skillSet > span > img:first-child {
+    scale: 0.7;
+}
+
+#aboutMe > .skillSet > span > img:last-child {
+    margin-left: 2px;
+}
+
+#aboutMe > .skillSet > span {
+    display: flex;
+    flex-direction: row;
+}
+
+#projects {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+#projects > .projectsContainer {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    gap: 1.5rem;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+#projects > .projectsContainer::-webkit-scrollbar {
+    display: none;
+}
+
+#projects > .projectsContainer > span > div {
+    display: block;
+    position: relative;
+    height: 444px;
+    width: 340px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+#projects > .projectsContainer > span > div > img {
+    height: 300px;
+    width: 300px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#projects > .projectsContainer > span > div > img, #projects > .projectsContainer > span > div > h3 {
+    z-index: 5;
+}
+
+#projects > .projectsContainer > span > div > article {
+    position: absolute;
+    top: 35px;
+    width: 100%;
+    height: 325px;
+    align-self: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background-color: #1F2031;
+    border-radius: 6px;
+    padding: 1rem 1.3rem;
+    gap: 8px;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#projects > .projectsContainer > span > div > article > p {
+    opacity: 0;
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#projects > .projectsContainer > span > div > img:hover {
+    width: 340px;
+}
+
+#projects > .projectsContainer > span > div > img:hover + h3 + article {
+    transform: translateY(85px);
+}
+
+#projects > .projectsContainer > span > div > img:hover + h3 + article > p {
+    opacity: 1;
+}
+
+#contact {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 20px;
+}
+
+#contact > .contactDetails, #contact > .contactDetails > span {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#contact > .contactDetails > span > label {
+    margin-top: 8px;
+    opacity: 0.75;
+    z-index: 1;
+}
+
+#contact > .contactDetails .socialLinks > a {
+    color: #FFF;
+}
+
+#contact > .contactDetails .socialLinks > a > i {
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+#contact > .contactDetails .socialLinks > a > i:hover {
+    transform: rotate(16deg);
+    scale: 1.2;
+}
+
+#contact > .contactDetails .socialLinks > a:first-child > i:hover {
+    color: #1877F2;
+}
+
+#contact > .contactDetails .socialLinks > a:nth-child(2) > i:hover {
+    color: #7289da;
+}
+
+#contact > .contactDetails .socialLinks > a:last-child > i:hover {
+    color: #000;
+}
+
+#contact > form label {
+    margin-top: 8px;
+}
+
+#contact > form, #contact .messageContainer, #contact > form > div > span {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+#contact > form > div {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+#contact > form input, #contact > form textarea {
+    background-color: #1F203190;
+    outline: none;
+    border: none;
+    border-radius: 0.5rem;
+    font-size: 20px;
+    padding: 8px 12px;
+    color: #FFF;
+    width: 250px;
+}
+
+#contact > form input:focus, #contact > form textarea:focus {
+    outline: 1px solid burlywood;
+}
+
+#contact > form textarea {
+    height: 100px;
+    width: 100%;
+    resize: none;
+}
+
+#contact > form textarea::-webkit-scrollbar {
+    width: 15px;
+}
+
+#contact > form textarea::-webkit-scrollbar-track {
+    background: #FFFFFF10;
+    border-radius: 5px;
+}
+
+#contact > form textarea::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+#contact > form textarea::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    cursor: grab;
+}
+
+#contact > form button {
+    border: none;
+    border-radius: 8px;
+    font-size: 20px;
+    padding: 8px 4px;
+    margin-top: 8px;
+}
+
+@media screen and (max-width: 992px){
+    #aboutMe {
+        flex-direction: column-reverse;
+        font-size: 16px;
+        gap: 8px;
+    }
+
+    #aboutMe .profileM {
+        display: block;
+        float: left;
+        height: 225px;
+        width: 225px;
+        border: 32px solid #1F2031;
+        margin: 1.5rem;
+    }
+
+    #aboutMe .profile {
+        display: none;
+    }
+
+    #contact {
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+    }
+
+    #contact > .contactDetails {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 16px;
+        border-bottom: 2px solid #FFFFFF60;
+        padding-bottom: 2rem;
+    }
+
+    #contact > .contactDetails > h1 {
+        flex-basis: 100%;
+        text-align: center;
+    }
 }
 
 @media screen and (max-width: 640px){
@@ -162,12 +450,24 @@ section:nth-child(even) {
         background-color: rgba(255, 255, 255, 0.1);
     }
 
+    .contactBtnM:hover {
+        color: #FFF;
+    }
+
     .showNavBtn, .navBlur, .cancelNav{
         display: grid;
         place-items: center;
         background-color: transparent;
         border: none;
         color: #FFF;
+    }
+
+    .contactBtn {
+        display: none;
+    }
+
+    .contactBtnM {
+        display: grid;
     }
 
     .showNavBtn {
@@ -187,6 +487,7 @@ section:nth-child(even) {
         background-color: rgba(0, 0, 0, 0.25);
         backdrop-filter: blur(4px);
         transition: 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+        z-index: 90;
     }
 
     .navBlur.active {
@@ -226,5 +527,18 @@ section:nth-child(even) {
 
     #home > article > p:nth-child(2) {
         margin-bottom: 3rem;
+    }
+
+    #aboutMe {
+        gap: unset;
+    }
+
+    #aboutMe .profileM {
+        display: block;
+        float: left;
+        height: 150px;
+        width: 150px;
+        border: 24px solid #1F2031;
+        margin: 1rem;
     }
 }

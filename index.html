@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Gugi&family=Space+Grotesk:wght@300..700&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="styles.css">
         <title>Alex Portfolio Website</title>
@@ -14,16 +14,17 @@
         <header>
             <span>
                 <img src="/images/logo.png" class="logo" alt="logo" />
-                <p>Lex</p>
+                <p>LEX</p>
             </span>
             <nav>
                 <ul>
                     <li><a href="#home" onclick="toggleNav()">Home</a></li>
                     <li><a href="#aboutMe" onclick="toggleNav()">About Me</a></li>
                     <li><a href="#projects" onclick="toggleNav()">Projects</a></li>
-                    <li><a href="#contact" onclick="toggleNav()">Contact</a></li>
+                    <li><a class="contactBtnM" href="#contact" onclick="toggleNav()">Contact</a></li>
                 </ul>
             </nav>
+            <a class="contactBtn" href="#contact" onclick="toggleNav()">Contact</a>
             <button onclick="toggleNav()" class="showNavBtn"><i class="fa-solid fa-bars"></i></button>
         </header>
         <span class="navBlur"></span>
@@ -38,20 +39,116 @@
                 <img src="/images/profile.webp" class="profile" alt="profile"/>
             </section>
             <section id="aboutMe">
-                ABOUT ME
-                <!-- These days my time is spent researching, designing, prototyping, and coding -->
-                <!-- I was born and raised in Southern California where 1 grew up in a Lakers town and always had good music playing around the house. These threads of family, basketball, and music have defined my life path and experiences. I am entering my final year at the University of Pennsylvania where I am studying Finance and Management at the Wharton School of Business. Additionally, I am a team captain on Penn's Women's Basketball Team. -->
+                <span class="skillSet">
+                    <img src="/images/profile.webp" class="profile" alt="profile"/>
+                    <h2>Skill Set</h2>
+                    <span>
+                        <img src="/images/icons/html5.svg" alt="HTML5">
+                        <img src="/images/icons/css3.svg" alt="CSS3">
+                        <img src="/images/icons/javascript.svg" alt="Javascript">
+                    </span>
+                </span>
+                <span class="bio">
+                    <article>
+                        <img src="/images/profile.webp" class="profileM" alt="profile"/>
+                        <h2>I'm Lex, I Specialize in Building Powerful Backend Systems. Passionate About Efficient Algorithms, and Clean Architecture.</h5>
+                        <p>I've spent my past years on a continuous journey of discovery, fueled by a need to know how things work and how they can work better. I'm not just a user of technology, I've always been compelled to look under the hood, break things, and then build them back stronger.</p>
+                        <p>These days my time is spent exploring the horizon of what's possible, then bringing a piece of it back to the present.<!-- Instead of just keeping up with new tech, I've made it my mission to understand the fundamental principles that drive it forward.--></p>
+                        <p>When I'm not programming, you can usually find me playing games like MOBA and Chess which has taught me a lot about strategy and patience.</p>
+                    </article>
+                </span>
             </section>
             <section id="projects">
-                PROJECTS
+                <h1>Projects</h1>
+                <div class="projectsContainer">
+                    <span>
+                        <div>
+                            <img src="/images/logo.png" alt="Project1">
+                            <h3>Online Car Rental System</h3>
+                            <article>
+                                <p>Languages Used:</p>
+                                <p>Team Size & Time Spent:</p>
+                                <p>Status:</p>
+                            </article>
+                        </div>
+                    </span>
+                    <span>
+                        <div>
+                            <img src="/images/logo.png" alt="Project2">
+                            <h3>Inventory Management System</h3>
+                            <article>
+                                <p>Languages Used:</p>
+                                <p>Team Size & Time Spent:</p>
+                                <p>Status:</p>
+                            </article>
+                        </div>
+                    </span>
+                    <span>
+                        <div>
+                            <img src="/images/logo.png" alt="Project3">
+                            <h3>Online Karaoke</h3>
+                            <article>
+                                <p>Languages Used:</p>
+                                <p>Team Size & Time Spent:</p>
+                                <p>Status:</p>
+                            </article>
+                        </div>
+                    </span>
+                    <span>
+                        <div>
+                            <img src="/images/logo.png" alt="Project3">
+                            <h3>Discord Bot</h3>
+                            <article>
+                                <p>Languages Used:</p>
+                                <p>Team Size & Time Spent:</p>
+                                <p>Status:</p>
+                            </article>
+                        </div>
+                    </span>
+                </div>
             </section>
             <section id="contact">
-                CONTACT
+                <div class="contactDetails">
+                    <h1>Get In Touch</h1>
+                    <span>
+                        <label>Email:</label>
+                        <p>alexedits.exe@gmail.com</p>
+                    </span>
+                    <span>
+                        <label>Phone:</label>
+                        <p>+639519206346</p>
+                    </span>
+                    <span>
+                        <label>Socials</label>
+                        <span class="socialLinks">
+                            <a href=""><i class="fa-brands fa-square-facebook"></i></a>
+                            <a href=""><i class="fa-brands fa-discord"></i></a>
+                            <a href=""><i class="fa-brands fa-github"></i></a>
+                        </span>
+                    </span>
+                </div>
+                <form>
+                    <div>
+                        <span>
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name">
+                        </span>
+                        <span>
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email">
+                        </span>
+                    </div>
+                    <div class="messageContainer">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message"></textarea>
+                    </div>
+                    <button type="submit">Send Message</button>
+                </form>
             </section>
+            <footer>
+                <strong>@ 2025 Lex, All Rights Reserved.</strong>
+            </footer>
         </main>
-        <footer>
-            <strong>@ 2025 Lex, All Rights Reserved.</strong>
-        </footer>
         <script type="text/javascript" src="scripts.js"></script>
     </body>
 </html>
