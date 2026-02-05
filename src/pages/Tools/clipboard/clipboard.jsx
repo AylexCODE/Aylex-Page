@@ -27,6 +27,9 @@ export default function Clipboard(){
         const options = {
             method: "GET",
             url: process.env.REACT_APP_SHARED_CLIPBOARD_API_URL,
+            headers: {
+                'Content-Type': 'text/plain'
+            },
             signal: controller.signal
         }
         
@@ -52,8 +55,9 @@ export default function Clipboard(){
         const options = {
             method: "POST",
             url: process.env.REACT_APP_SHARED_CLIPBOARD_API_URL,
-            data: {
-                text: txt.current.value
+            data: txt.current.value,
+            headers: {
+                'Content-Type': 'text/plain'
             },
             signal: controller.signal
         }
