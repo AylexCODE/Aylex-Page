@@ -26,7 +26,7 @@ export default function Clipboard(){
         isFetching = true;
         const options = {
             method: "GET",
-            url: process.env.REACT_APP_SHARED_CLIPBOARD_API_URL,
+            url: `${process.env.REACT_APP_SHARED_CLIPBOARD_API_URL}?clipboard=true`,
             headers: {
                 'Content-Type': 'text/plain'
             },
