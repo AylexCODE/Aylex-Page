@@ -148,6 +148,7 @@ export default function Clipboard(){
                         <span className="flex flex-row items-center gap-[0.5rem] [&>p]:opacity-50">
                             <button ref={clipboardColorStatus} onClick={()=>{cancelGetClipboardData()}} className="block flex size-[0.5rem] bg-yellow-500 rounded-max"></button>
                             <p ref={clipboardStatus}>Connecting</p>
+                            <p>{"(bit.ly/aylexclipboard)"}</p>
                         </span>
                         <span className="flex flex-row gap-[0.5rem] pl-[0.5rem] [&>button]:hover:[&_path]:stroke-sideTextColorActive [&>button>svg>path]:duration-300 [&>button>svg>path]:ease-out">
                             <button title="Copy" onClick={()=>{copyClipboard()}}>{copyStatus}</button>
