@@ -172,7 +172,7 @@ export default function Clipboard(){
                     {isSelectingConnection ? (<>
                         <span className="bg-sideBarCover fixed top-0 left-0 h-dvh w-dvw flex items-center justify-center z-11" onClick={() => setIsSelectingConnection(false)}></span>
                         <span className="fixed top-0 left-0 h-dvh w-dvw flex items-center justify-center z-12 pointer-events-none">
-                        <motion.span className="pointer-events-auto select-none [&>p]:cursor-pointer [&>p]:hover:bg-borderColor [&>p]:active:bg-[#123456] [&>p]:active:text-white [&>p]:text-center [&>p]:px-[1rem] [&>p]:py-[0.5rem] [&>p]:text-nowrap flex flex-col gap-[0.25rem] fixed px-[1rem] py-[0.5rem] border rounded-xl bg-componentsColor z-12" initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0 }} key="messageBox">
+                        <motion.span className="flex flex-col gap-[0.25rem] fixed px-[1rem] py-[0.5rem] border rounded-xl bg-componentsColor z-12 pointer-events-auto select-none [&>p]:cursor-pointer [&>p]:hover:bg-borderColor [&>p]:active:bg-[#123456] [&>p]:active:text-white [&>p]:text-center [&>p]:px-[1rem] [&>p]:py-[0.5rem] [&>p]:text-nowrap" initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0 }} key="messageBox">
                             {connections.map((n) => (
                                 <p onClick={() => selectConnection(n)}>Connection {n}</p>
                             ))}
@@ -180,7 +180,7 @@ export default function Clipboard(){
                     </>) : null}
                 </AnimatePresence>
                 <pre className="h-[calc(100%-2.5rem)] w-full overflow-hidden border-t border-borderColor">
-                    <textarea ref={txt} className="h-full w-full resize-none rounded-b-xl p-[0.5rem] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:border-l [&::-webkit-scrollbar-track]:border-borderColor [&::-webkit-scrollbar-thumb]:bg-borderColor" defaultValue={text}></textarea>
+                    <textarea ref={txt} className="h-full w-full resize-none rounded-b-xl p-[0.5rem] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:border-l [&::-webkit-scrollbar-track]:border-borderColor [&::-webkit-scrollbar-thumb]:cursor-pointer [&::-webkit-scrollbar-thumb]:bg-borderColor" defaultValue={text}></textarea>
                 </pre>
             </div>
         </main>
