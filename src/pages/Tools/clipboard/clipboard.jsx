@@ -11,28 +11,22 @@ export default function Clipboard(){
     const clipboardStatus = useRef(null);
     const clipboardColorStatus = useRef(null);
     const connections = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    const isFetching = useRef(false);
 
     function selectConnection(n){
         setConnectionNumber(n);
         setIsSelectingConnection(false);
     }
 
-    function statusIndicator(msg, color, status){
+    function statusIndicator(msg, color){
         clipboardStatus.current.innerHTML = msg;
         clipboardColorStatus.current.style.backgroundColor = color;
-
-        if(status){
-            setTimeout(() => {
-                clipboardStatus.current.innerHTML = status;
-            }, 2500);
-        }
     }
     
-    let isFetching = false;
     const controller = new AbortController();
     async function getClipboardData(refresh){
-        statusIndicator(`Con ${connectionNumber} Connecting`, "yellow", false);
-        isFetching = true;
+        statusIndicator(`Con ${connectionNumber} Connecting`, "yellow");
+        isFetching.current = true;
         const options = {
             method: "GET",
             url: `${process.env.REACT_APP_SHARED_CLIPBOARD_API_URL}?connection=${connectionNumber}`,
@@ -45,22 +39,22 @@ export default function Clipboard(){
         try{
             const response = await axios(options);
             setText(response.data);
-            statusIndicator(`Con ${connectionNumber} Connected`, "green", false);
-            isFetching = false;
+            statusIndicator(`Con ${connectionNumber} Connected`, "green");
+            isFetching.current = false;
 
             if(refresh){
                 txt.current.value = response.data;
             }
         }catch(e){
-            statusIndicator(`Con ${connectionNumber} Disconnected`, "red", false);
-            isFetching = false;
+            statusIndicator(`Con ${connectionNumber} Disconnected`, "red");
+            isFetching.current = false;
             console.log(e);
         }
     }
 
     async function postClipboardData(){
-        statusIndicator("Saving", "yellow", false);
-        isFetching = true;
+        statusIndicator(`Con ${connectionNumber} Saving`, "orange");
+        isFetching.current = true;
         const options = {
             method: "POST",
             url: `${process.env.REACT_APP_SHARED_CLIPBOARD_API_URL}?connection=${connectionNumber}`,
@@ -73,24 +67,26 @@ export default function Clipboard(){
         
         try{
             const response = await axios(options);
-            isFetching = false;
+            isFetching.current = false;
 
-            statusIndicator(`Con ${connectionNumber} Saved`, "Green", `Con ${connectionNumber} Connected`);
+            statusIndicator(`Con ${connectionNumber} Saved`, "green");
+            setTimeout(() => {
+                statusIndicator(`Con ${connectionNumber} Connected`, "green");
+            }, 2500);
             console.log(response);
         }catch(e){
-            isFetching = false;
+            isFetching.current = false;
 
-            statusIndicator(`Con ${connectionNumber} Saving failed`, "red", false);
-
+            statusIndicator(`Con ${connectionNumber} Saving failed`, "red");
             setTimeout(() => {
-                statusIndicator(`Con ${connectionNumber} Connected`, "green", false);
+                statusIndicator(`Con ${connectionNumber} Connected`, "green");
             }, 2500);
             console.log(e);
         }
     }
 
     async function cancelGetClipboardData(){
-        if(isFetching) controller.abort();
+        if(isFetching.current) controller.abort();
 
         setTimeout(() => getClipboardData(true), 500);
     }
@@ -98,6 +94,10 @@ export default function Clipboard(){
     useEffect(() => {
         getClipboardData(false);
         // eslint-disable-next-line
+    }, []);
+
+    useEffect(() => {
+        getClipboardData(true);
     }, [connectionNumber]);
 
     const icons = {
@@ -143,7 +143,7 @@ export default function Clipboard(){
     }
     
     function saveClipboard(){
-        if(isFetching) controller.abort();
+        if(isFetching.current) controller.abort();
         
         postClipboardData();
     }
