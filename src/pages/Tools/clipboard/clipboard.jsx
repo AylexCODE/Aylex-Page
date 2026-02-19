@@ -98,6 +98,7 @@ export default function Clipboard(){
 
     useEffect(() => {
         getClipboardData(true);
+        // eslint-disable-next-line
     }, [connectionNumber]);
 
     const icons = {
