@@ -18,7 +18,7 @@ function NumberLock(){
     console.log(breakpoint);
 
     return (
-        <main ref={screenWindow} id="E" className="h-dvh w-dvw grid place-items-center overflow-hidden bg-[#F8F8F3] select-none">
+        <main ref={screenWindow} id="E" className="h-dvh w-dvw grid place-items-center overflow-hidden bg-[#F8F8F3] select-none scrollbar-hidden-global">
         {isInMenu ? (
             <section className="[&>span]:flex [&>span]:flex-col [&>span]:justify-center [&>span]:items-center [&>span]:gap-[0.5rem]">
                 <span className={`${isSelectingDifficulty ? "opacity-25" : ""}`}>

@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Clipboard(){
     const [text, setText] = useState();
+    const [connectionNumber, setConnectionNumber] = useState(1);
     const txt = useRef(null);
 
     const clipboardStatus = useRef(null);
@@ -26,7 +27,7 @@ export default function Clipboard(){
         isFetching = true;
         const options = {
             method: "GET",
-            url: `${process.env.REACT_APP_SHARED_CLIPBOARD_API_URL}?clipboard=true`,
+            url: `${process.env.REACT_APP_SHARED_CLIPBOARD_API_URL}?connection=${connectionNumber}`,
             headers: {
                 'Content-Type': 'text/plain'
             },
@@ -54,7 +55,7 @@ export default function Clipboard(){
         isFetching = true;
         const options = {
             method: "POST",
-            url: process.env.REACT_APP_SHARED_CLIPBOARD_API_URL,
+            url: `${process.env.REACT_APP_SHARED_CLIPBOARD_API_URL}?connection=${connectionNumber}`,
             data: txt.current.value,
             headers: {
                 'Content-Type': 'text/plain'
@@ -142,7 +143,7 @@ export default function Clipboard(){
     return (
         <main className="h-dvh w-dvw overflow-hidden">
             <div className="h-[calc(100%-2rem)] w-[calc(100%-2rem)] m-[1rem] overflow-hidden border border-borderColor rounded-xl bg-componentsColor">
-                <div className="flex flex-row items-center justify-between gap-[0.5rem] p-[0.5rem]">
+                <div className="flex flex-row items-center justify-between gap-[0.5rem] p-[0.5rem] scrollbar-hidden-global">
                     <h1 className="font-bold text-nowrap overflow-scroll">SHARED CLIPBOARD</h1>
                     <span className="flex flex-row justify-between grow">
                         <span className="flex flex-row items-center gap-[0.5rem] [&>p]:opacity-50">
@@ -159,7 +160,7 @@ export default function Clipboard(){
                     </span>
                 </div>
                 <pre className="h-[calc(100%-2.5rem)] w-full overflow-hidden border-t border-borderColor">
-                    <textarea ref={txt} className="h-full w-full resize-none rounded-b-xl p-[0.5rem]" defaultValue={text}></textarea>
+                    <textarea ref={txt} className="h-full w-full resize-none rounded-b-xl p-[0.5rem] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:border-l [&::-webkit-scrollbar-track]:border-borderColor [&::-webkit-scrollbar-thumb]:bg-borderColor" defaultValue={text}></textarea>
                 </pre>
             </div>
         </main>

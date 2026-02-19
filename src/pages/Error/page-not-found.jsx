@@ -8,7 +8,7 @@ function ErrorPage(){
     }, 5000);
 
     return (
-        <main className="h-dvh w-dvw grid place-items-center text-base">
+        <main className="h-dvh w-dvw grid place-items-center text-base scrollbar-hidden-global">
             <p><span className="text-2xl">404</span>Error Page Not Found!</p>
         </main>
     );

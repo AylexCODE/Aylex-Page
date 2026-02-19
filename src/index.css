@@ -34,6 +34,12 @@
   }
 }
 
+@utility scrollbar-hidden-global {
+  *::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 @utility semibold-coc-text {
     font-size: 0.75rem;
     font-family: "Poppins", sans-serif;
@@ -48,9 +54,9 @@
     color: #434037;
 }
 
-::-webkit-scrollbar {
+/* ::-webkit-scrollbar {
     display: none;
-}
+} */
 
 .anim-size {
     interpolate-size: "allow-keywords";

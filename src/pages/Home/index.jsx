@@ -19,7 +19,7 @@ function Home(){
     console.log(breakpoint)
     
     return (
-        <main className={"h-auto w-dvw bg-bgColor font-textFont select-none text-textColor text-base" +(breakpoint >= 768 ? " flex flex-row" : "")}>
+        <main className={"h-auto w-dvw bg-bgColor font-textFont select-none text-textColor text-base scrollbar-hidden-global" +(breakpoint >= 768 ? " flex flex-row" : "")}>
             <header className={"h-[4rem] w-dvw bg-componentsColor sticky top-0 px-[1rem] shadow-[var(--color-navShadowColor)_0px_2px_8px] flex flex-row justify-between items-center z-10" +(breakpoint >= 768 ? " hidden" : "")}>
                 <img src="%PUBLIC_URL%/../favicon.svg" alt="logo" className="overflow-hidden rounded-max h-[2.2rem] w-[2.2rem]"></img>
                 <button className="w-[2rem] h-[1.5rem]" onClick={() => { navState === false ? setNavState(true) : setNavState(false) }}>

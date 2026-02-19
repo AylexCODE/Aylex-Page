@@ -7,10 +7,12 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-500: oklch(63.7% 0.237 25.331);
     --color-yellow-500: oklch(79.5% 0.184 86.047);
-    --color-green-500: oklch(72.3% 0.219 149.579);
+    --color-gray-100: oklch(96.7% 0.003 264.542);
+    --color-gray-300: oklch(87.2% 0.01 258.338);
     --color-gray-500: oklch(55.1% 0.027 264.364);
+    --color-neutral-500: oklch(55.6% 0 0);
+    --color-neutral-700: oklch(37.1% 0 0);
     --color-black: #000;
     --color-white: #fff;
     --spacing: 0.25rem;
@@ -368,6 +370,11 @@
   }
   .scrollbar-hidden {
     &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+  .scrollbar-hidden-global {
+    *::-webkit-scrollbar {
       display: none;
     }
   }
@@ -1148,6 +1155,27 @@
   .\[\&_pre\]\:whitespace-pre-wrap {
     & pre {
       white-space: pre-wrap;
+    }
+  }
+  .\[\&\:\:-webkit-scrollbar\]\:w-2 {
+    &::-webkit-scrollbar {
+      width: calc(var(--spacing) * 2);
+    }
+  }
+  .\[\&\:\:-webkit-scrollbar-thumb\]\:bg-borderColor {
+    &::-webkit-scrollbar-thumb {
+      background-color: var(--color-borderColor);
+    }
+  }
+  .\[\&\:\:-webkit-scrollbar-track\]\:border-l {
+    &::-webkit-scrollbar-track {
+      border-left-style: var(--tw-border-style);
+      border-left-width: 1px;
+    }
+  }
+  .\[\&\:\:-webkit-scrollbar-track\]\:border-borderColor {
+    &::-webkit-scrollbar-track {
+      border-color: var(--color-borderColor);
     }
   }
   .\[\&\>\.active\]\:border-activeBtnColor {
@@ -2528,9 +2556,6 @@
   font-weight: 200 700;
   font-display: swap;
   src: url("./components/fonts/Clash_Regular.otf");
-}
-::-webkit-scrollbar {
-  display: none;
 }
 .anim-size {
   interpolate-size: "allow-keywords";
