@@ -156,7 +156,7 @@ export default function Clipboard(){
                 <div className="flex flex-row items-center justify-between gap-[0.5rem] p-[0.5rem] scrollbar-hidden-global">
                     <h1 className="font-bold text-nowrap overflow-scroll flex flex-row justify-center items-center gap-[0.5rem]">
                         <a href="https://aylexcode.github.io/Aylex/" target="_blank" rel="noreferrer">
-                            <img src="%PUBLIC_URL%/../favicon.svg" alt="logo" className="rounded-max h-[1.5rem] w-[1.5rem]"></img>
+                            <img src="%PUBLIC_URL%/../favicon.svg" alt="logo" className="rounded-max h-[1.25rem] w-[1.25rem]"></img>
                         </a>
                         {"SHARED CLIPBOARD"}
                     </h1>
