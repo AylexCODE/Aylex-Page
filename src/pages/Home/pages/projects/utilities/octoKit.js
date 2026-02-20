@@ -6,7 +6,7 @@ const octokit = new Octokit({
 
 export default class OctoKitRest {
     #owner = "AylexCODE";
-    #repo = "Side_Projects";
+    #repo = "Other_Projects";
 
     async getSideProjectsFiles(){
         try {
