@@ -2,13 +2,13 @@ import OctoKitRest from "../utilities/octoKit";
 import { useEffect, useState, useRef } from "react";
 import { NavLink } from "react-router-dom";
 
-export default function SideProjectsList(){
+export default function OtherProjectsList(){
     const [projectsFiles, setProjectsFiles] = useState();
     let tempProjectFiles = useRef();
 
     useEffect(() => {
         (async function(){
-            const data = await new OctoKitRest().getSideProjectsFiles();
+            const data = await new OctoKitRest().getOtherProjectsFiles();
             const refined = data.map((file) => {
                 return {
                     path: file,
@@ -38,7 +38,7 @@ export default function SideProjectsList(){
 
     return (
         <div className="pt-[1rem] w-full">
-            <div className="flex flex-row justify-between opacity-60"><p>Side Projects &#x28;Console Based&#x29;</p><a href="https://github.com/AylexCODE/Side_Projects" target="_blank" rel="noreferrer" title="Redirect"><u>See all</u></a></div>
+            <div className="flex flex-row justify-between opacity-60"><p>Other Projects &#x28;Console Based&#x29;</p><a href="https://github.com/AylexCODE/Side_Projects" target="_blank" rel="noreferrer" title="Redirect"><u>See all</u></a></div>
             <div className="w-full h-[12.5rem] border border-borderColor rounded-xl overflow-scroll">
                 <div className="h-[2.5rem] w-full flex flex-row items-center sticky top-0 bg-componentsColor border-b border-borderColor">
                     <span className="absolute top-0 left-0">

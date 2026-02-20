@@ -12,7 +12,7 @@ export default function ProjectsFile(){
     useEffect(() => {
         setType(filePath.split(".").findLast((type) => type));
         (async function(){
-            const data = await new OctoKitRest().getSideProjectFile(filePath);
+            const data = await new OctoKitRest().getOtherProjectFile(filePath);
             
             setContent(data);
             setTimeout(() => {

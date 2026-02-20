@@ -8,7 +8,7 @@ export default class OctoKitRest {
     #owner = "AylexCODE";
     #repo = "Other_Projects";
 
-    async getSideProjectsFiles(){
+    async getOtherProjectsFiles(){
         try {
             const ref = await octokit.git.getRef({
                 owner: this.#owner,
@@ -40,7 +40,7 @@ export default class OctoKitRest {
         }
     }
 
-    async getSideProjectFile(path){
+    async getOtherProjectFile(path){
         const result = await octokit.repos.getContent({
             owner: this.#owner,
             repo: this.#repo,
