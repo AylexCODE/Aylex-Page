@@ -2,7 +2,7 @@ import { useOutletContext } from "react-router-dom";
 import GithubContributions from './components/GithubContributions';
 import ProjectsList from './components/ProjectsList';
 import Socials from "../main/components/Socials";
-import SideProjectsList from "./components/SideProjectsList";
+import OtherProjectsList from "./components/OtherProjectsList";
 import Featured from "../main/components/Featured";
 
 export default function Projects(){
@@ -27,7 +27,7 @@ export default function Projects(){
                     <div className="w-full">
                         <ProjectsList project={function(){}} />
                     </div>
-                    <SideProjectsList />
+                    <OtherProjectsList />
                 </div>
                 <div>
                     <span>
