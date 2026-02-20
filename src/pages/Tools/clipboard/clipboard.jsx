@@ -4,18 +4,19 @@ import { useEffect, useRef, useState } from "react";
 
 export default function Clipboard(){
     const [text, setText] = useState();
-    const [connectionNumber, setConnectionNumber] = useState(1);
-    const [isSelectingConnection, setIsSelectingConnection] = useState(false);
+    const [connectionLink, setConnectionLink] = useState("Default");
+    const [isSettingConnectionLink, setIsSettingConnectionLink] = useState(false);
     const txt = useRef(null);
+    const connectionLinkRef = useRef(null);
 
     const clipboardStatus = useRef(null);
     const clipboardColorStatus = useRef(null);
-    const connections = [1, 2, 3, 4, 5, 6, 7, 8, 9];
     const isFetching = useRef(false);
 
-    function selectConnection(n){
-        setConnectionNumber(n);
-        setIsSelectingConnection(false);
+    function setConnection(t){
+        t = t.trim().length === 0 ? "Default" : t;
+        setConnectionLink(t);
+        setIsSettingConnectionLink(false);
     }
 
     function statusIndicator(msg, color){
@@ -25,11 +26,11 @@ export default function Clipboard(){
     
     const controller = new AbortController();
     async function getClipboardData(refresh){
-        statusIndicator(`Con ${connectionNumber} Connecting`, "yellow");
+        statusIndicator(`Con ${connectionLink} Connecting`, "yellow");
         isFetching.current = true;
         const options = {
             method: "GET",
-            url: `${process.env.REACT_APP_SHARED_CLIPBOARD_API_URL}?connection=${connectionNumber}`,
+            url: `${process.env.REACT_APP_SHARED_CLIPBOARD_API_URL}?connection=${connectionLink}`,
             headers: {
                 'Content-Type': 'text/plain'
             },
@@ -39,25 +40,25 @@ export default function Clipboard(){
         try{
             const response = await axios(options);
             setText(response.data);
-            statusIndicator(`Con ${connectionNumber} Connected`, "green");
+            statusIndicator(`Con ${connectionLink} Connected`, "green");
             isFetching.current = false;
 
             if(refresh){
                 txt.current.value = response.data;
             }
         }catch(e){
-            statusIndicator(`Con ${connectionNumber} Disconnected`, "red");
+            statusIndicator(`Con ${connectionLink} Disconnected`, "red");
             isFetching.current = false;
             console.log(e);
         }
     }
 
     async function postClipboardData(){
-        statusIndicator(`Con ${connectionNumber} Saving`, "orange");
+        statusIndicator(`Con ${connectionLink} Saving`, "orange");
         isFetching.current = true;
         const options = {
             method: "POST",
-            url: `${process.env.REACT_APP_SHARED_CLIPBOARD_API_URL}?connection=${connectionNumber}`,
+            url: `${process.env.REACT_APP_SHARED_CLIPBOARD_API_URL}?connection=${connectionLink}`,
             data: txt.current.value,
             headers: {
                 'Content-Type': 'text/plain'
@@ -69,17 +70,17 @@ export default function Clipboard(){
             const response = await axios(options);
             isFetching.current = false;
 
-            statusIndicator(`Con ${connectionNumber} Saved`, "green");
+            statusIndicator(`Con ${connectionLink} Saved`, "green");
             setTimeout(() => {
-                statusIndicator(`Con ${connectionNumber} Connected`, "green");
+                statusIndicator(`Con ${connectionLink} Connected`, "green");
             }, 2500);
             console.log(response);
         }catch(e){
             isFetching.current = false;
 
-            statusIndicator(`Con ${connectionNumber} Saving failed`, "red");
+            statusIndicator(`Con ${connectionLink} Saving failed`, "red");
             setTimeout(() => {
-                statusIndicator(`Con ${connectionNumber} Connected`, "green");
+                statusIndicator(`Con ${connectionLink} Connected`, "green");
             }, 2500);
             console.log(e);
         }
@@ -99,7 +100,7 @@ export default function Clipboard(){
     useEffect(() => {
         getClipboardData(true);
         // eslint-disable-next-line
-    }, [connectionNumber]);
+    }, [connectionLink]);
 
     const icons = {
         copyIcon: <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none"><path d="M16 12.9V17.1C16 20.6 14.6 22 11.1 22H6.9C3.4 22 2 20.6 2 17.1V12.9C2 9.4 3.4 8 6.9 8H11.1C14.6 8 16 9.4 16 12.9Z" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M22 6.9V11.1C22 14.6 20.6 16 17.1 16H16V12.9C16 9.4 14.6 8 11.1 8H8V6.9C8 3.4 9.4 2 12.9 2H17.1C20.6 2 22 3.4 22 6.9Z" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>,
@@ -153,11 +154,16 @@ export default function Clipboard(){
         <main className="h-dvh w-dvw overflow-hidden">
             <div className="h-[calc(100%-2rem)] w-[calc(100%-2rem)] m-[1rem] overflow-hidden border border-borderColor rounded-xl bg-componentsColor">
                 <div className="flex flex-row items-center justify-between gap-[0.5rem] p-[0.5rem] scrollbar-hidden-global">
-                    <h1 className="font-bold text-nowrap overflow-scroll">SHARED CLIPBOARD</h1>
+                    <h1 className="font-bold text-nowrap overflow-scroll flex flex-row justify-center items-center gap-[0.5rem]">
+                        <a href="https://aylexcode.github.io/Aylex/" target="_blank" rel="noreferrer">
+                            <img src="%PUBLIC_URL%/../favicon.svg" alt="logo" className="rounded-max h-[1.5rem] w-[1.5rem]"></img>
+                        </a>
+                        {"SHARED CLIPBOARD"}
+                    </h1>
                     <span className="flex flex-row justify-between grow">
                         <span className="flex flex-row items-center gap-[0.5rem] [&>p]:opacity-50">
                             <button ref={clipboardColorStatus} onClick={()=>{cancelGetClipboardData()}} className="block flex size-[0.5rem] bg-yellow-500 rounded-max"></button>
-                            <p ref={clipboardStatus} onClick={() => setIsSelectingConnection(!isSelectingConnection)} className="cursor-pointer">Connecting</p>
+                            <p ref={clipboardStatus} onClick={() => setIsSettingConnectionLink(!isSettingConnectionLink)} className="cursor-pointer text-nowrap">Connecting</p>
                             <p>{"(bit.ly/aylexclipboard)"}</p>
                         </span>
                         <span className="flex flex-row gap-[0.5rem] pl-[0.5rem] [&>button]:hover:[&_path]:stroke-sideTextColorActive [&>button>svg>path]:duration-300 [&>button>svg>path]:ease-out">
@@ -169,14 +175,14 @@ export default function Clipboard(){
                     </span>
                 </div>
                 <AnimatePresence initial={false}>
-                    {isSelectingConnection ? (<>
-                        <span className="bg-sideBarCover fixed top-0 left-0 h-dvh w-dvw flex items-center justify-center z-11" onClick={() => setIsSelectingConnection(false)}></span>
+                    {isSettingConnectionLink ? (<>
+                        <span className="bg-sideBarCover fixed top-0 left-0 h-dvh w-dvw flex items-center justify-center z-11" onClick={() => setIsSettingConnectionLink(false)}></span>
                         <span className="fixed top-0 left-0 h-dvh w-dvw flex items-center justify-center z-12 pointer-events-none">
-                        <motion.span className="flex flex-col gap-[0.25rem] fixed px-[1rem] py-[0.5rem] border rounded-xl bg-componentsColor z-12 pointer-events-auto select-none [&>p]:cursor-pointer [&>p]:hover:bg-borderColor [&>p]:active:bg-[#123456] [&>p]:active:text-white [&>p]:text-center [&>p]:px-[1rem] [&>p]:py-[0.5rem] [&>p]:text-nowrap" initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0 }} key="messageBox">
-                            {connections.map((n) => (
-                                <p onClick={() => selectConnection(n)}>Connection {n}</p>
-                            ))}
-                        </motion.span></span>
+                            <motion.span className="flex flex-col gap-[0.5rem] fixed px-[1rem] py-[1rem] border rounded-xl bg-componentsColor z-12 pointer-events-auto select-none [&>p]:cursor-pointer [&>p]:hover:bg-borderColor [&>p]:active:bg-[#123456] [&>p]:active:text-white [&>p]:text-center [&>p]:px-[1rem] [&>p]:py-[0.5rem] [&>p]:text-nowrap" initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0 }} key="messageBox">
+                                <input ref={connectionLinkRef} maxLength={5} defaultValue={connectionLink === "Default" ? "" : connectionLink} className="text-[#123456] text-center caret-[#123456] outline-none border-b border-[#123456] w-[180px]" />
+                                <button onClick={()=>{setConnection(connectionLinkRef.current.value)}} className="py-[0.25rem] text-nowrap uppercase font-medium hover:bg-borderColor active:bg-[#123456] active:text-white">Connect</button>
+                            </motion.span>
+                        </span>
                     </>) : null}
                 </AnimatePresence>
                 <pre className="h-[calc(100%-2.5rem)] w-full overflow-hidden border-t border-borderColor">

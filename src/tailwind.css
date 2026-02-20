@@ -7,7 +7,6 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-red-500: oklch(63.7% 0.237 25.331);
     --color-yellow-500: oklch(79.5% 0.184 86.047);
     --color-gray-500: oklch(55.1% 0.027 264.364);
     --color-black: #000;
@@ -487,6 +486,9 @@
   .h-full {
     height: 100%;
   }
+  .w-\[1\.5rem\] {
+    width: 1.5rem;
+  }
   .w-\[1\.25rem\] {
     width: 1.25rem;
   }
@@ -528,6 +530,9 @@
   }
   .w-\[100\%\] {
     width: 100%;
+  }
+  .w-\[180px\] {
+    width: 180px;
   }
   .w-\[844px\] {
     width: 844px;
@@ -764,6 +769,9 @@
   .border-none {
     --tw-border-style: none;
     border-style: none;
+  }
+  .border-\[\#123456\] {
+    border-color: #123456;
   }
   .border-black {
     border-color: var(--color-black);
@@ -1022,6 +1030,9 @@
   .whitespace-nowrap {
     white-space: nowrap;
   }
+  .text-\[\#123456\] {
+    color: #123456;
+  }
   .text-\[\#FFFFCB\] {
     color: #FFFFCB;
   }
@@ -1034,8 +1045,14 @@
   .text-white {
     color: var(--color-white);
   }
+  .uppercase {
+    text-transform: uppercase;
+  }
   .underline {
     text-decoration-line: underline;
+  }
+  .caret-\[\#123456\] {
+    caret-color: #123456;
   }
   .opacity-0 {
     opacity: 0%;
@@ -1096,6 +1113,23 @@
   .select-none {
     -webkit-user-select: none;
     user-select: none;
+  }
+  .hover\:bg-borderColor {
+    &:hover {
+      @media (hover: hover) {
+        background-color: var(--color-borderColor);
+      }
+    }
+  }
+  .active\:bg-\[\#123456\] {
+    &:active {
+      background-color: #123456;
+    }
+  }
+  .active\:text-white {
+    &:active {
+      color: var(--color-white);
+    }
   }
   .in-\[\.bg-componentsColorClear\]\:stroke-sideTextColorActive {
     :where(*:is(.bg-componentsColorClear)) & {
