@@ -49,6 +49,8 @@ export default function Clipboard(){
         }catch(e){
             statusIndicator(`Con ${connectionLink} Disconnected`, "red");
             isFetching.current = false;
+            setText("");
+            txt.current.value = "";
             console.log(e);
         }
     }
