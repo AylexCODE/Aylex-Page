@@ -245,7 +245,7 @@ export default function Clipboard(){
                         </motion.div>
                     ) : (
                         <motion.div className="relative h-[calc(100%-2.5rem)] w-full border-t border-borderColor" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} key="clipboardText">
-                            <button className={`absolute right-[0px] top-[0px] cursor-pointer px-[${isScrollbarShowing ? "12px" : "4px"}] opacity-25`} onClick={() => {setIsFormatted(true)}}>Editor</button>
+                            <button className={`absolute right-[0px] top-[0px] cursor-pointer opacity-25 ${isScrollbarShowing ? "px-[12px]" : "px-[4px]"}`} onClick={() => {setIsFormatted(true)}}>Editor</button>
                             <textarea ref={txt} className="h-full w-full resize-none whitespace-pre rounded-b-xl p-[0.5rem] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:border-l [&::-webkit-scrollbar-track]:border-borderColor [&::-webkit-scrollbar-thumb]:cursor-pointer [&::-webkit-scrollbar-thumb]:bg-borderColor" defaultValue={text} onInput={() => {checkIfScrollbarIsShowing()}}></textarea>
                         </motion.div>
                     )

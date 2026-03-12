@@ -901,6 +901,9 @@
   .px-\[4px\] {
     padding-inline: 4px;
   }
+  .px-\[12px\] {
+    padding-inline: 12px;
+  }
   .py-\[0\.3rem\] {
     padding-block: 0.3rem;
   }
