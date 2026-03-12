@@ -243,7 +243,7 @@ export default function Clipboard(){
                             <span className="flex flex-col items-end sticky top-[0px] left-[0px] h-[0px] w-full">
                                 <button className="cursor-pointer px-[4px] opacity-50 text-white px-[4px]" onClick={() => {setIsFormatted(false)}}>Code</button>
                             </span>
-                            <SyntaxHighlighter language={currentTextLanguage.current} style={vs2015} showLineNumbers customStyle={{height: "fit-content", width: "fit-content"}}>
+                            <SyntaxHighlighter language={currentTextLanguage.current} style={vs2015} showLineNumbers customStyle={{height: "fit-content", width: "fit-content", padding: "0.5rem"}}>
                                 {txt.current.value}
                             </SyntaxHighlighter>
                         </motion.div>
