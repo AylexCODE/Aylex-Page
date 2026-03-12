@@ -72,6 +72,10 @@ export default function Clipboard(){
             }catch(error){
                 console.log(error);
             }
+
+            if(!isFormatted){
+                checkIfScrollbarIsShowing();
+            }
         }catch(e){
             statusIndicator(`Con ${connectionLink} Disconnected`, "red");
             isFetching.current = false;
