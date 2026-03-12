@@ -244,7 +244,7 @@ export default function Clipboard(){
                                 <button className="cursor-pointer px-[4px] opacity-50 text-white px-[4px]" onClick={() => {setIsFormatted(false)}}>Code</button>
                             </span>
                             <SyntaxHighlighter language={currentTextLanguage.current} style={vs2015} showLineNumbers customStyle={{height: "fit-content", width: "fit-content"}}>
-                                {text}
+                                {txt.current.value}
                             </SyntaxHighlighter>
                         </motion.div>
                     ) : (
