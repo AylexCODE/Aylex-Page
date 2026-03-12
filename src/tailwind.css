@@ -235,6 +235,9 @@
   .top-\[0\.3rem\] {
     top: 0.3rem;
   }
+  .top-\[0px\] {
+    top: 0px;
+  }
   .top-\[1\.45rem\] {
     top: 1.45rem;
   }
@@ -256,6 +259,9 @@
   .right-\[0\.3rem\] {
     right: 0.3rem;
   }
+  .right-\[0px\] {
+    right: 0px;
+  }
   .right-\[1rem\] {
     right: 1rem;
   }
@@ -276,6 +282,9 @@
   }
   .left-\[0\.75rem\] {
     left: 0.75rem;
+  }
+  .left-\[0px\] {
+    left: 0px;
   }
   .left-\[2px\] {
     left: 2px;
@@ -612,6 +621,9 @@
   .items-center {
     align-items: center;
   }
+  .items-end {
+    align-items: flex-end;
+  }
   .items-start {
     align-items: flex-start;
   }
@@ -677,6 +689,9 @@
   }
   .self-end {
     align-self: flex-end;
+  }
+  .overflow-auto {
+    overflow: auto;
   }
   .overflow-hidden {
     overflow: hidden;
@@ -785,6 +800,9 @@
   .bg-\[\#000\] {
     background-color: #000;
   }
+  .bg-\[\#1E1E1E\] {
+    background-color: #1E1E1E;
+  }
   .bg-\[\#5E5452\] {
     background-color: #5E5452;
   }
@@ -879,6 +897,9 @@
   }
   .px-\[2\.5rem\] {
     padding-inline: 2.5rem;
+  }
+  .px-\[4px\] {
+    padding-inline: 4px;
   }
   .py-\[0\.3rem\] {
     padding-block: 0.3rem;
@@ -1029,6 +1050,9 @@
   }
   .whitespace-nowrap {
     white-space: nowrap;
+  }
+  .whitespace-pre {
+    white-space: pre;
   }
   .text-\[\#123456\] {
     color: #123456;
@@ -1188,6 +1212,11 @@
       white-space: pre-wrap;
     }
   }
+  .\[\&\:\:-webkit-scrollbar\]\:h-2 {
+    &::-webkit-scrollbar {
+      height: calc(var(--spacing) * 2);
+    }
+  }
   .\[\&\:\:-webkit-scrollbar\]\:w-2 {
     &::-webkit-scrollbar {
       width: calc(var(--spacing) * 2);
@@ -1196,6 +1225,11 @@
   .\[\&\:\:-webkit-scrollbar-thumb\]\:cursor-pointer {
     &::-webkit-scrollbar-thumb {
       cursor: pointer;
+    }
+  }
+  .\[\&\:\:-webkit-scrollbar-thumb\]\:bg-\[\#858585\] {
+    &::-webkit-scrollbar-thumb {
+      background-color: #858585;
     }
   }
   .\[\&\:\:-webkit-scrollbar-thumb\]\:bg-borderColor {
@@ -1212,6 +1246,11 @@
   .\[\&\:\:-webkit-scrollbar-track\]\:border-borderColor {
     &::-webkit-scrollbar-track {
       border-color: var(--color-borderColor);
+    }
+  }
+  .\[\&\:\:-webkit-scrollbar-track\]\:bg-\[\#1E1E1E\] {
+    &::-webkit-scrollbar-track {
+      background-color: #1E1E1E;
     }
   }
   .\[\&\>\.active\]\:border-activeBtnColor {

@@ -1,17 +1,29 @@
 import axios from "axios";
+
 import { AnimatePresence, motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
+import Breakpoints from "../../../features/customBreakpoint";
+
+import hljs from "highlight.js";
+import SyntaxHighlighter from "react-syntax-highlighter";
+import { vs2015 } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 export default function Clipboard(){
     const [text, setText] = useState();
     const [connectionLink, setConnectionLink] = useState("Default");
     const [isSettingConnectionLink, setIsSettingConnectionLink] = useState(false);
+    const [clipboardStatus, setClipboardStatus] = useState("Connecting");
+    const [isFormatted, setIsFormatted] = useState(false);
+    const [isScrollbarShowing, setIsScrollbarShowing] = useState(false);
     const txt = useRef(null);
     const connectionLinkRef = useRef(null);
+    const currentTextLanguage = useRef("text");
 
-    const clipboardStatus = useRef(null);
     const clipboardColorStatus = useRef(null);
     const isFetching = useRef(false);
+
+    const [breakpoint, setBreakpoint] = useState(0);
+    Breakpoints(setBreakpoint);
 
     function setConnection(t){
         t = t.trim().length === 0 ? "Default" : t;
@@ -20,8 +32,16 @@ export default function Clipboard(){
     }
 
     function statusIndicator(msg, color){
-        clipboardStatus.current.innerHTML = msg;
+        setClipboardStatus(msg);
         clipboardColorStatus.current.style.backgroundColor = color;
+    }
+
+    function getConnectionStatus(status){
+        if(breakpoint < 768){
+            return status.split(" ").splice(0, status.split(" ").length-1).join(" ");
+        }else{
+            return status;
+        }
     }
     
     const controller = new AbortController();
@@ -46,11 +66,15 @@ export default function Clipboard(){
             if(refresh){
                 txt.current.value = response.data;
             }
+
+            try {
+                currentTextLanguage.current = hljs.highlightAuto(response.data).language;
+            }catch(error){
+                console.log(error);
+            }
         }catch(e){
             statusIndicator(`Con ${connectionLink} Disconnected`, "red");
             isFetching.current = false;
-            setText("");
-            txt.current.value = "";
             console.log(e);
         }
     }
@@ -94,6 +118,14 @@ export default function Clipboard(){
         setTimeout(() => getClipboardData(true), 500);
     }
 
+    function checkIfScrollbarIsShowing(){
+        if(txt.current.scrollHeight > txt.current.clientHeight){
+            setIsScrollbarShowing(true);
+        }else{
+            setIsScrollbarShowing(false);
+        }
+    }
+
     useEffect(() => {
         getClipboardData(false);
         // eslint-disable-next-line
@@ -103,6 +135,19 @@ export default function Clipboard(){
         getClipboardData(true);
         // eslint-disable-next-line
     }, [connectionLink]);
+
+    useEffect(() => {
+        if(isSettingConnectionLink && connectionLinkRef.current){
+            connectionLinkRef.current.focus();
+        }
+        // eslint-disable-next-line
+    }, [isSettingConnectionLink]);
+
+    useEffect(() => {
+        if(!isFormatted){
+            checkIfScrollbarIsShowing();
+        }
+    }, [isFormatted]);
 
     const icons = {
         copyIcon: <svg width="24px" height="24px" viewBox="0 0 24 24" fill="none"><path d="M16 12.9V17.1C16 20.6 14.6 22 11.1 22H6.9C3.4 22 2 20.6 2 17.1V12.9C2 9.4 3.4 8 6.9 8H11.1C14.6 8 16 9.4 16 12.9Z" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/><path d="M22 6.9V11.1C22 14.6 20.6 16 17.1 16H16V12.9C16 9.4 14.6 8 11.1 8H8V6.9C8 3.4 9.4 2 12.9 2H17.1C20.6 2 22 3.4 22 6.9Z" stroke="#292D32" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/></svg>,
@@ -160,13 +205,13 @@ export default function Clipboard(){
                         <a href="https://aylexcode.github.io/Aylex/" target="_blank" rel="noreferrer">
                             <img src="%PUBLIC_URL%/../favicon.svg" alt="logo" className="rounded-max h-[1.25rem] w-[1.25rem]"></img>
                         </a>
-                        {"SHARED CLIPBOARD"}
+                        <p className={breakpoint < 768 ? "hidden" : ""}>SHARED CLIPBOARD</p>
                     </h1>
                     <span className="flex flex-row justify-between grow">
                         <span className="flex flex-row items-center gap-[0.5rem] [&>p]:opacity-50">
-                            <button ref={clipboardColorStatus} onClick={()=>{cancelGetClipboardData()}} className="block flex size-[0.5rem] bg-yellow-500 rounded-max"></button>
-                            <p ref={clipboardStatus} onClick={() => setIsSettingConnectionLink(!isSettingConnectionLink)} className="cursor-pointer text-nowrap">Connecting</p>
-                            <p>{"(bit.ly/aylexclipboard)"}</p>
+                            <button ref={clipboardColorStatus} onClick={()=>{cancelGetClipboardData()}} title="Refresh" className="block flex size-[0.5rem] bg-yellow-500 rounded-max"></button>
+                            <p onClick={() => setIsSettingConnectionLink(!isSettingConnectionLink)} title="Click to change connection" className="cursor-pointer text-nowrap">{getConnectionStatus(clipboardStatus)}</p>
+                            <p className={breakpoint < 768 ? "hidden" : ""}>{"(bit.ly/aylexclipboard)"}</p>
                         </span>
                         <span className="flex flex-row gap-[0.5rem] pl-[0.5rem] [&>button]:hover:[&_path]:stroke-sideTextColorActive [&>button>svg>path]:duration-300 [&>button>svg>path]:ease-out">
                             <button title="Copy" onClick={()=>{copyClipboard()}}>{copyStatus}</button>
@@ -181,15 +226,31 @@ export default function Clipboard(){
                         <span className="bg-sideBarCover fixed top-0 left-0 h-dvh w-dvw flex items-center justify-center z-11" onClick={() => setIsSettingConnectionLink(false)}></span>
                         <span className="fixed top-0 left-0 h-dvh w-dvw flex items-center justify-center z-12 pointer-events-none">
                             <motion.span className="flex flex-col gap-[0.5rem] fixed px-[1rem] py-[1rem] border rounded-xl bg-componentsColor z-12 pointer-events-auto select-none [&>p]:cursor-pointer [&>p]:hover:bg-borderColor [&>p]:active:bg-[#123456] [&>p]:active:text-white [&>p]:text-center [&>p]:px-[1rem] [&>p]:py-[0.5rem] [&>p]:text-nowrap" initial={{ opacity: 0, scale: 0 }} animate={{ opacity: 1, scale: 1 }} exit={{ opacity: 0, scale: 0 }} key="messageBox">
-                                <input ref={connectionLinkRef} maxLength={5} defaultValue={connectionLink === "Default" ? "" : connectionLink} className="text-[#123456] text-center caret-[#123456] outline-none border-b border-[#123456] w-[180px]" />
+                                <input ref={connectionLinkRef} maxLength={5} defaultValue={connectionLink === "Default" ? "" : connectionLink} onKeyDown={(event) => {if(event.key === "Enter")setConnection(connectionLinkRef.current.value)}} className="text-[#123456] text-center caret-[#123456] outline-none border-b border-[#123456] w-[180px]" />
                                 <button onClick={()=>{setConnection(connectionLinkRef.current.value)}} className="py-[0.25rem] text-nowrap uppercase font-medium hover:bg-borderColor active:bg-[#123456] active:text-white">Connect</button>
                             </motion.span>
                         </span>
                     </>) : null}
                 </AnimatePresence>
-                <pre className="h-[calc(100%-2.5rem)] w-full overflow-hidden border-t border-borderColor">
-                    <textarea ref={txt} className="h-full w-full resize-none rounded-b-xl p-[0.5rem] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:border-l [&::-webkit-scrollbar-track]:border-borderColor [&::-webkit-scrollbar-thumb]:cursor-pointer [&::-webkit-scrollbar-thumb]:bg-borderColor" defaultValue={text}></textarea>
-                </pre>
+                <AnimatePresence initial={false}>
+                {
+                    isFormatted ? (
+                        <motion.div className="relative h-[calc(100%-2.5rem)] w-full bg-[#1E1E1E] overflow-auto border-t border-borderColor rounded-b-xl [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:border-l [&::-webkit-scrollbar-track]:bg-[#1E1E1E] [&::-webkit-scrollbar-track]:border-borderColor [&::-webkit-scrollbar-thumb]:cursor-pointer [&::-webkit-scrollbar-thumb]:bg-[#858585]" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} key="clipboardCode">
+                            <span className="flex flex-col items-end sticky top-[0px] left-[0px] h-[0px] w-full">
+                                <button className="cursor-pointer px-[4px] opacity-50 text-white px-[4px]" onClick={() => {setIsFormatted(false)}}>Code</button>
+                            </span>
+                            <SyntaxHighlighter language={currentTextLanguage.current} style={vs2015} showLineNumbers customStyle={{height: "fit-content", width: "fit-content"}}>
+                                {text}
+                            </SyntaxHighlighter>
+                        </motion.div>
+                    ) : (
+                        <motion.div className="relative h-[calc(100%-2.5rem)] w-full border-t border-borderColor" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} key="clipboardText">
+                            <button className={`absolute right-[0px] top-[0px] cursor-pointer px-[${isScrollbarShowing ? "12px" : "4px"}] opacity-25`} onClick={() => {setIsFormatted(true)}}>Editor</button>
+                            <textarea ref={txt} className="h-full w-full resize-none whitespace-pre rounded-b-xl p-[0.5rem] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar]:h-2 [&::-webkit-scrollbar-track]:border-l [&::-webkit-scrollbar-track]:border-borderColor [&::-webkit-scrollbar-thumb]:cursor-pointer [&::-webkit-scrollbar-thumb]:bg-borderColor" defaultValue={text} onInput={() => {checkIfScrollbarIsShowing()}}></textarea>
+                        </motion.div>
+                    )
+                }
+                </AnimatePresence>
             </div>
         </main>
     )
