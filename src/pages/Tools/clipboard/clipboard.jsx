@@ -10,7 +10,7 @@ import { vs2015 } from "react-syntax-highlighter/dist/esm/styles/hljs";
 
 export default function Clipboard(){
     const [text, setText] = useState();
-    const [connectionLink, setConnectionLink] = useState("Default");
+    const [connectionLink, setConnectionLink] = useState(new URLSearchParams(window.location.hash.split("?")[1]).get("q") || "Default");
     const [isSettingConnectionLink, setIsSettingConnectionLink] = useState(false);
     const [clipboardStatus, setClipboardStatus] = useState("Connecting");
     const [isFormatted, setIsFormatted] = useState(false);
