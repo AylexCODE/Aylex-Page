@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useState } from 'react';
 import Breakpoints from "../../../../../features/customBreakpoint";
 
 export default function Vision(){
@@ -40,8 +40,8 @@ export default function Vision(){
                         </span>
                         <span>
                             <span className="flex flex-row gap-[4px] mb-[12px] [&>button]:flex-1 [&>button]:text-[12px] [&>button]:p-[6px] [&>button]:cursor-pointer [&>button]:text-center [&>button]:font-mono [&>button]:border-[#111111] [&>button]:border-t-[2px] [&>button]:border-r-[4px] [&>button]:border-b-[4px] [&>button]:border-l-[2px]">
-                                <button className={`${viewStats ? "text-[#6B6B66] bg-[#F7F6F3]" : "text-[#FFFFFF] bg-[#111111]"}`}>Teach</button>
-                                <button className={`${viewStats ? "text-[#FFFFFF] bg-[#111111]" : "text-[#6B6B66] bg-[#F7F6F3]"}`}>Stats</button>
+                                <button className={`${viewStats ? "text-[#6B6B66] bg-[#F7F6F3]" : "text-[#FFFFFF] bg-[#111111]"}`} onClick={() => {setViewStats(false)}}>Teach</button>
+                                <button className={`${viewStats ? "text-[#FFFFFF] bg-[#111111]" : "text-[#6B6B66] bg-[#F7F6F3]"}`} onClick={() => {setViewStats(true)}}>Stats</button>
                             </span>
                             <span className="flex flex-col gap-[8px]">
                                 <input type="text" placeholder="If someone says..." className="flex-1 text-[13px] py-[8px] px-[10px] outline-none bg-[#F7F6F3] border-[#111111] border-t-[2px] border-r-[4px] border-b-[4px] border-l-[2px]"></input>
