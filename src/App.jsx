@@ -11,6 +11,7 @@ import Projects from './pages/Home/pages/projects/Projects';
 import ProjectsFile from './pages/Home/pages/projects/ProjectsFile';
 
 import Clipboard from './pages/Tools/clipboard/clipboard';
+import Vision from './pages/Tools/bot/discord/vision/Vision';
 
 import ClashofClans from './pages/Clash-of-Clans/index';
 import Minecraft from './pages/Minecraft/index';
@@ -32,6 +33,10 @@ function App(){
                 <Route path="/clash-of-clans" element={<ClashofClans />} />
                 <Route path="/minecraft" element={<Minecraft />} />
                 <Route path="/clipboard" element={<Clipboard />} />
+                <Route path="/bot">
+                    <Route index element={<PageNotFound />} />
+                    <Route path="vision" element={<Vision />} />
+                </Route>
                 <Route path="/games">
                     <Route index element={<PageNotFound />} />
                     <Route path="numberlock" element={<NumberLock />} />
