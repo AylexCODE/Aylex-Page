@@ -321,6 +321,9 @@
   .m-\[1rem\] {
     margin: 1rem;
   }
+  .m-\[2px\] {
+    margin: 2px;
+  }
   .mx-\[0\.5rem\] {
     margin-inline: 0.5rem;
   }
@@ -342,6 +345,9 @@
   .mt-\[5px\] {
     margin-top: 5px;
   }
+  .mt-\[10px\] {
+    margin-top: 10px;
+  }
   .mt-auto {
     margin-top: auto;
   }
@@ -353,6 +359,12 @@
   }
   .mb-\[1rem\] {
     margin-bottom: 1rem;
+  }
+  .mb-\[4px\] {
+    margin-bottom: 4px;
+  }
+  .mb-\[10px\] {
+    margin-bottom: 10px;
   }
   .mb-\[12px\] {
     margin-bottom: 12px;
@@ -377,6 +389,9 @@
   }
   .inline {
     display: inline;
+  }
+  .inline-block {
+    display: inline-block;
   }
   .scrollbar-hidden {
     &::-webkit-scrollbar {
@@ -454,6 +469,9 @@
   }
   .h-\[3rem\] {
     height: 3rem;
+  }
+  .h-\[4px\] {
+    height: 4px;
   }
   .h-\[4rem\] {
     height: 4rem;
@@ -566,6 +584,9 @@
   .w-\[75px\] {
     width: 75px;
   }
+  .w-\[90px\] {
+    width: 90px;
+  }
   .w-\[100\%\] {
     width: 100%;
   }
@@ -628,18 +649,6 @@
   }
   .animate-\[bounce_1\.2s_linear_infinite_alternate\] {
     animation: bounce 1.2s linear infinite alternate;
-  }
-  .animate-\[bounce_2s_linear_infinite_alternate\] {
-    animation: bounce 2s linear infinite alternate;
-  }
-  .animate-\[bounce_3s_linear_infinite_alternate\] {
-    animation: bounce 3s linear infinite alternate;
-  }
-  .animate-\[bounce_4s_linear_infinite_alternate\] {
-    animation: bounce 4s linear infinite alternate;
-  }
-  .animate-\[bounce_6s_linear_infinite_alternate\] {
-    animation: bounce 6s linear infinite alternate;
   }
   .animate-\[fadePulse_2s_2s_linear_infinite_alternate\] {
     animation: fadePulse 2s 2s linear infinite alternate;
@@ -778,6 +787,9 @@
   }
   .overflow-x-scroll {
     overflow-x: scroll;
+  }
+  .overflow-y-auto {
+    overflow-y: auto;
   }
   .overflow-y-hidden {
     overflow-y: hidden;
@@ -1016,6 +1028,9 @@
   }
   .px-\[4px\] {
     padding-inline: 4px;
+  }
+  .px-\[7px\] {
+    padding-inline: 7px;
   }
   .px-\[8px\] {
     padding-inline: 8px;
@@ -1301,21 +1316,6 @@
     transition-property: all;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
-  }
-  .delay-200 {
-    transition-delay: 200ms;
-  }
-  .delay-400 {
-    transition-delay: 400ms;
-  }
-  .delay-\[200ms\] {
-    transition-delay: 200ms;
-  }
-  .delay-\[400\] {
-    transition-delay: 400;
-  }
-  .delay-\[400ms\] {
-    transition-delay: 400ms;
   }
   .duration-250 {
     --tw-duration: 250ms;
