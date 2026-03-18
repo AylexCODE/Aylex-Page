@@ -44,6 +44,7 @@ jobs:
             REACT_APP_SHARED_CLIPBOARD_API_URL: ${{ secrets.SHARED_CLIPBOARD_API_URL }}
             REACT_APP_CLASH_OF_CLANS_API_URL: ${{ secrets.CLASH_OF_CLANS_API_URL }}
             REACT_APP_GOOGLE_AI_API_KEY: ${{ secrets.GOOGLE_AI_API_KEY }}
+            REACT_APP_VISION_BOT_API_URL: ${{ secrets.VISION_BOT_API_URL }}
 
      # - name: Deploy
      #   uses: JamesIves/github-pages-deploy-action@releases/v4
