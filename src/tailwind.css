@@ -414,6 +414,10 @@
     width: 1rem;
     height: 1rem;
   }
+  .size-\[6px\] {
+    width: 6px;
+    height: 6px;
+  }
   .size-\[8px\] {
     width: 8px;
     height: 8px;
@@ -616,6 +620,27 @@
   .grow {
     flex-grow: 1;
   }
+  .animate-\[bounce_1\.2s_linear_infinite_0\.2s_alternate\] {
+    animation: bounce 1.2s linear infinite 0.2s alternate;
+  }
+  .animate-\[bounce_1\.2s_linear_infinite_0\.4s_alternate\] {
+    animation: bounce 1.2s linear infinite 0.4s alternate;
+  }
+  .animate-\[bounce_1\.2s_linear_infinite_alternate\] {
+    animation: bounce 1.2s linear infinite alternate;
+  }
+  .animate-\[bounce_2s_linear_infinite_alternate\] {
+    animation: bounce 2s linear infinite alternate;
+  }
+  .animate-\[bounce_3s_linear_infinite_alternate\] {
+    animation: bounce 3s linear infinite alternate;
+  }
+  .animate-\[bounce_4s_linear_infinite_alternate\] {
+    animation: bounce 4s linear infinite alternate;
+  }
+  .animate-\[bounce_6s_linear_infinite_alternate\] {
+    animation: bounce 6s linear infinite alternate;
+  }
   .animate-\[fadePulse_2s_2s_linear_infinite_alternate\] {
     animation: fadePulse 2s 2s linear infinite alternate;
   }
@@ -651,6 +676,9 @@
   }
   .flex-row {
     flex-direction: row;
+  }
+  .flex-row-reverse {
+    flex-direction: row-reverse;
   }
   .flex-wrap {
     flex-wrap: wrap;
@@ -872,6 +900,9 @@
   }
   .bg-\[\#5E5452\] {
     background-color: #5E5452;
+  }
+  .bg-\[\#6B6B66\] {
+    background-color: #6B6B66;
   }
   .bg-\[\#7F7F65\] {
     background-color: #7F7F65;
@@ -1204,6 +1235,9 @@
   .text-\[\#123456\] {
     color: #123456;
   }
+  .text-\[\#F7F6F3\] {
+    color: #F7F6F3;
+  }
   .text-\[\#FFFFCB\] {
     color: #FFFFCB;
   }
@@ -1267,6 +1301,21 @@
     transition-property: all;
     transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
     transition-duration: var(--tw-duration, var(--default-transition-duration));
+  }
+  .delay-200 {
+    transition-delay: 200ms;
+  }
+  .delay-400 {
+    transition-delay: 400ms;
+  }
+  .delay-\[200ms\] {
+    transition-delay: 200ms;
+  }
+  .delay-\[400\] {
+    transition-delay: 400;
+  }
+  .delay-\[400ms\] {
+    transition-delay: 400ms;
   }
   .duration-250 {
     --tw-duration: 250ms;
@@ -2945,6 +2994,16 @@
     opacity: 1;
   }
 }
+@keyframes bounce {
+  0%,
+    60%,
+    100% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(-5px);
+  }
+}
 @property --tw-scroll-snap-strictness {
   syntax: "*";
   inherits: false;
@@ -3053,6 +3112,16 @@
   75%, 100% {
     transform: scale(2);
     opacity: 0;
+  }
+}
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(-25%);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50% {
+    transform: none;
+    animation-timing-function: cubic-bezier(0, 0, 0.2, 1);
   }
 }
 @layer properties {

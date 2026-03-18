@@ -1,11 +1,51 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import Breakpoints from "../../../../../features/customBreakpoint";
+import axios from 'axios';
 
 export default function Vision(){
+    const [messages, addMessages] = useState([{type: "bot", message: "Hi! I'm Vision. Chat with me or teach me something new!", intent: "greeting", source: "fallback"}]);
+    const [isTyping, setIsTyping] = useState(false);
     const [viewStats, setViewStats] = useState(false);
 
     const [breakpoint, setBreakpoint] = useState(0);
     Breakpoints(setBreakpoint);
+
+    const messageRef = useRef(null);
+
+    async function sendMessage(content){
+        if(messageRef.current.value.trim() !== ""){
+            messageRef.current.value = "";
+            addMessages([...messages, content]);
+            setIsTyping(true);
+
+            const options = {
+                method: "POST",
+                url: `${process.env.REACT_APP_VISION_BOT_API_URL}`,
+                data: {
+                    message: content.message
+                }
+            }
+            
+            try{
+                const res = await axios(options);
+                console.log(res);
+                // addMessages([...messages, {
+                    
+                // }]);
+                // addMessage(data.response, 'bot', { intent: data.nlp.intent, source: data.source, matchedId: data.matchedId });
+                setIsTyping(false);
+            }catch(e){
+                setIsTyping(false);
+                // addMessages([...messages, {
+                //     type: "bot",
+                //     message: "Could not reach the server. Is it running?",
+                //     intent: "question",
+                //     source:"fallback"
+                // }]);
+                console.log(e);
+            }
+        }
+    }
 
     return (
         <main className="h-dvh w-dvw overflow-hidden bg-[#F8F8F3] ">
@@ -17,20 +57,42 @@ export default function Vision(){
                 <div className={`flex w-[100dvw] gap-[18px] bg-white p-[20px] overflow-hidden ${breakpoint < 768 ? "h-[calc(200dvh-550px)] flex-col" : "h-[calc(100dvh-50px)] flex-row"}`}>
                     <section className={`flex flex-col bg-white border-[#111111] border-t-[2px] border-r-[4px] border-b-[4px] border-l-[2px] ${breakpoint  < 768 ? "h-[calc(100dvh-90px)]" : "flex-1"}`}>
                         <span className="flex flex-1 flex-col p-[20px] gap-[14px]">
-                            <span className="flex flex-row items-end gap-[8px]">
-                                <p className="flex items-center justify-center size-[30px] shrink-0 font-bold text-[12px] text-[#111111] bg-[#F7F6F3]">V</p>
-                                <span className="max-w-[72%] flex flex-col">
-                                    <p className="border-[2px] border-[#111111] text-[14px] px-[15px] py-[11px] leading-[1.6]">Hi! I'm Vision. Chat with me or teach me something new!</p>
-                                    <span className="flex flex-row flex-wrap gap-[8px] mt-[5px]">
-                                        <p className="text-[#111111] bg-[#F7F6F3] py-[2px] px-[8px] text-[11px] font-mono">greeting</p>
-                                        <p className="text-[#6B6B66] py-[2px] px-[8px] text-[11px] font-mono">fallback</p>
+                            {
+                                messages.map((msg, index) => (
+                                    <span key={`msg${index}`} className={`flex items-end gap-[8px] ${msg.type === "bot" ? "flex-row" : "flex-row-reverse flex-end"}`}>
+                                        <p className={`flex items-center justify-center size-[30px] shrink-0 font-bold text-[12px] ${msg.type === "bot" ? "text-[#111111] bg-[#F7F6F3]" : "text-[#F7F6F3] bg-[#111111]"}`}>{msg.type === "bot" ? "V" : "U"}</p>
+                                        <span className="max-w-[72%] flex flex-col">
+                                            <p className={`border-[2px] border-[#111111] text-[14px] px-[15px] py-[11px] leading-[1.6] ${msg.type === "bot" ? "text-[#111111] bg-[#F7F6F3]" : "text-[#F7F6F3] bg-[#111111]"}`}>{msg.message}</p>
+                                            {
+                                                msg.type === "bot" ? (
+                                                    <span className="flex flex-row flex-wrap gap-[8px] mt-[5px]">
+                                                        <p className="text-[#111111] bg-[#F7F6F3] py-[2px] px-[8px] text-[11px] font-mono">{msg.intent}</p>
+                                                        <p className="text-[#6B6B66] py-[2px] px-[8px] text-[11px] font-mono">{msg.source}</p>
+                                                    </span>
+                                                ) : null
+                                            }
+                                        </span>
                                     </span>
-                                </span>
-                            </span>
+                                ))
+                            }
+                            {
+                                isTyping && (
+                                    <span className="flex items-end gap-[8px] flex-row">
+                                        <p className="flex items-center justify-center size-[30px] shrink-0 font-bold text-[12px] text-[#111111] bg-[#F7F6F3]">V</p>
+                                        <span className="max-w-[72%] flex flex-col">
+                                            <p className="flex flex-row gap-[4px] items-center border-[2px] border-[#111111] text-[14px] px-[15px] py-[11px] leading-[1.6] text-[#111111] bg-[#F7F6F3]">
+                                                <span className="animate-[bounce_1.2s_linear_infinite_alternate] block size-[6px] bg-[#6B6B66]"></span>
+                                                <span className="animate-[bounce_1.2s_linear_infinite_0.2s_alternate] block size-[6px] bg-[#6B6B66]"></span>
+                                                <span className="animate-[bounce_1.2s_linear_infinite_0.4s_alternate] block size-[6px] bg-[#6B6B66]"></span>
+                                            </p>
+                                        </span>
+                                    </span>
+                                )
+                            }
                         </span>
                         <span className="flex flex-row p-[14px] gap-[8px] border-t border-t-[#111111]">
-                            <input type="text" autoComplete={false} placeholder="Type a message..." className="flex-1 text-[14px] py-[10px] px-[14px] outline-none bg-[#F7F6F3] border-[#111111] border-t-[2px] border-r-[4px] border-b-[4px] border-l-[2px]"></input>
-                            <button className="py-[10px] px-[20px] bg-[#111111] text-[14px] font-bold cursor-pointer text-white">Send</button>
+                            <input ref={messageRef} type="text" autoComplete={false} placeholder="Type a message..." className="flex-1 text-[14px] py-[10px] px-[14px] outline-none bg-[#F7F6F3] border-[#111111] border-t-[2px] border-r-[4px] border-b-[4px] border-l-[2px]"></input>
+                            <button className="py-[10px] px-[20px] bg-[#111111] text-[14px] font-bold cursor-pointer text-white" onClick={() => {sendMessage({type: "user", message: messageRef.current.value})}}>Send</button>
                         </span>
                     </section>
                     <section className={`flex flex-col gap-[14px] [&>span]:p-[14px] [&>span]:border-[#111111] [&>span]:border-t-[2px] [&>span]:border-r-[4px] [&>span]:border-b-[4px] [&>span]:border-l-[2px] ${breakpoint  < 768 ? "flex-1" : "w-[270px]"}`}>
