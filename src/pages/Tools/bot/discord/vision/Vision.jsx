@@ -1,8 +1,9 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Breakpoints from "../../../../../features/customBreakpoint";
 import axios from 'axios';
 
 export default function Vision(){
+    const [connectionStatus, setConnectionStatus] = useState("CONNECTING");
     const [messages, addMessages] = useState([{type: "bot", message: "Hi! I'm Vision. Chat with me or teach me something new!", intent: "greeting", source: "fallback"}]);
     const [nlp, setNlp] = useState(null);
     const [viewStats, setViewStats] = useState(false);
@@ -90,15 +91,27 @@ export default function Vision(){
                 }
             });
         }
-console.log(constructedNlp);
+
         setNlp(constructedNlp);
     }
+
+    useEffect(() => {
+        (async()=>{
+            try{
+                await axios({method: "GET", url: `${process.env.REACT_APP_VISION_BOT_API_URL}`});
+                setConnectionStatus("ONLINE");
+            }catch(e){
+                setConnectionStatus("OFFLINE");
+            }
+        })();
+        // eslint-disable-next-line
+    }, []);
 
     return (
         <main className="h-dvh w-dvw overflow-hidden bg-[#F8F8F3] ">
             <header className="h-[50px] flex flex-row justify-between items-center px-[24px] py-[14px] border-b-[4px] border-[#111111] bg-white">
                 <img src="%PUBLIC_URL%/../assets/bot/vision/logo/Vision_BOT_logo.png" height={25} width={25} className="rounded-max" alt="VisionLogo"></img>
-                <p className="flex flex-row items-center justify-center gap-[8px] text-[12px]"><span className="size-[8px] bg-[#111111] rounded-max"></span>CONNECTING</p>
+                <p className="flex flex-row items-center justify-center gap-[8px] text-[12px]"><span className="size-[8px] bg-[#111111] rounded-max"></span>{connectionStatus}</p>
             </header>
             <div className={`h-[calc(100dvh-50px)] overflow-x-hidden ${breakpoint  < 768 ? "overflow-y-scroll [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:border-l [&::-webkit-scrollbar-track]:bg-[#F7F6F3] [&::-webkit-scrollbar-track]:border-borderColor [&::-webkit-scrollbar-thumb]:cursor-pointer [&::-webkit-scrollbar-thumb]:bg-[#111111]" : "overflow-y-hidden"}`}>
                 <div className={`flex w-[100dvw] gap-[18px] bg-white p-[20px] overflow-hidden ${breakpoint < 768 ? "h-[calc(200dvh-550px)] flex-col" : "h-[calc(100dvh-50px)] flex-row"}`}>
