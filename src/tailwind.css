@@ -38,6 +38,7 @@
     --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
+    --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -342,6 +343,9 @@
   .mt-\[1rem\] {
     margin-top: 1rem;
   }
+  .mt-\[3px\] {
+    margin-top: 3px;
+  }
   .mt-\[5px\] {
     margin-top: 5px;
   }
@@ -360,8 +364,14 @@
   .mb-\[1rem\] {
     margin-bottom: 1rem;
   }
+  .mb-\[2px\] {
+    margin-bottom: 2px;
+  }
   .mb-\[4px\] {
     margin-bottom: 4px;
+  }
+  .mb-\[7px\] {
+    margin-bottom: 7px;
   }
   .mb-\[10px\] {
     margin-bottom: 10px;
@@ -487,6 +497,9 @@
   }
   .h-\[12\.5rem\] {
     height: 12.5rem;
+  }
+  .h-\[14px\] {
+    height: 14px;
   }
   .h-\[15rem\] {
     height: 15rem;
@@ -655,6 +668,21 @@
   }
   .animate-\[fadePulse_2s_linear_infinite_alternate\] {
     animation: fadePulse 2s linear infinite alternate;
+  }
+  .animate-\[pulse_1s_linear_infinite_0\.2s_alternate\] {
+    animation: pulse 1s linear infinite 0.2s alternate;
+  }
+  .animate-\[pulse_1s_linear_infinite_0\.4s_alternate\] {
+    animation: pulse 1s linear infinite 0.4s alternate;
+  }
+  .animate-\[pulse_1s_linear_infinite_0\.6s_alternate\] {
+    animation: pulse 1s linear infinite 0.6s alternate;
+  }
+  .animate-\[pulse_1s_linear_infinite_0\.8s_alternate\] {
+    animation: pulse 1s linear infinite 0.8s alternate;
+  }
+  .animate-\[pulse_1s_linear_infinite_alternate\] {
+    animation: pulse 1s linear infinite alternate;
   }
   .animate-ping {
     animation: var(--animate-ping);
@@ -3112,6 +3140,11 @@
   75%, 100% {
     transform: scale(2);
     opacity: 0;
+  }
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
   }
 }
 @keyframes bounce {

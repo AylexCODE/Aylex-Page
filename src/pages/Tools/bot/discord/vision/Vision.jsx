@@ -7,6 +7,7 @@ export default function Vision(){
     const [messages, addMessages] = useState([{type: "bot", message: "Hi! I'm Vision. Chat with me or teach me something new!", intent: "greeting", source: "fallback"}]);
     const [nlp, setNlp] = useState(null);
     const [viewStats, setViewStats] = useState(false);
+    const [stats, setStats] = useState(null);
 
     const [isTyping, setIsTyping] = useState(false);
 
@@ -44,10 +45,7 @@ export default function Vision(){
                 addMessages(storedMessages);
                 setIsTyping(false);
                 calculateNLP(res.data.nlp);
-
-                console.log(res.data.nlp);
             }catch(e){
-                console.log(e);
                 setIsTyping(false);
                 storedMessages.push({
                     type: "bot",
@@ -57,6 +55,33 @@ export default function Vision(){
                 });
                 addMessages(storedMessages);
             }
+        }
+    }
+
+    async function getStats() {
+        const constructedStats = {
+            conversations: [],
+            topIntents: []
+        };
+
+        const options = {
+            method: "GET",
+            url: `${process.env.REACT_APP_VISION_BOT_API_URL}/stats`
+        }
+        
+        try{
+            const res = await axios(options);
+            Object.entries(res.data.conversations).forEach(d => {
+                const s = d[0].replace("total_", '').replace("_", " ");
+                constructedStats.conversations.push({
+                    label: s[0].toUpperCase() + s.slice(1, s.length),
+                    value: d[1]
+                });
+            });
+            constructedStats.topIntents = res.data.topIntents;
+            setStats(constructedStats);
+        }catch(e){
+            // console.log(e);
         }
     }
 
@@ -151,7 +176,7 @@ export default function Vision(){
                             }
                         </span>
                         <span className="flex flex-row p-[14px] gap-[8px] border-t border-t-[#111111]">
-                            <input ref={messageRef} type="text" autoComplete={false} placeholder="Type a message..." onKeyDown={(event) => {if(event.key === "Enter")sendMessage({type: "user", message: messageRef.current.value})}} className="flex-1 text-[14px] py-[10px] px-[14px] outline-none bg-[#F7F6F3] border-[#111111] border-t-[2px] border-r-[4px] border-b-[4px] border-l-[2px]"></input>
+                            <input ref={messageRef} type="text" autoComplete="false" placeholder="Type a message..." onKeyDown={(event) => {if(event.key === "Enter")sendMessage({type: "user", message: messageRef.current.value})}} className="flex-1 text-[14px] py-[10px] px-[14px] outline-none bg-[#F7F6F3] border-[#111111] border-t-[2px] border-r-[4px] border-b-[4px] border-l-[2px]"></input>
                             <button className="py-[10px] px-[20px] bg-[#111111] text-[14px] font-bold cursor-pointer text-white" onClick={() => {sendMessage({type: "user", message: messageRef.current.value})}}>Send</button>
                         </span>
                     </section>
@@ -209,13 +234,52 @@ export default function Vision(){
                         <span>
                             <span className="flex flex-row gap-[4px] mb-[12px] [&>button]:flex-1 [&>button]:text-[12px] [&>button]:p-[6px] [&>button]:cursor-pointer [&>button]:text-center [&>button]:font-mono [&>button]:border-[#111111] [&>button]:border-t-[2px] [&>button]:border-r-[4px] [&>button]:border-b-[4px] [&>button]:border-l-[2px]">
                                 <button className={`${viewStats ? "text-[#6B6B66] bg-[#F7F6F3]" : "text-[#FFFFFF] bg-[#111111]"}`} onClick={() => {setViewStats(false)}}>Teach</button>
-                                <button className={`${viewStats ? "text-[#FFFFFF] bg-[#111111]" : "text-[#6B6B66] bg-[#F7F6F3]"}`} onClick={() => {setViewStats(true)}}>Stats</button>
+                                <button className={`${viewStats ? "text-[#FFFFFF] bg-[#111111]" : "text-[#6B6B66] bg-[#F7F6F3]"}`} onClick={() => {setViewStats(true); getStats();}}>Stats</button>
                             </span>
-                            <span className="flex flex-col gap-[8px]">
-                                <input type="text" placeholder="If someone says..." className="flex-1 text-[13px] py-[8px] px-[10px] outline-none bg-[#F7F6F3] border-[#111111] border-t-[2px] border-r-[4px] border-b-[4px] border-l-[2px]"></input>
-                                <textarea placeholder="Vision should reply..." className="text-[13px] py-[8px] px-[10px] resize-none outline-none bg-[#F7F6F3] border-[#111111] border-t-[2px] border-r-[4px] border-b-[4px] border-l-[2px]"></textarea>
-                                <button className="p-[8px] bg-[#111111] text-[13px] font-bold cursor-pointer text-white">Teach Vision</button>
-                            </span>
+                            {
+                                viewStats ? (
+                                    <span className="flex flex-col text-[13px]">
+                                        {
+                                            stats && stats.conversations.length > 0 ? (
+                                                stats.conversations.map((stat, i) => (
+                                                    <span key={`stat${i}`} className="flex flex-row justify-between mb-[7px]">
+                                                        <p className="text-[#6B6B66]">{stat.label}</p>
+                                                        <p className="font-mono font-bold">{stat.value}</p>
+                                                    </span>
+                                                ))
+                                            ) : (
+                                                <>
+                                                    <span className="block h-[14px] w-[100%] animate-[pulse_1s_linear_infinite_alternate] bg-[#F7F6F3] mb-[7px]"></span>
+                                                    <span className="block h-[14px] w-[100%] animate-[pulse_1s_linear_infinite_0.2s_alternate] bg-[#F7F6F3] mb-[7px]"></span>
+                                                    <span className="block h-[14px] w-[100%] animate-[pulse_1s_linear_infinite_0.4s_alternate] bg-[#F7F6F3] mb-[7px]"></span>
+                                                    <span className="block h-[14px] w-[100%] animate-[pulse_1s_linear_infinite_0.6s_alternate] bg-[#F7F6F3] mb-[7px]"></span>
+                                                    <span className="block h-[14px] w-[100%] animate-[pulse_1s_linear_infinite_0.8s_alternate] bg-[#F7F6F3] mb-[7px]"></span>
+                                                </>
+                                            )
+                                        }{
+                                            stats && stats.topIntents.length > 0 && (
+                                                <>
+                                                <p className="font-mono text-[10px] mt-[3px] mb-[2px] text-[#6B6B66]">TOP INTENTS</p>
+                                                {
+                                                    stats.topIntents.map((intent, i) => (
+                                                        <span key={`intent${i}`} className="flex flex-row justify-between mb-[7px]">
+                                                            <p className="text-[#6B6B66]">{intent.intent}</p>
+                                                            <p className="font-mono font-bold">{intent.count}</p>
+                                                        </span>
+                                                    ))
+                                                }
+                                                </>
+                                            )
+                                        }
+                                    </span>
+                                ) : (
+                                    <span className="flex flex-col gap-[8px]">
+                                        <input type="text" placeholder="If someone says..." className="flex-1 text-[13px] py-[8px] px-[10px] outline-none bg-[#F7F6F3] border-[#111111] border-t-[2px] border-r-[4px] border-b-[4px] border-l-[2px]"></input>
+                                        <textarea placeholder="Vision should reply..." className="text-[13px] py-[8px] px-[10px] resize-none outline-none bg-[#F7F6F3] border-[#111111] border-t-[2px] border-r-[4px] border-b-[4px] border-l-[2px]"></textarea>
+                                        <button className="p-[8px] bg-[#111111] text-[13px] font-bold cursor-pointer text-white">Teach Vision</button>
+                                    </span>
+                                )
+                            }
                         </span>
                     </section>
                 </div>
