@@ -8,6 +8,7 @@ export default function Vision(){
     const [nlp, setNlp] = useState(null);
     const [viewStats, setViewStats] = useState(false);
     const [stats, setStats] = useState(null);
+    const [teachStatus, setTeachStatus] = useState(null);
 
     const [isTyping, setIsTyping] = useState(false);
 
@@ -15,6 +16,8 @@ export default function Vision(){
     Breakpoints(setBreakpoint);
 
     const messageRef = useRef(null);
+    const teachRef = useRef(null);
+    const responseRef = useRef(null);
 
     async function sendMessage(content){
         if(messageRef.current.value.trim() !== ""){
@@ -45,6 +48,7 @@ export default function Vision(){
                 addMessages(storedMessages);
                 setIsTyping(false);
                 calculateNLP(res.data.nlp);
+                teachRef.current.value = content.message;
             }catch(e){
                 setIsTyping(false);
                 storedMessages.push({
@@ -55,6 +59,34 @@ export default function Vision(){
                 });
                 addMessages(storedMessages);
             }
+        }
+    }
+
+    async function teach(content) {
+        const options = {
+            method: "POST",
+            url: `${process.env.REACT_APP_VISION_BOT_API_URL}/teach`,
+            data: {
+                input: content.input,
+                response: content.response
+            }
+        }
+        
+        try{
+            const res = await axios(options);
+            if(res.data.success) teachRef.current.value = "";
+            responseRef.current.value = "";
+
+            setTeachStatus(res.data);
+            setTimeout(() => {
+                setTeachStatus(null);
+            }, 3000);
+        }catch(e){
+            // console.log(e);
+            setTeachStatus({
+                message: "Teach failed, could not reach the server. Is it running?",
+                successs: false
+            });
         }
     }
 
@@ -274,9 +306,14 @@ export default function Vision(){
                                     </span>
                                 ) : (
                                     <span className="flex flex-col gap-[8px]">
-                                        <input type="text" placeholder="If someone says..." className="flex-1 text-[13px] py-[8px] px-[10px] outline-none bg-[#F7F6F3] border-[#111111] border-t-[2px] border-r-[4px] border-b-[4px] border-l-[2px]"></input>
-                                        <textarea placeholder="Vision should reply..." className="text-[13px] py-[8px] px-[10px] resize-none outline-none bg-[#F7F6F3] border-[#111111] border-t-[2px] border-r-[4px] border-b-[4px] border-l-[2px]"></textarea>
-                                        <button className="p-[8px] bg-[#111111] text-[13px] font-bold cursor-pointer text-white">Teach Vision</button>
+                                        <input ref={teachRef} type="text" placeholder="If someone says..." className="flex-1 text-[13px] py-[8px] px-[10px] outline-none bg-[#F7F6F3] border-[#111111] border-t-[2px] border-r-[4px] border-b-[4px] border-l-[2px]"></input>
+                                        <textarea ref={responseRef} placeholder="Vision should reply..." className="text-[13px] py-[8px] px-[10px] resize-none outline-none bg-[#F7F6F3] border-[#111111] border-t-[2px] border-r-[4px] border-b-[4px] border-l-[2px]"></textarea>
+                                        <button className="p-[8px] bg-[#111111] text-[13px] font-bold cursor-pointer text-white" onClick={() => {teach({input: teachRef.current.value, response: responseRef.current.value})}}>Teach Vision</button>
+                                        {
+                                            teachStatus && (
+                                                <p className={`text-[12px] font-mono ${teachStatus.success ? "text-[#111111]" : "text-[#FA003F]"}`}>{teachStatus.message}</p>
+                                            )
+                                        }
                                     </span>
                                 )
                             }
