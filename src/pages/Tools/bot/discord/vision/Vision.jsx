@@ -63,6 +63,14 @@ export default function Vision(){
     }
 
     async function teach(content) {
+        if(teachRef.current.value.trim() !== "" || responseRef.current.value.trim()){
+            setTeachStatus({
+                message: "Can\'t teach nothing can you?",
+                successs: false
+            });
+            return;
+        }
+
         const options = {
             method: "POST",
             url: `${process.env.REACT_APP_VISION_BOT_API_URL}/teach`,
