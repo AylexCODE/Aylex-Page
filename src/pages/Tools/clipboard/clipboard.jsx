@@ -132,11 +132,13 @@ export default function Clipboard(){
 
     useEffect(() => {
         getClipboardData(false);
+        document.title = `Cloud Clipboard | ${connectionLink}`;
         // eslint-disable-next-line
     }, []);
 
     useEffect(() => {
         getClipboardData(true);
+        document.title = `Cloud Clipboard | ${connectionLink}`;
         // eslint-disable-next-line
     }, [connectionLink]);
 

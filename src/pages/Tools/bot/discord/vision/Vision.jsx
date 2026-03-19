@@ -65,7 +65,7 @@ export default function Vision(){
     async function teach(content) {
         if(teachRef.current.value.trim() !== "" || responseRef.current.value.trim()){
             setTeachStatus({
-                message: "Can\'t teach nothing can you?",
+                message: "Can't teach nothing can you?",
                 successs: false
             });
             return;
