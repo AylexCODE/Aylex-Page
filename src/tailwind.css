@@ -524,6 +524,15 @@
   .h-\[160px\] {
     height: 160px;
   }
+  .h-\[200\] {
+    height: 200;
+  }
+  .h-\[200dvh\] {
+    height: 200dvh;
+  }
+  .h-\[520px\] {
+    height: 520px;
+  }
   .h-\[calc\(80px\+3\.5rem\)\] {
     height: calc(80px + 3.5rem);
   }
@@ -542,6 +551,15 @@
   .h-\[calc\(100dvh-90px\)\] {
     height: calc(100dvh - 90px);
   }
+  .h-\[calc\(200dvh-250px\)\] {
+    height: calc(200dvh - 250px);
+  }
+  .h-\[calc\(200dvh-275px\)\] {
+    height: calc(200dvh - 275px);
+  }
+  .h-\[calc\(200dvh-450px\)\] {
+    height: calc(200dvh - 450px);
+  }
   .h-\[calc\(200dvh-550px\)\] {
     height: calc(200dvh - 550px);
   }
@@ -556,6 +574,15 @@
   }
   .h-full {
     height: 100%;
+  }
+  .max-h-\[310px\] {
+    max-height: 310px;
+  }
+  .max-h-\[315px\] {
+    max-height: 315px;
+  }
+  .max-h-\[500px\] {
+    max-height: 500px;
   }
   .w-\[1\.25rem\] {
     width: 1.25rem;
@@ -1449,6 +1476,16 @@
   .\[\&\:\:-webkit-scrollbar\]\:w-2 {
     &::-webkit-scrollbar {
       width: calc(var(--spacing) * 2);
+    }
+  }
+  .\[\&\:\:-webkit-scrollbar\]\:p-\[5px\] {
+    &::-webkit-scrollbar {
+      padding: 5px;
+    }
+  }
+  .\[\&\:\:-webkit-scrollbar\]\:pl-\[6px\] {
+    &::-webkit-scrollbar {
+      padding-left: 6px;
     }
   }
   .\[\&\:\:-webkit-scrollbar-thumb\]\:cursor-pointer {

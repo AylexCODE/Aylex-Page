@@ -171,7 +171,7 @@ export default function Vision(){
                 <p className="flex flex-row items-center justify-center gap-[8px] text-[12px]"><span className="size-[8px] bg-[#111111] rounded-max"></span>{connectionStatus}</p>
             </header>
             <div className={`h-[calc(100dvh-50px)] overflow-x-hidden ${breakpoint  < 768 ? "overflow-y-scroll [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:border-l [&::-webkit-scrollbar-track]:bg-[#F7F6F3] [&::-webkit-scrollbar-track]:border-borderColor [&::-webkit-scrollbar-thumb]:cursor-pointer [&::-webkit-scrollbar-thumb]:bg-[#111111]" : "overflow-y-hidden"}`}>
-                <div className={`flex w-[100dvw] gap-[18px] bg-white p-[20px] overflow-hidden ${breakpoint < 768 ? "h-[calc(200dvh-550px)] flex-col" : "h-[calc(100dvh-50px)] flex-row"}`}>
+                <div className={`flex w-[100dvw] gap-[18px] bg-white p-[20px] overflow-hidden ${breakpoint < 768 ? "h-[calc(200dvh-275px)] flex-col" : "h-[calc(100dvh-50px)] flex-row"}`}>
                     <section className={`flex flex-col bg-white border-[#111111] border-t-[2px] border-r-[4px] border-b-[4px] border-l-[2px] ${breakpoint  < 768 ? "h-[calc(100dvh-90px)]" : "flex-1"}`}>
                         <span className="flex flex-1 flex-col p-[20px] gap-[14px] overflow-y-auto [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:border-l [&::-webkit-scrollbar-track]:bg-[#F7F6F3] [&::-webkit-scrollbar-track]:border-borderColor [&::-webkit-scrollbar-thumb]:cursor-pointer [&::-webkit-scrollbar-thumb]:bg-[#111111]">
                             {
@@ -207,7 +207,7 @@ export default function Vision(){
                                 )
                             }
                         </span>
-                        <span className="flex flex-row p-[14px] gap-[8px] border-t border-t-[#111111]">
+                        <span className={`flex p-[14px] gap-[8px] border-t border-t-[#111111] ${breakpoint < 768 ? "flex-col" : "flex-row"}`}>
                             <input ref={messageRef} type="text" autoComplete="false" placeholder="Type a message..." onKeyDown={(event) => {if(event.key === "Enter")sendMessage({type: "user", message: messageRef.current.value})}} className="flex-1 text-[14px] py-[10px] px-[14px] outline-none bg-[#F7F6F3] border-[#111111] border-t-[2px] border-r-[4px] border-b-[4px] border-l-[2px]"></input>
                             <button className="py-[10px] px-[20px] bg-[#111111] text-[14px] font-bold cursor-pointer text-white" onClick={() => {sendMessage({type: "user", message: messageRef.current.value})}}>Send</button>
                         </span>
@@ -270,7 +270,7 @@ export default function Vision(){
                             </span>
                             {
                                 viewStats ? (
-                                    <span className="flex flex-col text-[13px]">
+                                    <span className="flex flex-col max-h-[315px] overflow-y-auto text-[13px] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:border-l [&::-webkit-scrollbar-track]:bg-[#F7F6F3] [&::-webkit-scrollbar-track]:border-borderColor [&::-webkit-scrollbar-thumb]:cursor-pointer [&::-webkit-scrollbar-thumb]:bg-[#111111]">
                                         {
                                             stats && stats.conversations.length > 0 ? (
                                                 stats.conversations.map((stat, i) => (
