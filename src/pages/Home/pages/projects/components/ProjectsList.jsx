@@ -15,7 +15,7 @@ export default function ProjectsList(props){
     
     return (
         <div className="pt-[1rem] w-full">
-            <ul ref={projectsList} className="w-full overflow-y-scroll flex flex-row gap-[1rem] [&>li>a]:flex [&>li>a]:flex-col [&>li>a]:gap-[0.35rem] [&>li]:w-full [&>li]:border [&>li]:border-borderColor [&>li]:rounded-xl [&>li]:py-[0.5rem] [&>li]:px-[1rem] [&>li>a>span]:flex [&>li>a>span]:flex-row [&>li>a>span]:gap-[0.5rem] [&>li>a>span]:items-center [&>li>a>span>h3]:font-medium [&>li>a>p]:flex [&>li>a>p]:flex-row [&>li>a>p]:gap-[0.5rem] [&>li>a>p]:items-center [&>li>a>p]:text-[0.85rem] [&>li>a>p]:opacity-60 [&>li>a>span>p]:text-[0.85rem] [&>li>a>span>p]:text-[#006400] [&>li>a>span>p]:bg-[#00FF0020] [&>li>a>span>p]:border [&>li>a>span>p]:border-[#00FF0035] [&>li>a>span>p]:rounded-2xl [&>li>a>span>p]:px-[0.5rem]">
+            <ul ref={projectsList} className="w-full overflow-y-scroll flex flex-row gap-[1rem] [&>li>a]:flex [&>li>a]:flex-col [&>li>a]:flex-nowrap [&>li>a]:gap-[0.35rem] [&>li]:w-full [&>li]:border [&>li]:border-borderColor [&>li]:rounded-xl [&>li]:py-[0.5rem] [&>li]:px-[1rem] [&>li>a>span]:flex [&>li>a>span]:flex-row [&>li>a>span]:gap-[0.5rem] [&>li>a>span]:items-center [&>li>a>span>h3]:font-medium [&>li>a>span>h3]:text-nowrap [&>li>a>p]:flex [&>li>a>p]:flex-row [&>li>a>p]:gap-[0.5rem] [&>li>a>p]:items-center [&>li>a>p]:text-[0.85rem] [&>li>a>p]:opacity-60 [&>li>a>span>p]:text-[0.85rem] [&>li>a>span>p]:text-[#006400] [&>li>a>span>p]:bg-[#00FF0020] [&>li>a>span>p]:border [&>li>a>span>p]:border-[#00FF0035] [&>li>a>span>p]:rounded-2xl [&>li>a>span>p]:px-[0.5rem]">
                 <li>
                     <NavLink to="/games/numberlock" target="_blank">
                         <span>
