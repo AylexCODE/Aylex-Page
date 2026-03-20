@@ -161,6 +161,7 @@ export default function Vision(){
     }
 
     useEffect(() => {
+        document.title = `Vision`;
         (async()=>{
             try{
                 await axios({method: "GET", url: `${process.env.REACT_APP_VISION_BOT_API_URL}`});
