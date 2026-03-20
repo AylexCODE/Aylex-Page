@@ -17,6 +17,7 @@ export default function ProjectsFile(){
             setContent(data);
             setTimeout(() => {
                 hljs.highlightAll();
+                hljs.initHighlightingOnLoad();
                 code.current.style.opacity = "1";
             }, 50);
         })();
@@ -48,7 +49,7 @@ export default function ProjectsFile(){
     }
 
     return (
-        <main className="h-dvh w-dvw overflow-hidden">
+        <main className="h-dvh w-dvw overflow-hidden scrollbar-hidden-global">
             <div className="h-[calc(100%-2rem)] w-[calc(100%-2rem)] m-[1rem] overflow-hidden border border-borderColor rounded-xl bg-componentsColor">
                 <div className="flex flex-row items-center justify-between p-[0.5rem]">
                     <span className="w-[24px]">{icons[type]}</span>
