@@ -177,7 +177,19 @@ export default function Vision(){
         <main className="h-dvh w-dvw overflow-hidden bg-[#F8F8F3] ">
             <header className="h-[50px] flex flex-row justify-between items-center px-[24px] py-[14px] border-b-[4px] border-[#111111] bg-white">
                 <img src="%PUBLIC_URL%/../assets/bot/vision/logo/Vision_BOT_logo.png" height={25} width={25} className="rounded-max" alt="VisionLogo"></img>
-                <p className="flex flex-row items-center justify-center gap-[8px] text-[12px]"><span className="size-[8px] bg-[#111111] rounded-max"></span>{connectionStatus}</p>
+                <p className="flex flex-row items-center justify-center gap-[8px] text-[12px]">
+                    {
+                        connectionStatus === "ONLINE" ? (
+                            <span className="size-[8px] bg-[#111111] rounded-max"></span>
+                        ) : (
+                            <span className="block size-[8px]">
+                                <span className="absolute size-[8px] bg-[#111111] rounded-max"></span>
+                                <span className="absolute size-[8px] bg-[#111111] rounded-max animate-ping"></span>
+                            </span>
+                        )
+                    }
+                    {connectionStatus}
+                </p>
             </header>
             <div className={`h-[calc(100dvh-50px)] overflow-x-hidden ${breakpoint  < 768 ? "overflow-y-scroll [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-track]:border-l [&::-webkit-scrollbar-track]:bg-[#F7F6F3] [&::-webkit-scrollbar-track]:border-borderColor [&::-webkit-scrollbar-thumb]:cursor-pointer [&::-webkit-scrollbar-thumb]:bg-[#111111]" : "overflow-y-hidden"}`}>
                 <div className={`flex w-[100dvw] gap-[18px] bg-white p-[20px] overflow-hidden ${breakpoint < 768 ? "h-[calc(200dvh-275px)] flex-col" : "h-[calc(100dvh-50px)] flex-row"}`}>
