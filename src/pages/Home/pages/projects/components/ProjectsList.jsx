@@ -25,6 +25,15 @@ export default function ProjectsList(props){
                         <p>{calendarIcon} October 2025</p>
                     </NavLink>
                 </li>
+                <li>
+                    <NavLink to="/clipboard" target="_blank">
+                        <span>
+                            <h3>Cloud Clipboard</h3>
+                            <p>Public</p>
+                        </span>
+                        <p>{calendarIcon} October 2025</p>
+                    </NavLink>
+                </li>
             </ul>
         </div>
     )
