@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import LoadingScreen from '../../components/Loader/LoadingScreen';
+import LoadingScreen from '../../../components/Loader/LoadingScreen';
 
 function Minecraft(){
     const [isLoading, setIsLoading] = useState(true);

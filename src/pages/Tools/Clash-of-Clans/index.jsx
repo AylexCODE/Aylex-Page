@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import Breakpoints from "../../features/customBreakpoint";
+import Breakpoints from "../../../features/customBreakpoint";
 import Clan from "./components/clan";
 
 // import LoadingScreen from '../../components/Loader/LoadingScreen';

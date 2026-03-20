@@ -26,7 +26,7 @@ export default function ProjectsList(props){
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/clipboard" target="_blank">
+                    <NavLink to="/tools/clipboard" target="_blank">
                         <span>
                             <h3>Cloud Clipboard</h3>
                             <p>Public</p>
@@ -35,7 +35,7 @@ export default function ProjectsList(props){
                     </NavLink>
                 </li>
                 <li>
-                    <NavLink to="/bot/vision" target="_blank">
+                    <NavLink to="/chatbots/vision" target="_blank">
                         <span>
                             <h3>Chatbot &#x28;NLP&#x29;</h3>
                             <p>Public</p>

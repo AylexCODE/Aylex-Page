@@ -13,8 +13,8 @@ import ProjectsFile from './pages/Home/pages/projects/ProjectsFile';
 import Clipboard from './pages/Tools/clipboard/clipboard';
 import Vision from './pages/Tools/bot/discord/vision/Vision';
 
-import ClashofClans from './pages/Clash-of-Clans/index';
-import Minecraft from './pages/Minecraft/index';
+import ClashofClans from './pages/Tools/Clash-of-Clans/index';
+import Minecraft from './pages/Tools/Minecraft/index';
 
 import NumberLock from './pages/Games/numberlock';
 import GoogleStudio from './pages/Tools/google/ai/GoogleStudio';
@@ -30,10 +30,13 @@ function App(){
                     <Route path="projects" element={<Projects />} />
                 </Route>
                 <Route path="projects/:file" element={<ProjectsFile />} />
-                <Route path="/clash-of-clans" element={<ClashofClans />} />
-                <Route path="/minecraft" element={<Minecraft />} />
-                <Route path="/clipboard" element={<Clipboard />} />
-                <Route path="/bot">
+                <Route path="/tools">
+                    <Route index element={<PageNotFound />} />
+                    <Route path="clipboard" element={<Clipboard />} />
+                    <Route path="minecraft" element={<Minecraft />} />
+                    <Route path="clash-of-clans" element={<ClashofClans />} />
+                </Route>
+                <Route path="/chatbots">
                     <Route index element={<PageNotFound />} />
                     <Route path="vision" element={<Vision />} />
                 </Route>
