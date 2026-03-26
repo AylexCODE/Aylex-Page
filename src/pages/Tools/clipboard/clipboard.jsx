@@ -213,7 +213,7 @@ export default function Clipboard(){
                         <a href="https://aylexcode.github.io/Aylex/" target="_blank" rel="noreferrer">
                             <img src="%PUBLIC_URL%/../favicon.svg" alt="logo" className="rounded-max h-[1.25rem] w-[1.25rem]"></img>
                         </a>
-                        <p className={breakpoint < 768 ? "hidden" : ""}>SHARED CLIPBOARD</p>
+                        <p className={breakpoint < 768 ? "hidden" : ""}>CLOUD CLIPBOARD</p>
                     </h1>
                     <span className="flex flex-row justify-between grow">
                         <span className="flex flex-row items-center gap-[0.5rem] [&>p]:opacity-50">
