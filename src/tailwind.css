@@ -38,7 +38,6 @@
     --ease-out: cubic-bezier(0, 0, 0.2, 1);
     --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
     --animate-ping: ping 1s cubic-bezier(0, 0, 0.2, 1) infinite;
-    --animate-pulse: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
     --default-transition-duration: 150ms;
     --default-transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
     --default-font-family: var(--font-sans);
@@ -507,8 +506,8 @@
   .h-\[16px\] {
     height: 16px;
   }
-  .h-\[20rem\] {
-    height: 20rem;
+  .h-\[22rem\] {
+    height: 22rem;
   }
   .h-\[50px\] {
     height: 50px;
@@ -2250,6 +2249,36 @@
       gap: 0.5rem;
     }
   }
+  .\[\&\>li\>a\>span\>\.private\]\:border-\[\#FF000035\] {
+    &>li>a>span>.private {
+      border-color: #FF000035;
+    }
+  }
+  .\[\&\>li\>a\>span\>\.private\]\:bg-\[\#FF000020\] {
+    &>li>a>span>.private {
+      background-color: #FF000020;
+    }
+  }
+  .\[\&\>li\>a\>span\>\.private\]\:text-\[\#660000\] {
+    &>li>a>span>.private {
+      color: #660000;
+    }
+  }
+  .\[\&\>li\>a\>span\>\.public\]\:border-\[\#00FF0035\] {
+    &>li>a>span>.public {
+      border-color: #00FF0035;
+    }
+  }
+  .\[\&\>li\>a\>span\>\.public\]\:bg-\[\#00FF0020\] {
+    &>li>a>span>.public {
+      background-color: #00FF0020;
+    }
+  }
+  .\[\&\>li\>a\>span\>\.public\]\:text-\[\#006400\] {
+    &>li>a>span>.public {
+      color: #006400;
+    }
+  }
   .\[\&\>li\>a\>span\>h3\]\:font-medium {
     &>li>a>span>h3 {
       --tw-font-weight: var(--font-weight-medium);
@@ -2272,16 +2301,6 @@
       border-width: 1px;
     }
   }
-  .\[\&\>li\>a\>span\>p\]\:border-\[\#00FF0035\] {
-    &>li>a>span>p {
-      border-color: #00FF0035;
-    }
-  }
-  .\[\&\>li\>a\>span\>p\]\:bg-\[\#00FF0020\] {
-    &>li>a>span>p {
-      background-color: #00FF0020;
-    }
-  }
   .\[\&\>li\>a\>span\>p\]\:px-\[0\.5rem\] {
     &>li>a>span>p {
       padding-inline: 0.5rem;
@@ -2290,11 +2309,6 @@
   .\[\&\>li\>a\>span\>p\]\:text-\[0\.85rem\] {
     &>li>a>span>p {
       font-size: 0.85rem;
-    }
-  }
-  .\[\&\>li\>a\>span\>p\]\:text-\[\#006400\] {
-    &>li>a>span>p {
-      color: #006400;
     }
   }
   .\[\&\>li\>div\]\:h-\[15rem\] {
@@ -2412,6 +2426,82 @@
   .\[\&\>li\>span\]\:p-\[0\.5rem\] {
     &>li>span {
       padding: 0.5rem;
+    }
+  }
+  .\[\&\>li\>span\>a\]\:mt-\[0\.5rem\] {
+    &>li>span>a {
+      margin-top: 0.5rem;
+    }
+  }
+  .\[\&\>li\>span\>a\]\:block {
+    &>li>span>a {
+      display: block;
+    }
+  }
+  .\[\&\>li\>span\>a\]\:rounded-lg {
+    &>li>span>a {
+      border-radius: var(--radius-lg);
+    }
+  }
+  .\[\&\>li\>span\>a\]\:border {
+    &>li>span>a {
+      border-style: var(--tw-border-style);
+      border-width: 1px;
+    }
+  }
+  .\[\&\>li\>span\>a\]\:border-borderColor {
+    &>li>span>a {
+      border-color: var(--color-borderColor);
+    }
+  }
+  .\[\&\>li\>span\>a\]\:px-\[1rem\] {
+    &>li>span>a {
+      padding-inline: 1rem;
+    }
+  }
+  .\[\&\>li\>span\>a\]\:py-\[0\.3rem\] {
+    &>li>span>a {
+      padding-block: 0.3rem;
+    }
+  }
+  .\[\&\>li\>span\>a\]\:text-center {
+    &>li>span>a {
+      text-align: center;
+    }
+  }
+  .\[\&\>li\>span\>a\]\:transition-colors {
+    &>li>span>a {
+      transition-property: color, background-color, border-color, outline-color, text-decoration-color, fill, stroke, --tw-gradient-from, --tw-gradient-via, --tw-gradient-to;
+      transition-timing-function: var(--tw-ease, var(--default-transition-timing-function));
+      transition-duration: var(--tw-duration, var(--default-transition-duration));
+    }
+  }
+  .\[\&\>li\>span\>a\]\:hover\:bg-\[\#123456\] {
+    &>li>span>a {
+      &:hover {
+        @media (hover: hover) {
+          background-color: #123456;
+        }
+      }
+    }
+  }
+  .\[\&\>li\>span\>a\]\:hover\:font-bold {
+    &>li>span>a {
+      &:hover {
+        @media (hover: hover) {
+          --tw-font-weight: var(--font-weight-bold);
+          font-weight: var(--font-weight-bold);
+        }
+      }
+    }
+  }
+  .\[\&\>li\>span\>a\]\:hover\:text-white {
+    &>li>span>a {
+      &:hover {
+        @media (hover: hover) {
+          color: var(--color-white);
+        }
+      }
     }
   }
   .\[\&\>li\>span\>div\]\:first\:grid {

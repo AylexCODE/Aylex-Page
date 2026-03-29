@@ -15,12 +15,21 @@ export default function ProjectsList(props){
     
     return (
         <div className="pt-[1rem] w-full">
-            <ul ref={projectsList} className="w-full overflow-y-scroll flex flex-row gap-[1rem] [&>li>a]:flex [&>li>a]:flex-col [&>li>a]:flex-nowrap [&>li>a]:gap-[0.35rem] [&>li]:w-full [&>li]:border [&>li]:border-borderColor [&>li]:rounded-xl [&>li]:py-[0.5rem] [&>li]:px-[1rem] [&>li>a>span]:flex [&>li>a>span]:flex-row [&>li>a>span]:gap-[0.5rem] [&>li>a>span]:items-center [&>li>a>span>h3]:font-medium [&>li>a>span>h3]:text-nowrap [&>li>a>p]:flex [&>li>a>p]:flex-row [&>li>a>p]:gap-[0.5rem] [&>li>a>p]:items-center [&>li>a>p]:text-[0.85rem] [&>li>a>p]:opacity-60 [&>li>a>span>p]:text-[0.85rem] [&>li>a>span>p]:text-[#006400] [&>li>a>span>p]:bg-[#00FF0020] [&>li>a>span>p]:border [&>li>a>span>p]:border-[#00FF0035] [&>li>a>span>p]:rounded-2xl [&>li>a>span>p]:px-[0.5rem]">
+            <ul ref={projectsList} className="w-full overflow-y-scroll flex flex-row gap-[1rem] [&>li>a]:flex [&>li>a]:flex-col [&>li>a]:flex-nowrap [&>li>a]:gap-[0.35rem] [&>li]:w-full [&>li]:border [&>li]:border-borderColor [&>li]:rounded-xl [&>li]:py-[0.5rem] [&>li]:px-[1rem] [&>li>a>span]:flex [&>li>a>span]:flex-row [&>li>a>span]:gap-[0.5rem] [&>li>a>span]:items-center [&>li>a>span>h3]:font-medium [&>li>a>span>h3]:text-nowrap [&>li>a>p]:flex [&>li>a>p]:flex-row [&>li>a>p]:gap-[0.5rem] [&>li>a>p]:items-center [&>li>a>p]:text-[0.85rem] [&>li>a>p]:opacity-60 [&>li>a>span>p]:text-[0.85rem] [&>li>a>span>.public]:text-[#006400] [&>li>a>span>.private]:text-[#660000] [&>li>a>span>.public]:bg-[#00FF0020] [&>li>a>span>.private]:bg-[#FF000020] [&>li>a>span>p]:border [&>li>a>span>.public]:border-[#00FF0035] [&>li>a>span>.private]:border-[#FF000035] [&>li>a>span>p]:rounded-2xl [&>li>a>span>p]:px-[0.5rem]">
+                <li>
+                    <NavLink>
+                        <span>
+                            <h3>Discord BOT</h3>
+                            <p className="private">Private</p>
+                        </span>
+                        <p>{calendarIcon} May 2025</p>
+                    </NavLink>
+                </li>
                 <li>
                     <NavLink to="/games/numberlock" target="_blank">
                         <span>
                             <h3>Number Lock &#x28;Game&#x29;</h3>
-                            <p>Public</p>
+                            <p className="public">Public</p>
                         </span>
                         <p>{calendarIcon} October 2025</p>
                     </NavLink>
@@ -29,7 +38,7 @@ export default function ProjectsList(props){
                     <NavLink to="/tools/clipboard" target="_blank">
                         <span>
                             <h3>Cloud Clipboard</h3>
-                            <p>Public</p>
+                            <p className="public">Public</p>
                         </span>
                         <p>{calendarIcon} October 2025</p>
                     </NavLink>
@@ -38,7 +47,16 @@ export default function ProjectsList(props){
                     <NavLink to="/chatbots/vision" target="_blank">
                         <span>
                             <h3>Chatbot &#x28;NLP&#x29;</h3>
-                            <p>Public</p>
+                            <p className="public">Public</p>
+                        </span>
+                        <p>{calendarIcon} March 2026</p>
+                    </NavLink>
+                </li>
+                <li>
+                    <NavLink to="https://marketplace.visualstudio.com/items?itemName=AylexCODE.cloud-clipboard" target="_blank">
+                        <span>
+                            <h3>Cloud Clipboard &#x28;VS Code&#x29;</h3>
+                            <p className="public">Public</p>
                         </span>
                         <p>{calendarIcon} March 2026</p>
                     </NavLink>
